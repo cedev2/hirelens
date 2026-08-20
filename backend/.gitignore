@@ -1,0 +1,5 @@
+node_modules/
+.env
+description.md
+dist
+src/seed.ts

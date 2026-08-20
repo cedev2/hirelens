@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Lens / H monogram -->
+  <g transform="translate(140 150)">
+    <circle cx="380" cy="380" r="285" fill="none" stroke="url(#g)" stroke-width="70"/>
+    <path d="M185 250 V510 M185 380 H390 M390 250 V510"
+          fill="none" stroke="#FFFFFF" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="500" cy="505" r="118" fill="transparent" stroke="url(#g)" stroke-width="48"/>
+    <path d="M585 590 L700 705" stroke="#FFFFFF" stroke-width="58" stroke-linecap="round"/>
+    <circle cx="500" cy="505" r="34" fill="url(#g)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="1010" text-anchor="middle"
+        font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="112" font-weight="800" letter-spacing="-3"
+        fill="#FFFFFF">Hire<tspan fill="url(#g)">Lens</tspan></text>
+</svg>
