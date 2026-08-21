@@ -28,6 +28,7 @@ async function seed() {
     lastName: "Admin",
     role: "admin",
     isActive: true,
+    emailVerified: true,
   });
   console.log("Admin user created:", admin.email);
 
@@ -398,6 +399,7 @@ async function seed() {
       lastName: t.lastName,
       role: "applicant",
       isActive: true,
+      emailVerified: true,
     });
     const talent = await Talent.create({
       userId: user._id,
@@ -428,6 +430,7 @@ async function seed() {
     lastName: "Applicant",
     role: "applicant",
     isActive: true,
+    emailVerified: true,
   }) as any;
   const applicantTalent = await Talent.create({
     userId: applicantUser._id,
