@@ -8,7 +8,7 @@
     "dev": "nodemon",
     "build": "tsc",
     "swagger": "ts-node src/swagger.ts",
-    "seed": "ts-node src/seed.ts"
+    "seed": "node dist/seed.js"
   },
   "keywords": [],
   "author": "",
