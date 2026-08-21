@@ -102,17 +102,11 @@ export default function ApplicantLayout({
         <aside
           className={`hidden lg:flex flex-col fixed left-0 top-[53px] bottom-0 bg-white border-r border-gray-100 transition-all duration-300 ${sidebarWidth}`}
         >
-          {/* Logo + collapse toggle */}
+          {/* Brand + collapse toggle */}
           <div className={`flex items-center border-b border-gray-100 px-3 py-4 ${sidebarCollapsed ? "justify-center" : "justify-between"}`}>
             {!sidebarCollapsed && (
               <Link href="/applicant" className="shrink-0">
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="HireLens"
-                  width={130}
-                  height={40}
-                  className="h-[32px] w-auto"
-                />
+                <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
               </Link>
             )}
             <button
@@ -162,13 +156,9 @@ export default function ApplicantLayout({
             <div className="absolute inset-0 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
             <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
               <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="HireLens"
-                  width={130}
-                  height={40}
-                  className="h-[32px] w-auto"
-                />
+                <Link href="/applicant">
+                  <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
+                </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"

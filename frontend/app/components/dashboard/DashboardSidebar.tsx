@@ -107,7 +107,7 @@ function SidebarContent({
   const router = useRouter();
   const { user: reduxUser } = useSelector((state: RootState) => state.auth);
 
-  const { data: user, isLoading: userLoading } = useQuery({
+  const { data: user } = useQuery({
     queryKey: ["user", "me"],
     queryFn: async () => {
       const res = await api.get("/auth/me");
@@ -213,17 +213,11 @@ export default function DashboardSidebar({
           collapsed ? "w-[64px]" : "w-[240px]"
         }`}
       >
-        {/* Logo + toggle row */}
+        {/* Brand + toggle row */}
         <div className={`flex items-center border-b border-gray-100 px-3 py-4 ${collapsed ? "justify-center" : "justify-between"}`}>
           {!collapsed && (
             <Link href="/dashboard" className="shrink-0">
-              <Image
-                src="/images/logo/logo.svg"
-                alt="HireLens"
-                width={130}
-                height={40}
-                className="h-[32px] w-auto"
-              />
+              <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
             </Link>
           )}
           <button
@@ -244,13 +238,9 @@ export default function DashboardSidebar({
           <div className="absolute inset-0 bg-black/40" onClick={onMobileClose} />
           <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl animate-in slide-in-from-left duration-200">
             <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-              <Image
-                src="/images/logo/logo.svg"
-                alt="HireLens Logo"
-                width={130}
-                height={40}
-                className="h-[32px] w-auto"
-              />
+              <Link href="/dashboard">
+                <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
+              </Link>
               <button
                 onClick={onMobileClose}
                 aria-label="Close menu"
