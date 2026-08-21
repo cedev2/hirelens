@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -15,23 +14,7 @@ function maskEmail(email: string): string {
   return `${local[0]}${"•".repeat(Math.min(local.length - 1, 5))}@${domain}`;
 }
 
-function checkStrength(password: string) {
-  let score = 0;
-  if (password.length >= 8) score++;
-  if (password.length >= 12) score++;
-  if (/[A-Z]/.test(password)) score++;
-  if (/[0-9]/.test(password)) score++;
-  if (/[^A-Za-z0-9]/.test(password)) score++;
-  if (score <= 1) return { score, label: "Weak", color: "#EF4444" };
-  if (score === 2) return { score, label: "Fair", color: "#F59E0B" };
-  if (score === 3) return { score, label: "Good", color: "#3B82F6" };
-  if (score === 4) return { score, label: "Strong", color: "#10B981" };
-  return { score, label: "Very strong", color: "#087F5B" };
-}
-
 const RESEND_COOLDOWN = 60;
-
-type FormValues = { newPassword: string; confirmPassword: string };
 
 export default function ResetPasswordForm() {
   const router = useRouter();
@@ -39,22 +22,11 @@ export default function ResetPasswordForm() {
   const email = searchParams.get("email") || "";
 
   const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
-  const [showNew, setShowNew] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false);
   const [cooldown, setCooldown] = useState(RESEND_COOLDOWN);
   const [canResend, setCanResend] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors, submitCount },
-  } = useForm<FormValues>({ mode: "onSubmit" });
-
-  const passwordValue = watch("newPassword", "");
-  const strength = checkStrength(passwordValue);
-
+  // Cooldown timer
   useEffect(() => {
     if (cooldown <= 0) { setCanResend(true); return; }
     const timer = setInterval(() => {
@@ -68,30 +40,7 @@ export default function ResetPasswordForm() {
 
   const otp = digits.join("");
 
-  const resetMutation = useMutation({
-    mutationFn: async (values: FormValues) => {
-      const res = await api.post("/auth/reset-password", {
-        email,
-        code: otp,
-        newPassword: values.newPassword,
-        confirmPassword: values.confirmPassword,
-      });
-      return res.data;
-    },
-    onSuccess: () => {
-      toast.success("Password reset! Please log in with your new password.");
-      router.push("/dashboard/auth/login");
-    },
-    onError: (err: any) => {
-      const message = err?.response?.data?.message || "Reset failed";
-      toast.error(message);
-      if (message.includes("expired") || message.includes("Too many")) {
-        setDigits(Array(6).fill(""));
-        inputRefs.current[0]?.focus();
-      }
-    },
-  });
-
+  // Resend code
   const resendMutation = useMutation({
     mutationFn: async () => {
       const res = await api.post("/auth/forgot-password", { email });
@@ -115,6 +64,7 @@ export default function ResetPasswordForm() {
     },
   });
 
+  // Keyboard / input handlers
   const handleChange = useCallback((index: number, value: string) => {
     if (!/^\d*$/.test(value)) return;
     const char = value.slice(-1);
@@ -127,246 +77,109 @@ export default function ResetPasswordForm() {
   const handleKeyDown = useCallback((index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace") {
       if (digits[index]) {
-        const newDigits = [...digits];
-        newDigits[index] = "";
-        setDigits(newDigits);
+        const nd = [...digits]; nd[index] = ""; setDigits(nd);
       } else if (index > 0) {
         inputRefs.current[index - 1]?.focus();
       }
     }
     if (e.key === "ArrowLeft" && index > 0) inputRefs.current[index - 1]?.focus();
     if (e.key === "ArrowRight" && index < 5) inputRefs.current[index + 1]?.focus();
-  }, [digits]);
+    if (e.key === "Enter" && otp.length === 6) handleContinue();
+  }, [digits, otp]);
 
   const handlePaste = useCallback((e: React.ClipboardEvent) => {
     e.preventDefault();
     const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
     if (!pasted) return;
-    const newDigits = Array(6).fill("");
-    pasted.split("").forEach((c, i) => { newDigits[i] = c; });
-    setDigits(newDigits);
+    const nd = Array(6).fill("");
+    pasted.split("").forEach((c, i) => { nd[i] = c; });
+    setDigits(nd);
     const next = pasted.length < 6 ? pasted.length : 5;
     inputRefs.current[next]?.focus();
   }, []);
 
-  const isOtpComplete = otp.length === 6;
-  const isPending = resetMutation.isPending;
-  const showErrors = submitCount > 0;
+  function handleContinue() {
+    if (otp.length !== 6) {
+      toast.error("Please enter the 6-digit code.");
+      return;
+    }
+    // Store email + code for the next page (sessionStorage is safe — same tab only)
+    sessionStorage.setItem("reset_email", email);
+    sessionStorage.setItem("reset_code", otp);
+    router.push("/dashboard/auth/new-password");
+  }
 
-  const requirements = [
-    { met: passwordValue.length >= 8, text: "At least 8 characters" },
-    { met: /[A-Z]/.test(passwordValue), text: "One uppercase letter" },
-    { met: /[0-9]/.test(passwordValue), text: "One number" },
-    { met: /[^A-Za-z0-9]/.test(passwordValue), text: "One special character" },
-  ];
+  const isComplete = otp.length === 6;
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit((v) => resetMutation.mutate(v))}>
+    <div className="space-y-6">
 
-      {/* ── OTP Section ── */}
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-gray-700">Verification code</p>
-        <p className="text-xs text-gray-400">
-          Sent to{" "}
-          <span className="font-semibold text-gray-600">{maskEmail(email)}</span>
-        </p>
+      {/* Email hint */}
+      <p className="text-sm text-gray-500 text-center">
+        Code sent to{" "}
+        <span className="font-semibold text-gray-700">{maskEmail(email)}</span>
+      </p>
 
-        {/* 6 compact digit boxes */}
-        <div className="flex justify-between gap-2 mt-3">
-          {digits.map((digit, index) => (
-            <input
-              key={index}
-              ref={(el) => { inputRefs.current[index] = el; }}
-              type="text"
-              inputMode="numeric"
-              maxLength={1}
-              value={digit}
-              autoFocus={index === 0}
-              disabled={isPending}
-              onChange={(e) => handleChange(index, e.target.value)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-              onPaste={handlePaste}
-              onFocus={(e) => e.target.select()}
-              aria-label={`Code digit ${index + 1}`}
-              className={[
-                "w-11 h-12 text-center text-lg font-bold rounded-xl border-2 outline-none",
-                "transition-all duration-150 select-none",
-                "focus:ring-2 focus:ring-[#087F5B]/20",
-                digit
-                  ? "border-[#087F5B] bg-[#F0FDF4] text-[#087F5B]"
-                  : "border-gray-200 bg-white text-gray-800 focus:border-[#087F5B]",
-                isPending ? "opacity-50 cursor-not-allowed" : "cursor-text",
-              ].join(" ")}
-            />
-          ))}
-        </div>
-
-        {/* Resend */}
-        <div className="text-sm text-gray-400 pt-1">
-          {canResend ? (
-            <button
-              type="button"
-              onClick={() => resendMutation.mutate()}
-              disabled={resendMutation.isPending}
-              className="text-[#087F5B] font-semibold hover:underline disabled:opacity-50 transition-opacity"
-            >
-              {resendMutation.isPending ? "Sending…" : "Resend code"}
-            </button>
-          ) : (
-            <span>
-              Resend in{" "}
-              <span className="tabular-nums font-semibold text-gray-600">{cooldown}s</span>
-            </span>
-          )}
-        </div>
-      </div>
-
-      {/* ── Divider ── */}
-      <div className="border-t border-gray-100" />
-
-      {/* ── New Password ── */}
-      <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-gray-700">
-          New password
-        </label>
-        <div className="relative">
+      {/* OTP boxes */}
+      <div className="flex justify-between gap-2">
+        {digits.map((digit, index) => (
           <input
-            type={showNew ? "text" : "password"}
-            placeholder="Create a strong password"
-            autoComplete="new-password"
-            {...register("newPassword", {
-              required: "New password is required",
-              minLength: { value: 8, message: "At least 8 characters required" },
-            })}
+            key={index}
+            ref={(el) => { inputRefs.current[index] = el; }}
+            type="text"
+            inputMode="numeric"
+            maxLength={1}
+            value={digit}
+            autoFocus={index === 0}
+            onChange={(e) => handleChange(index, e.target.value)}
+            onKeyDown={(e) => handleKeyDown(index, e)}
+            onPaste={handlePaste}
+            onFocus={(e) => e.target.select()}
+            aria-label={`Code digit ${index + 1}`}
             className={[
-              "w-full px-4 py-3 pr-11 border rounded-xl text-sm outline-none transition-all",
-              "focus:ring-2 focus:ring-[#087F5B]/15",
-              showErrors && errors.newPassword
-                ? "border-red-400 focus:border-red-400 bg-red-50/30"
-                : "border-gray-200 focus:border-[#087F5B] bg-white",
+              "w-11 h-12 text-center text-lg font-bold rounded-xl border-2 outline-none",
+              "transition-all duration-150 select-none",
+              "focus:ring-2 focus:ring-[#087F5B]/20",
+              digit
+                ? "border-[#087F5B] bg-[#F0FDF4] text-[#087F5B]"
+                : "border-gray-200 bg-white text-gray-800 focus:border-[#087F5B]",
             ].join(" ")}
           />
+        ))}
+      </div>
+
+      {/* Resend */}
+      <div className="text-sm text-gray-400 text-center">
+        {canResend ? (
           <button
             type="button"
-            onClick={() => setShowNew(!showNew)}
-            tabIndex={-1}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+            onClick={() => resendMutation.mutate()}
+            disabled={resendMutation.isPending}
+            className="text-[#087F5B] font-semibold hover:underline disabled:opacity-50"
           >
-            {showNew ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
-                <line x1="1" y1="1" x2="23" y2="23"/>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            )}
+            {resendMutation.isPending ? "Sending…" : "Resend code"}
           </button>
-        </div>
-        {showErrors && errors.newPassword && (
-          <p className="text-xs text-red-500 flex items-center gap-1">
-            <span>⚠</span> {errors.newPassword.message}
-          </p>
-        )}
-
-        {/* Strength bar */}
-        {passwordValue && (
-          <div className="pt-1 space-y-1.5">
-            <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="h-1.5 flex-1 rounded-full transition-all duration-300"
-                  style={{ backgroundColor: i <= strength.score ? strength.color : "#E5E7EB" }}
-                />
-              ))}
-            </div>
-            <p className="text-xs font-semibold" style={{ color: strength.color }}>
-              {strength.label}
-            </p>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5">
-              {requirements.map((req) => (
-                <li key={req.text} className="flex items-center gap-1.5 text-xs">
-                  <span className={`text-base leading-none ${req.met ? "text-[#087F5B]" : "text-gray-300"}`}>
-                    {req.met ? "✓" : "○"}
-                  </span>
-                  <span className={req.met ? "text-gray-600" : "text-gray-400"}>{req.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        ) : (
+          <span>
+            Resend in{" "}
+            <span className="tabular-nums font-semibold text-gray-600">{cooldown}s</span>
+          </span>
         )}
       </div>
 
-      {/* ── Confirm Password ── */}
-      <div className="space-y-1.5">
-        <label className="block text-sm font-medium text-gray-700">
-          Confirm password
-        </label>
-        <div className="relative">
-          <input
-            type={showConfirm ? "text" : "password"}
-            placeholder="Re-enter new password"
-            autoComplete="new-password"
-            {...register("confirmPassword", {
-              required: "Please confirm your password",
-              validate: (val) => val === passwordValue || "Passwords do not match",
-            })}
-            className={[
-              "w-full px-4 py-3 pr-11 border rounded-xl text-sm outline-none transition-all",
-              "focus:ring-2 focus:ring-[#087F5B]/15",
-              showErrors && errors.confirmPassword
-                ? "border-red-400 focus:border-red-400 bg-red-50/30"
-                : "border-gray-200 focus:border-[#087F5B] bg-white",
-            ].join(" ")}
-          />
-          <button
-            type="button"
-            onClick={() => setShowConfirm(!showConfirm)}
-            tabIndex={-1}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            {showConfirm ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
-                <line x1="1" y1="1" x2="23" y2="23"/>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-            )}
-          </button>
-        </div>
-        {showErrors && errors.confirmPassword && (
-          <p className="text-xs text-red-500 flex items-center gap-1">
-            <span>⚠</span> {errors.confirmPassword.message}
-          </p>
-        )}
-      </div>
-
-      {/* ── Submit ── */}
+      {/* Continue button */}
       <button
-        type="submit"
-        disabled={!isOtpComplete || isPending}
+        type="button"
+        onClick={handleContinue}
+        disabled={!isComplete}
         className={[
           "w-full py-3 rounded-xl font-semibold text-sm transition-all duration-200",
-          isOtpComplete && !isPending
+          isComplete
             ? "bg-[#087F5B] hover:bg-[#066B4D] text-white shadow-sm active:scale-[0.99]"
             : "bg-gray-100 text-gray-400 cursor-not-allowed",
         ].join(" ")}
       >
-        {isPending ? (
-          <span className="flex items-center justify-center gap-2">
-            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            Resetting password…
-          </span>
-        ) : (
-          "Reset Password"
-        )}
+        Continue →
       </button>
 
       <div className="text-center">
@@ -377,6 +190,6 @@ export default function ResetPasswordForm() {
           ← Back to Login
         </Link>
       </div>
-    </form>
+    </div>
   );
 }
