@@ -49,7 +49,7 @@ export default function ApplicantDashboard() {
   return (
     <div className="max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#25324B]">
+        <h1 className="text-2xl font-bold text-[#25324B]" suppressHydrationWarning>
           Welcome back, {user?.firstName || "Applicant"}
         </h1>
         <p className="text-gray-500 text-sm mt-1">
