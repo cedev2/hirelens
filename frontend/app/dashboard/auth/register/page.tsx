@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import RegisterForm from "./register-form";
 import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
@@ -40,6 +41,14 @@ export default function page() {
           </h1>
 
           <RegisterForm />
+
+          <div className="flex items-center justify-center gap-4 mt-6 pt-5 border-t border-gray-100 text-xs text-gray-400">
+            <Link href="/advice" className="hover:text-[#087F5B] transition-colors">Advice</Link>
+            <span className="w-px h-3 bg-gray-300" />
+            <Link href="/terms" className="hover:text-[#087F5B] transition-colors">Terms & Condition</Link>
+            <span className="w-px h-3 bg-gray-300" />
+            <Link href="/privacy-policy" className="hover:text-[#087F5B] transition-colors">Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </section>
