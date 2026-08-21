@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 export default function AuthHeader() {
   return (
     <header
-      className={`fixed left-1/2 top-2 -translate-x-1/2 z-50 flex items-center justify-between transition-all duration-300 w-[80%] px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100`}
+      className={`fixed left-1/2 top-2 -translate-x-1/2 z-50 flex items-center gap-8 transition-all duration-300 w-fit px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100`}
     >
       <Link href="/">
         <Image
