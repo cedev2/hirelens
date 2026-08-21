@@ -60,9 +60,9 @@ export default function RootLayout({
             </Suspense>
             {children}
           </Providers>
+          <Analytics />
         </ThemeProvider>
       </body>
-      <Analytics />
     </html>
   );
 }
