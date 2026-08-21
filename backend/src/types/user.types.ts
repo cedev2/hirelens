@@ -18,6 +18,16 @@ export interface IUser {
     sms: boolean;
     marketing: boolean;
   };
+  // Email verification
+  emailVerified?: boolean;
+  verificationCodeHash?: string;
+  verificationCodeExpiresAt?: Date;
+  verificationAttempts?: number;
+  verificationLastSentAt?: Date;
+  // Password reset
+  passwordResetCodeHash?: string;
+  passwordResetCodeExpiresAt?: Date;
+  passwordResetAttempts?: number;
   createdAt?: Date;
   updatedAt?: Date;
 }

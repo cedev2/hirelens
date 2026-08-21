@@ -10,6 +10,14 @@ const auth = requireAuth as RequestHandler;
 authRouter.post("/register/local", authController.registerLocal);
 authRouter.post("/register/applicant", authController.registerApplicant);
 
+// Email verification
+authRouter.post("/verify-email", authController.verifyEmail);
+authRouter.post("/resend-verification", authController.resendVerification);
+
+// Password recovery
+authRouter.post("/forgot-password", authController.forgotPassword);
+authRouter.post("/reset-password", authController.resetPassword);
+
 // Login
 authRouter.post("/login/local", authController.loginLocal);
 

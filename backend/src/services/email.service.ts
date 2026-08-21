@@ -539,6 +539,113 @@ export const sendApplicationConfirmation = async (
   }
 };
 
+// ─── OTP Email Templates ────────────────────────────────────────────────────
+
+function otpEmailTemplate(
+  firstName: string,
+  otp: string,
+  type: "verify" | "reset",
+): string {
+  const isVerify = type === "verify";
+  const title = isVerify ? "Verify your email" : "Reset your password";
+  const subtitle = isVerify
+    ? "Thanks for creating your HireLens account. Enter the code below to verify your email address."
+    : "We received a request to reset your password. Enter the code below to continue.";
+  const notice = isVerify
+    ? "If you did not create a HireLens account, you can safely ignore this email."
+    : "If you did not request a password reset, please ignore this email. Your password will not change.";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body style="margin:0;padding:0;background:#F0FDF4;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#F0FDF4;padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #D1FAE5;box-shadow:0 4px 24px rgba(8,127,91,0.08);">
+          <!-- Header -->
+          <tr>
+            <td style="background:#087F5B;padding:28px 40px;text-align:center;">
+              <span style="color:#ffffff;font-size:28px;font-weight:800;letter-spacing:-0.5px;">HireLens</span>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px;">
+              <h1 style="margin:0 0 8px;font-size:22px;font-weight:700;color:#111827;">${title}</h1>
+              <p style="margin:0 0 28px;font-size:14px;color:#6B7280;line-height:1.6;">Hi ${firstName},<br/>${subtitle}</p>
+
+              <!-- OTP box -->
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="padding:28px;background:#F0FDF4;border-radius:12px;border:1px solid #D1FAE5;">
+                    <p style="margin:0 0 8px;font-size:12px;font-weight:600;color:#6B7280;letter-spacing:0.08em;text-transform:uppercase;">Your verification code</p>
+                    <p style="margin:0;font-size:44px;font-weight:800;letter-spacing:12px;color:#087F5B;font-variant-numeric:tabular-nums;">${otp}</p>
+                    <p style="margin:12px 0 0;font-size:12px;color:#9CA3AF;">Expires in 10 minutes &nbsp;·&nbsp; Do not share this code</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Security notice -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
+                <tr>
+                  <td style="padding:16px;background:#FEF9C3;border-radius:8px;border-left:4px solid #F59E0B;">
+                    <p style="margin:0;font-size:13px;color:#92400E;">${notice}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 40px;border-top:1px solid #F0FDF4;text-align:center;">
+              <p style="margin:0;font-size:12px;color:#9CA3AF;">
+                &copy; 2026 HireLens. All rights reserved.<br/>
+                This is an automated message. Please do not reply.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+export async function sendOtpEmail(
+  email: string,
+  firstName: string,
+  otp: string,
+  type: "verify" | "reset",
+): Promise<void> {
+  if (
+    process.env.NODE_ENV === "development" &&
+    process.env.ENABLE_EMAILS !== "true"
+  ) {
+    const label = type === "verify" ? "Email verification" : "Password reset";
+    console.log(`[DEV] ${label} OTP for ${email}: ${otp}`);
+    return;
+  }
+
+  const subject =
+    type === "verify"
+      ? "Verify your HireLens email"
+      : "Reset your HireLens password";
+
+  const html = otpEmailTemplate(firstName, otp, type);
+
+  await transporter.sendMail({
+    from: `"HireLens" <${ENV.smtp_user}>`,
+    to: email,
+    subject,
+    html,
+  });
+}
+
 // Generic send mail function
 export async function sendMail(options: {
   to: string;
