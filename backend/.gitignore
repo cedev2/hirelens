@@ -1,4 +1,15 @@
 node_modules/
-.env
+dist/
 description.md
-dist
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+.env.render
+.env.production
+.env.staging
+
+# Uploaded files
+uploads/*
+!uploads/.gitkeep

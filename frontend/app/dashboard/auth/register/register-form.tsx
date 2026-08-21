@@ -19,11 +19,10 @@ type RegisterValues = {
 };
 
 type AuthResponse = {
-  user: any;
-  tokens: {
-    accessToken: string;
-    refreshToken?: string;
-  };
+  user?: any;
+  tokens?: { accessToken: string; refreshToken?: string };
+  requiresVerification?: boolean;
+  email?: string;
 };
 
 export default function RegisterForm() {
@@ -46,7 +45,14 @@ export default function RegisterForm() {
       return res.data;
     },
     onSuccess: (data) => {
-      dispatch(setAuth({ user: data.user, tokens: data.tokens }));
+      if (data.requiresVerification && data.email) {
+        toast.success("Account created! Check your email for a verification code.");
+        router.push(
+          `/dashboard/auth/verify-email?email=${encodeURIComponent(data.email)}&redirect=/admin`
+        );
+        return;
+      }
+      dispatch(setAuth({ user: data.user, tokens: data.tokens! }));
       toast.success("Account created");
       router.push("/dashboard");
     },

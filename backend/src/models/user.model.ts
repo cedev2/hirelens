@@ -44,6 +44,39 @@ const userSchema = new Schema<IUser>(
       type: Boolean,
       default: false,
     },
+    // Email verification
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verificationCodeHash: {
+      type: String,
+      select: false,
+    },
+    verificationCodeExpiresAt: {
+      type: Date,
+      select: false,
+    },
+    verificationAttempts: {
+      type: Number,
+      default: 0,
+    },
+    verificationLastSentAt: {
+      type: Date,
+    },
+    // Password reset
+    passwordResetCodeHash: {
+      type: String,
+      select: false,
+    },
+    passwordResetCodeExpiresAt: {
+      type: Date,
+      select: false,
+    },
+    passwordResetAttempts: {
+      type: Number,
+      default: 0,
+    },
     notifications: {
       email: { type: Boolean, default: true },
       push: { type: Boolean, default: false },

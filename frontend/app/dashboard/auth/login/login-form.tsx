@@ -44,7 +44,16 @@ export default function LoginForm() {
       router.push("/dashboard");
     },
     onError: (error) => {
-      const message = error?.response?.data?.message || "Login failed";
+      const body = error?.response?.data;
+      if (body?.requiresVerification && body?.email) {
+        toast("Please verify your email first. A new code has been sent.", { icon: "📧" });
+        const redirect = encodeURIComponent("/applicant");
+        router.push(
+          `/dashboard/auth/verify-email?email=${encodeURIComponent(body.email)}&redirect=${redirect}`
+        );
+        return;
+      }
+      const message = body?.message || "Login failed";
       toast.error(message);
     },
   });
@@ -88,7 +97,7 @@ export default function LoginForm() {
 
       {/* Forgot password */}
       <div className="text-right -mt-2">
-        <Link href="" className="text-sm text-[#087F5B] hover:text-[#066B4D]">
+        <Link href="/dashboard/auth/forgot-password" className="text-sm text-[#087F5B] hover:text-[#066B4D]">
           Forgot Your Password?
         </Link>
       </div>

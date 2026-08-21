@@ -37,6 +37,13 @@ export default function ApplicantRegisterForm() {
       return res.data;
     },
     onSuccess: (data) => {
+      if (data.requiresVerification && data.email) {
+        toast.success("Account created! Check your email for a verification code.");
+        router.push(
+          `/dashboard/auth/verify-email?email=${encodeURIComponent(data.email)}&redirect=/applicant`
+        );
+        return;
+      }
       dispatch(setAuth({ user: data.user, tokens: data.tokens }));
       toast.success("Account created successfully!");
       router.push("/applicant");

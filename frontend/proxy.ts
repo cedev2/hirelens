@@ -17,7 +17,7 @@ function decodeJwtPayload(token: string): any | null {
   }
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Protect /admin routes
@@ -48,14 +48,13 @@ export function middleware(req: NextRequest) {
 
     const payload = decodeJwtPayload(token);
     if (!payload || payload.role !== "applicant") {
-      // If admin tries to access talent dashboard, maybe redirect to admin?
-      // Or just check if they are authenticated.
+      // If admin tries to access talent dashboard, redirect to admin
       if (payload?.role === "admin") {
         const url = req.nextUrl.clone();
         url.pathname = "/admin";
         return NextResponse.redirect(url);
       }
-      
+
       const url = req.nextUrl.clone();
       url.pathname = "/dashboard/auth/login";
       return NextResponse.redirect(url);
