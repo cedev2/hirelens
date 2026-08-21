@@ -267,10 +267,10 @@ export default function ResultsStep({
                   : "border-gray-200 hover:border-gray-300"
               } animate-in fade-in slide-in-from-bottom-2 duration-300`}
             >
-              <div className="flex items-center">
+              <div className="flex flex-wrap items-center">
                 <div
                   data-tour="candidate-selection"
-                  className="pl-5 flex items-center gap-3"
+                  className="pl-4 sm:pl-5 pt-3 sm:pt-0 flex items-center gap-3"
                 >
                   <input
                     type="checkbox"
@@ -282,7 +282,7 @@ export default function ResultsStep({
                 </div>
 
                 <div
-                  className={`flex-1 items-center gap-4 p-5 flex ${
+                  className={`flex-1 min-w-0 items-center gap-3 sm:gap-4 p-4 sm:p-5 flex flex-wrap ${
                     view === "summary" ? "cursor-pointer" : "cursor-default"
                   }`}
                   onClick={() => {
@@ -295,7 +295,7 @@ export default function ResultsStep({
                   }}
                 >
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full font-bold text-lg ${
+                    className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full font-bold text-base sm:text-lg ${
                       c.rank === 1
                         ? "bg-[#d5b011] text-amber-700"
                         : c.rank === 2

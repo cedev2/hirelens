@@ -56,7 +56,7 @@ export default function AdminCandidateCompositionChart({
           </ResponsiveContainer>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {data.map((slice) => {
             const pct =
               total === 0 ? 0 : Math.round((slice.value / total) * 100);

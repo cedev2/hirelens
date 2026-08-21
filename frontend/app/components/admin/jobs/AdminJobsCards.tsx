@@ -66,7 +66,7 @@ export default function AdminJobsCards({
             </span>
           </div>
 
-          <div className="mt-4 grid grid-cols-3 gap-3">
+          <div className="mt-4 grid grid-cols-3 gap-3 min-w-0">
             <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
               <div className="flex items-center gap-2 text-xs text-[#7C8493]">
                 <Users className="h-4 w-4" />

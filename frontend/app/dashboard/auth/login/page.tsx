@@ -33,8 +33,8 @@ export default function page() {
       </div>
 
       {/* Centered Login Card */}
-      <div className="absolute inset-0 top-[40px] flex items-center justify-center">
-        <div className="bg-white rounded-[10px] shadow-xl p-8 w-[420px]">
+      <div className="absolute inset-0 top-[40px] flex items-center justify-center overflow-y-auto py-8">
+        <div className="bg-white rounded-[10px] shadow-xl p-6 sm:p-8 w-full max-w-[420px] mx-4">
           <h1 className="text-2xl font-bold text-gray-900 mb-6">Login</h1>
 
           <LoginForm />

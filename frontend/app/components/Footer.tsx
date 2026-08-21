@@ -36,12 +36,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#1a1a2e] text-white py-16">
-      <div className="mx-[122px]">
+    <footer className="bg-[#1a1a2e] text-white py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
         {/* Main Footer */}
-        <div className="grid grid-cols-5 gap-8 pb-10 border-b border-gray-700">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-gray-700">
           {/* Brand */}
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <Image
               src="/images/logo/logo-light.svg"
               alt="HireLens Logo"
@@ -111,7 +111,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="flex items-center justify-between pt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-center sm:text-left">
           <p className="text-gray-500 text-sm">
             2026 @ HireLens. All rights reserved.
           </p>

@@ -15,24 +15,24 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between transition-all duration-300 max-w-[96vw] ${
         scrolled
-          ? "w-[80%] px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100"
-          : "w-full px-[122px] py-5 bg-[#f8f8fd]"
+          ? "w-[94%] sm:w-[80%] px-4 sm:px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100"
+          : "w-full px-4 sm:px-8 lg:px-[122px] py-5 bg-[#f8f8fd]"
       }`}
     >
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-4 lg:gap-8">
         <Link href="/">
           <Image
             src="/images/logo/logo.svg"
             alt="HireLens Logo"
             width={100}
             height={30}
-            className="h-[30px] w-auto"
+            className="h-[24px] sm:h-[30px] w-auto"
           />
         </Link>
 
-        <nav className="flex items-center gap-6 text-sm text-gray-700">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
           <Link href="/admin" className="hover:text-gray-900">
             Dashboard
           </Link>
@@ -45,7 +45,7 @@ export default function Header() {
         </nav>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         <Link
           href="/applicant/auth/register"
           className="text-sm font-bold text-[#087F5B] hover:text-[#4338CA]"

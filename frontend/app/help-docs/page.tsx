@@ -61,7 +61,7 @@ export default function HelpDocsPage() {
       <main className="min-h-screen bg-white pt-[100px]">
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h1 className="text-5xl font-bold text-[#25324B] mb-6">
               Help <span className="text-[#087F5B]">Center</span>
             </h1>
@@ -74,9 +74,9 @@ export default function HelpDocsPage() {
 
         {/* Docs Grid */}
         <section className="py-16">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h2 className="text-3xl font-bold text-[#25324B] mb-8">Documentation</h2>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {docs.map((doc, index) => (
                 <a
                   key={index}
@@ -94,7 +94,7 @@ export default function HelpDocsPage() {
 
         {/* FAQ Section */}
         <section className="py-16 bg-[#f8f8fd]">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h2 className="text-3xl font-bold text-[#25324B] mb-8">Frequently Asked Questions</h2>
             <div className="space-y-6 max-w-3xl">
               {faqs.map((faq, index) => (
@@ -109,7 +109,7 @@ export default function HelpDocsPage() {
 
         {/* Support CTA */}
         <section className="py-16">
-          <div className="mx-[122px] text-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] text-center">
             <h2 className="text-3xl font-bold text-[#25324B] mb-4">
               Need More Help?
             </h2>

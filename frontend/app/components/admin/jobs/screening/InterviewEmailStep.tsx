@@ -206,7 +206,7 @@ export default function InterviewEmailStep({
             <label className="text-sm font-semibold text-[#25324B]">
               Interview Type
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {(["video", "in-person", "phone"] as InterviewType[]).map(
                 (type) => (
                   <button
@@ -231,7 +231,7 @@ export default function InterviewEmailStep({
           </div>
 
           {/* Date & Time */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[#25324B]">
                 <Calendar className="inline h-4 w-4 mr-1" />

@@ -380,7 +380,7 @@ export default function JobDetailPage() {
             <h2 className="text-lg font-semibold text-[#25324B] mb-3">
               Benefits
             </h2>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {job.benefits.map((benefit, idx) => (
                 <div
                   key={idx}
@@ -766,7 +766,7 @@ export default function JobDetailPage() {
                             setEducation(next);
                           }}
                         />
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           <input
                             type="date"
                             className={fieldClass}

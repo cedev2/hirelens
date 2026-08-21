@@ -42,10 +42,10 @@ export default function JobDetailsModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="px-8 py-5 border-b border-gray-100 flex items-start justify-between bg-linear-to-r from-white to-green-50/30">
-          <div className="flex gap-6">
-            <div>
-              <h2 className="text-2xl font-black text-[#25324B] mb-2">
+        <div className="px-4 sm:px-8 py-5 border-b border-gray-100 flex items-start justify-between bg-linear-to-r from-white to-green-50/30">
+          <div className="flex gap-6 min-w-0">
+            <div className="min-w-0">
+              <h2 className="text-xl sm:text-2xl font-black text-[#25324B] mb-2 break-words">
                 {job.title}
               </h2>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -68,7 +68,7 @@ export default function JobDetailsModal({
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Left Side: Job Info */}
             <div className="lg:col-span-2 space-y-10">

@@ -6,9 +6,11 @@ import { stripHtmlToText } from "@/app/components/SafeHtml";
 import { useState } from "react";
 import JobDetailsModal from "@/app/dashboard/jobs/components/JobDetailsModal";
 import { Job } from "@/app/dashboard/jobs/components/JobCard";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/api/client";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store/store";
 
 type RecommendedJob = Job & {
   daysLeft: number;
@@ -20,12 +22,25 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
   const [selectedJob, setSelectedJob] = useState<RecommendedJob | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const { user } = useSelector((state: RootState) => state.auth);
+
+  const talentQuery = useQuery({
+    queryKey: ["talent", "me"],
+    queryFn: async () => {
+      const res = await api.get("/talents/me");
+      return res.data?.talent;
+    },
+    enabled: !!user?._id,
+    staleTime: 600_000,
+  });
+
+  const talentId = talentQuery.data?._id;
+
   const applyMutation = useMutation({
     mutationFn: async (jobId: string) => {
-      // We need talentId here, but we can also fetch it in the mutation or pass it from parent
-      // For now, let's assume the backend can identify the user from the token
       const res = await api.post("/applications", {
         jobId,
+        talentId,
       });
       return res.data;
     },
@@ -47,6 +62,10 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
   };
 
   const handleApply = (id: string) => {
+    if (!talentId) {
+      toast.error("Please complete your profile before applying");
+      return;
+    }
     applyMutation.mutate(id);
   };
 

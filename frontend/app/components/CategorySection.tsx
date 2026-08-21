@@ -72,11 +72,11 @@ const features: Feature[] = [
 
 export default function CategorySection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="mx-[122px]">
+    <section className="py-12 sm:py-16 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-4xl font-bold text-[#25324B]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#25324B]">
             Powerful <span className="text-[#087F5B]">Features</span> for HR
             Teams
           </h2>
@@ -90,7 +90,7 @@ export default function CategorySection() {
         </div>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {features.map((feature) => (
             <a
               key={feature.name}

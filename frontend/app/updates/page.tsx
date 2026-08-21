@@ -68,7 +68,7 @@ export default function UpdatesPage() {
       <main className="min-h-screen bg-white pt-[100px]">
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h1 className="text-5xl font-bold text-[#25324B] mb-6">
               Product <span className="text-[#087F5B]">Updates</span>
             </h1>
@@ -81,7 +81,7 @@ export default function UpdatesPage() {
 
         {/* Updates Timeline */}
         <section className="py-16">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h2 className="text-3xl font-bold text-[#25324B] mb-8">
               Recent Updates
             </h2>
@@ -128,11 +128,11 @@ export default function UpdatesPage() {
 
         {/* Upcoming */}
         <section className="py-16 bg-[#f8f8fd]">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h2 className="text-3xl font-bold text-[#25324B] mb-8">
               Coming Soon
             </h2>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {upcoming.map((item, index) => (
                 <div
                   key={index}
@@ -152,7 +152,7 @@ export default function UpdatesPage() {
 
         {/* Newsletter */}
         <section className="py-16">
-          <div className="mx-[122px] text-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] text-center">
             <h2 className="text-3xl font-bold text-[#25324B] mb-4">
               Stay Updated
             </h2>

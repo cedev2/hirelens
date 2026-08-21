@@ -32,7 +32,7 @@ export default function AdvicePage() {
       <main className="min-h-screen bg-white pt-[100px]">
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h1 className="text-5xl font-bold text-[#25324B] mb-6">
               Hiring <span className="text-[#087F5B]">Advice</span> & Best Practices
             </h1>
@@ -45,8 +45,8 @@ export default function AdvicePage() {
 
         {/* Tips Grid */}
         <section className="py-16">
-          <div className="mx-[122px]">
-            <div className="grid grid-cols-2 gap-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {tips.map((tip, index) => (
                 <div key={index} className="p-8 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow">
                   <div className="text-[#087F5B] mb-4">{tip.icon}</div>
@@ -60,7 +60,7 @@ export default function AdvicePage() {
 
         {/* AI Tips Section */}
         <section className="py-16 bg-[#f8f8fd]">
-          <div className="mx-[122px]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
             <h2 className="text-3xl font-bold text-[#25324B] mb-8">
               Making the Most of AI Screening
             </h2>
@@ -89,7 +89,7 @@ export default function AdvicePage() {
 
         {/* CTA */}
         <section className="py-16">
-          <div className="mx-[122px] text-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] text-center">
             <h2 className="text-3xl font-bold text-[#25324B] mb-4">
               Ready to Put These Tips into Action?
             </h2>

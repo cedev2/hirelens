@@ -49,8 +49,8 @@ export default function ContactUsPage() {
 
         {/* Contact Grid */}
         <section className="py-16">
-          <div className="mx-[122px]">
-            <div className="grid grid-cols-4 gap-6 mb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
                 <div key={index} className="p-6 border border-gray-100 rounded-lg text-center hover:shadow-md transition-shadow">
                   <div className="text-[#087F5B] mb-4 flex justify-center">{info.icon}</div>
@@ -62,7 +62,7 @@ export default function ContactUsPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="grid grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-bold text-[#25324B] mb-6">
                   Send us a Message
@@ -71,7 +71,7 @@ export default function ContactUsPage() {
                   Fill out the form below and we&apos;ll get back to you within 24 hours.
                 </p>
                 <form className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-[#25324B] mb-2">
                         First Name

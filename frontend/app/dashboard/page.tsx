@@ -154,8 +154,8 @@ export default function DashboardPage() {
 
   return (
     <phantom-ui loading={jobsQuery.isLoading} animation="shimmer">
-      <div className="grid grid-cols-[1fr_320px] gap-3">
-        <div className="space-y-8">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-3">
+        <div className="space-y-8 min-w-0">
           <DashboardStats stats={stats} />
           {/* @ts-ignore */}
           <JobRecommendations jobs={recommendedJobs} />

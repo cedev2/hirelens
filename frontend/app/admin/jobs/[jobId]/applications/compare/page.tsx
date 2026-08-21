@@ -237,7 +237,7 @@ export default function ApplicationsComparePage() {
                 {fullName(talentA)}
               </p>
               <p className="text-sm text-[#7C8493]">{talentA.headline}</p>
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
                   <p className="text-[10px] font-bold uppercase text-[#7C8493]">
                     Skills
@@ -273,7 +273,7 @@ export default function ApplicationsComparePage() {
                 {fullName(talentB)}
               </p>
               <p className="text-sm text-[#7C8493]">{talentB.headline}</p>
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
                   <p className="text-[10px] font-bold uppercase text-[#7C8493]">
                     Skills

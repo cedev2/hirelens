@@ -34,7 +34,7 @@ export default function ExperienceForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label className="text-sm font-bold text-[#25324B]">Job Role</label>
           <input
@@ -56,7 +56,7 @@ export default function ExperienceForm({
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label className="text-sm font-bold text-[#25324B]">Start Date</label>
           <input

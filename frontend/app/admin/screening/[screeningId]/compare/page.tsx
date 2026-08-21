@@ -314,7 +314,7 @@ export default function ScreeningComparePage() {
                 </div>
               ) : null}
 
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
                   <p className="text-[10px] font-bold uppercase text-[#7C8493]">
                     Skills
@@ -443,7 +443,7 @@ export default function ScreeningComparePage() {
                 </div>
               ) : null}
 
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
                   <p className="text-[10px] font-bold uppercase text-[#7C8493]">
                     Skills

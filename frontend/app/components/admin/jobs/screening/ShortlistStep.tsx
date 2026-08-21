@@ -163,15 +163,15 @@ export default function ShortlistStep({
 
       {/* Toolbar */}
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-3">
-          <div className="relative">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative w-full sm:w-auto">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
               placeholder="Search candidates..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-64 rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm outline-none focus:border-[#087F5B] focus:ring-2 focus:ring-[#087F5B]/20"
+              className="w-full sm:w-64 rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm outline-none focus:border-[#087F5B] focus:ring-2 focus:ring-[#087F5B]/20"
             />
           </div>
           <select

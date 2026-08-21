@@ -115,7 +115,13 @@ function NavLink({ item, active }: { item: NavItem; active: boolean }) {
   );
 }
 
-export default function AdminSidebar() {
+export default function AdminSidebar({
+  mobileOpen = false,
+  onMobileClose,
+}: {
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
+}) {
   const pathname = usePathname();
 
   const { data: user, isLoading } = useQuery<MeUser>({
@@ -134,55 +140,75 @@ export default function AdminSidebar() {
   const role = meUser?.role ?? "admin";
   const avatarUrl = meUser?.picture || "/images/companies/dummy.png";
 
-  return (
-    <aside
-      className="sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100"
-      data-tour="sidebar-navigation"
-    >
-      <phantom-ui loading={isLoading}>
-        <div className="h-full px-5 py-12 flex flex-col">
-          {/* User card */}
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-                <Image
-                  src={avatarUrl}
-                  alt="User avatar"
-                  fill
-                  className="object-cover"
-                  sizes="40px"
-                />
-              </div>
-              <div className="leading-tight">
-                <p className="text-sm font-semibold text-[#25324B]">
-                  {displayName || "Admin User"}
-                </p>
-                <p className="text-xs text-[#7C8493] capitalize">{role}</p>
-              </div>
+  const content = (
+    <phantom-ui loading={isLoading}>
+      <div className="h-full px-5 py-12 flex flex-col overflow-y-auto">
+        {/* User card */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <Image
+                src={avatarUrl}
+                alt="User avatar"
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
+            </div>
+            <div className="leading-tight">
+              <p className="text-sm font-semibold text-[#25324B]">
+                {displayName || "Admin User"}
+              </p>
+              <p className="text-xs text-[#7C8493] capitalize">{role}</p>
             </div>
           </div>
-
-          {/* Main nav */}
-          <nav className="space-y-2 relative left-[-21px]">
-            {mainNav.map((item) => {
-              const active = pathname === item.href;
-              return <NavLink key={item.href} item={item} active={active} />;
-            })}
-          </nav>
-
-          <div className="my-3 h-px w-full bg-gray-100" />
-
-          {/* Bottom nav */}
-          <nav className="space-y-2 relative left-[-21px]">
-            {bottomNav.map((item) => {
-              const active = pathname === item.href;
-              return <NavLink key={item.href} item={item} active={active} />;
-            })}
-          </nav>
-
-          <div className="flex-1" />
         </div>
-      </phantom-ui>
-    </aside>
+
+        {/* Main nav */}
+        <nav className="space-y-2 relative left-[-21px]" onClick={onMobileClose}>
+          {mainNav.map((item) => {
+            const active = pathname === item.href;
+            return <NavLink key={item.href} item={item} active={active} />;
+          })}
+        </nav>
+
+        <div className="my-3 h-px w-full bg-gray-100" />
+
+        {/* Bottom nav */}
+        <nav className="space-y-2 relative left-[-21px]" onClick={onMobileClose}>
+          {bottomNav.map((item) => {
+            const active = pathname === item.href;
+            return <NavLink key={item.href} item={item} active={active} />;
+          })}
+        </nav>
+
+        <div className="flex-1" />
+      </div>
+    </phantom-ui>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <aside
+        className="hidden lg:block sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100"
+        data-tour="sidebar-navigation"
+      >
+        {content}
+      </aside>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={onMobileClose}
+          />
+          <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
+            {content}
+          </aside>
+        </div>
+      )}
+    </>
   );
 }

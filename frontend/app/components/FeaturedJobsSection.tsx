@@ -39,11 +39,11 @@ export default function FeaturedJobsSection() {
     .slice(0, 8);
 
   return (
-    <section className="py-16 bg-white">
-      <div className="mx-[122px]">
+    <section className="py-12 sm:py-16 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-4xl font-bold text-[#25324B]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#25324B]">
             Active <span className="text-[#087F5B]">Job Postings</span>
           </h2>
           <a
@@ -56,17 +56,17 @@ export default function FeaturedJobsSection() {
         </div>
 
         {/* Jobs Grid */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {jobsQuery.isLoading ? (
-            <div className="col-span-4 py-12 text-center text-sm font-semibold text-gray-500">
+            <div className="col-span-full py-12 text-center text-sm font-semibold text-gray-500">
               Loading jobs...
             </div>
           ) : jobsQuery.isError ? (
-            <div className="col-span-4 py-12 text-center text-sm font-semibold text-red-600">
+            <div className="col-span-full py-12 text-center text-sm font-semibold text-red-600">
               Failed to load jobs
             </div>
           ) : featuredJobs.length === 0 ? (
-            <div className="col-span-4 py-12 text-center text-sm font-semibold text-gray-500">
+            <div className="col-span-full py-12 text-center text-sm font-semibold text-gray-500">
               No active job postings.{" "}
               <Link
                 href="/admin/jobs"

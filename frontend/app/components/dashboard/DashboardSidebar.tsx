@@ -14,6 +14,7 @@ import {
   Settings,
   HelpCircle,
   LogOut,
+  X,
 } from "lucide-react";
 
 import { useQuery } from "@tanstack/react-query";
@@ -116,7 +117,7 @@ function NavLink({ item, active }: { item: NavItem; active: boolean }) {
   );
 }
 
-export default function DashboardSidebar() {
+function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -173,54 +174,115 @@ export default function DashboardSidebar() {
     "/images/companies/dummy.png";
   const userHeadline = talent?.headline || "Talent";
 
+  const wrapClick = (item: NavItem) =>
+    item.onClick
+      ? item.onClick
+      : () => {
+          onNavigate?.();
+        };
+
   return (
-    <aside className="sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100">
-      <div className="h-full px-5 py-12 flex flex-col">
-        {/* User card */}
-        <div className="flex items-center justify-between mb-8">
-          <phantom-ui loading={!currentUser && userLoading}>
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-                <Image
-                  src={userPicture}
-                  alt="User avatar"
-                  fill
-                  className="object-cover"
-                  sizes="40px"
-                />
-              </div>
-              <div className="leading-tight">
-                <p className="text-sm font-semibold text-[#25324B]">
-                  {displayName}
-                </p>
-                <p className="text-xs text-[#7C8493] line-clamp-1">
-                  {userHeadline}
-                </p>
-              </div>
+    <div className="h-full px-5 py-8 flex flex-col overflow-y-auto">
+      {/* User card */}
+      <div className="flex items-center justify-between mb-8">
+        <phantom-ui loading={!currentUser && userLoading}>
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <Image
+                src={userPicture}
+                alt="User avatar"
+                fill
+                className="object-cover"
+                sizes="40px"
+              />
             </div>
-          </phantom-ui>
-        </div>
-
-        {/* Main nav */}
-        <nav className="space-y-2 relative left-[-21px]">
-          {mainNav.map((item) => {
-            const active = pathname === item.href;
-            return <NavLink key={item.href} item={item} active={active} />;
-          })}
-        </nav>
-
-        <div className="my-3 h-px w-full bg-gray-100" />
-
-        {/* Bottom nav */}
-        <nav className="space-y-2 relative left-[-21px]">
-          {bottomNav.map((item) => {
-            const active = pathname === item.href;
-            return <NavLink key={item.href} item={item} active={active} />;
-          })}
-        </nav>
-
-        <div className="flex-1" />
+            <div className="leading-tight">
+              <p className="text-sm font-semibold text-[#25324B]">
+                {displayName}
+              </p>
+              <p className="text-xs text-[#7C8493] line-clamp-1">
+                {userHeadline}
+              </p>
+            </div>
+          </div>
+        </phantom-ui>
       </div>
-    </aside>
+
+      {/* Main nav */}
+      <nav className="space-y-2 relative left-[-21px]">
+        {mainNav.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <div key={item.href} onClick={wrapClick(item)}>
+              <NavLink item={item} active={active} />
+            </div>
+          );
+        })}
+      </nav>
+
+      <div className="my-3 h-px w-full bg-gray-100" />
+
+      {/* Bottom nav */}
+      <nav className="space-y-2 relative left-[-21px]">
+        {bottomNav.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <div key={item.href} onClick={wrapClick(item)}>
+              <NavLink item={item} active={active} />
+            </div>
+          );
+        })}
+      </nav>
+
+      <div className="flex-1" />
+    </div>
+  );
+}
+
+export default function DashboardSidebar({
+  mobileOpen = false,
+  onMobileClose,
+}: {
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
+}) {
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:block sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100">
+        <SidebarContent />
+      </aside>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={onMobileClose}
+          />
+          <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl animate-in slide-in-from-left duration-200">
+            <div className="flex items-center justify-between px-5 pt-4">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="HireLens Logo"
+                width={80}
+                height={14}
+                className="h-[14px] w-auto"
+              />
+              <button
+                onClick={onMobileClose}
+                aria-label="Close menu"
+                className="rounded-lg p-2 text-[#7C8493] hover:bg-gray-100"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="h-[calc(100%-52px)]">
+              <SidebarContent onNavigate={onMobileClose} />
+            </div>
+          </aside>
+        </div>
+      )}
+    </>
   );
 }

@@ -94,6 +94,12 @@ const applicationController = {
         certifications,
       }: IApplication = req.body;
 
+      if (!jobId || !talentId) {
+        return res.status(400).json({
+          message: "jobId and talentId are required",
+        });
+      }
+
       const existing = await Application.findOne({ jobId, talentId });
       if (existing) {
         return res.status(409).json({

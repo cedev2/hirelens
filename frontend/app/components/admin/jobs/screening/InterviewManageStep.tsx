@@ -186,10 +186,10 @@ export default function InterviewManageStep({
               {/* Summary Row */}
               <div
                 onClick={() => setExpandedId(isExpanded ? null : c.candidateId)}
-                className="flex items-center gap-4 p-4 cursor-pointer"
+                className="flex flex-wrap items-center gap-3 sm:gap-4 p-4 cursor-pointer"
               >
                 <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-lg font-bold ${
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-bold ${
                     c.rank === 1
                       ? "bg-amber-100 text-amber-700"
                       : "bg-gray-100 text-[#25324B]"
@@ -197,13 +197,13 @@ export default function InterviewManageStep({
                 >
                   #{c.rank}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-[#25324B]">{c.name}</h4>
+                <div className="flex-1 min-w-[140px]">
+                  <h4 className="font-bold text-[#25324B] truncate">{c.name}</h4>
                   <p className="text-sm text-[#7C8493] truncate">{c.email}</p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   {c.scheduledDate && (
-                    <span className="text-sm text-[#7C8493]">
+                    <span className="text-xs sm:text-sm text-[#7C8493]">
                       {c.scheduledDate} {c.scheduledTime}
                     </span>
                   )}

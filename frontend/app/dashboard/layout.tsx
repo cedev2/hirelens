@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api/client";
@@ -12,6 +12,7 @@ export default function DashboardLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isAuthRoute = pathname?.includes("/auth/");
   const isProfileRoute = pathname?.includes("/profile");
 
@@ -34,10 +35,15 @@ export default function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-[#F8F8FD]">
-      <DashboardHeader />
+      <DashboardHeader onMenuClick={() => setMobileMenuOpen(true)} />
       <div className="flex pt-[56px]">
-        <DashboardSidebar />
-        <main className="flex-1 px-4 py-8">{children}</main>
+        <DashboardSidebar
+          mobileOpen={mobileMenuOpen}
+          onMobileClose={() => setMobileMenuOpen(false)}
+        />
+        <main className="flex-1 min-w-0 px-4 sm:px-6 py-6 sm:py-8">
+          {children}
+        </main>
       </div>
 
       {shouldShowModal && (

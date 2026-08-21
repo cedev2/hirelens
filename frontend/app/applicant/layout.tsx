@@ -13,6 +13,8 @@ import {
   FileText,
   LogOut,
   LayoutGrid,
+  Menu,
+  X,
 } from "lucide-react";
 import ChatWidget from "@/app/components/chat/ChatWidget";
 
@@ -31,6 +33,7 @@ export default function ApplicantLayout({
   const isAuthRoute = pathname?.includes("/auth/");
   const user = useSelector((state: any) => state.auth?.user);
   const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -56,18 +59,27 @@ export default function ApplicantLayout({
     <div className="min-h-screen bg-[#F8F8FD]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div className="flex items-center justify-between px-6 py-3">
-          <Link href="/applicant" className="shrink-0">
-            <Image
-              src="/images/logo/logo.svg"
-              alt="HireLens"
-              width={80}
-              height={14}
-              className="h-[14px] w-auto"
-            />
-          </Link>
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3">
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open menu"
+              className="lg:hidden rounded-lg p-2 text-[#25324B] hover:bg-gray-100"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <Link href="/applicant" className="shrink-0">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="HireLens"
+                width={80}
+                height={14}
+                className="h-[14px] w-auto"
+              />
+            </Link>
+          </div>
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-600">
+            <span className="hidden sm:block text-sm text-gray-600">
               {mounted ? (user?.firstName || "Applicant") : "Applicant"}
             </span>
             <button
@@ -82,8 +94,8 @@ export default function ApplicantLayout({
       </header>
 
       <div className="flex pt-[53px]">
-        {/* Sidebar */}
-        <aside className="fixed left-0 top-[53px] bottom-0 w-[220px] bg-white border-r border-gray-100 p-4">
+        {/* Sidebar - desktop */}
+        <aside className="hidden lg:block fixed left-0 top-[53px] bottom-0 w-[220px] bg-white border-r border-gray-100 p-4">
           <nav className="space-y-1 mt-2">
             {navItems.map((item) => {
               const active = pathname === item.href || (item.href !== "/applicant" && pathname?.startsWith(item.href));
@@ -107,8 +119,57 @@ export default function ApplicantLayout({
           </nav>
         </aside>
 
+        {/* Sidebar - mobile drawer */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-[60] lg:hidden">
+            <div
+              className="absolute inset-0 bg-black/40"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
+              <div className="flex items-center justify-between px-5 pt-4 pb-2">
+                <Image
+                  src="/images/logo/logo.svg"
+                  alt="HireLens"
+                  width={80}
+                  height={14}
+                  className="h-[14px] w-auto"
+                />
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                  className="rounded-lg p-2 text-[#7C8493] hover:bg-gray-100"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <nav className="space-y-1 px-4 mt-2" onClick={() => setMobileMenuOpen(false)}>
+                {navItems.map((item) => {
+                  const active = pathname === item.href || (item.href !== "/applicant" && pathname?.startsWith(item.href));
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                        active
+                          ? "bg-[#E8F7F0] text-[#087F5B]"
+                          : "text-[#25324B] hover:bg-[#F8F8FD]"
+                      }`}
+                    >
+                      <span className={active ? "text-[#087F5B]" : "text-[#7C8493]"}>
+                        {item.icon}
+                      </span>
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </aside>
+          </div>
+        )}
+
         {/* Main content */}
-        <main className="flex-1 ml-[220px] px-6 py-8">
+        <main className="flex-1 min-w-0 lg:ml-[220px] px-4 sm:px-6 py-6 sm:py-8">
           {children}
         </main>
       </div>

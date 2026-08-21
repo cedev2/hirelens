@@ -58,7 +58,7 @@ export default function ApplicantDashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         {stats.map((stat) => (
           <div key={stat.label} className="bg-white rounded-xl border border-gray-100 p-5 flex items-center gap-4">
             <div className={`h-12 w-12 rounded-lg ${stat.bg} flex items-center justify-center ${stat.color}`}>
@@ -72,7 +72,7 @@ export default function ApplicantDashboard() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Applications */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <div className="flex items-center justify-between mb-4">
@@ -142,7 +142,7 @@ export default function ApplicantDashboard() {
           {/* Status Legend */}
           <div className="mt-6 pt-4 border-t border-gray-100">
             <p className="text-xs font-medium text-gray-400 uppercase mb-3">Status Legend</p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div className="flex items-center gap-2"><StatusBadge status="pending" /> <span className="text-xs text-gray-500">Awaiting review</span></div>
               <div className="flex items-center gap-2"><StatusBadge status="reviewing" /> <span className="text-xs text-gray-500">Being reviewed</span></div>
               <div className="flex items-center gap-2"><StatusBadge status="shortlisted" /> <span className="text-xs text-gray-500">Shortlisted</span></div>
