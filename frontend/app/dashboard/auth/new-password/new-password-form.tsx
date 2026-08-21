@@ -52,7 +52,7 @@ export default function NewPasswordForm() {
 
   const resetMutation = useMutation({
     mutationFn: async () => {
-      const res = await api.post("/auth/reset-password", { email, code, newPassword: password });
+      const res = await api.post("/auth/reset-password", { email, code, newPassword: password, confirmPassword: confirm });
       return res.data;
     },
     onSuccess: () => {
