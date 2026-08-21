@@ -137,7 +137,7 @@ export default function VerifyEmailForm() {
       </p>
 
       {/* OTP inputs */}
-      <div className="flex justify-center gap-3">
+      <div className="flex justify-between gap-2">
         {digits.map((digit, index) => (
           <input
             key={index}
@@ -154,14 +154,14 @@ export default function VerifyEmailForm() {
             onFocus={(e) => e.target.select()}
             aria-label={`Digit ${index + 1}`}
             className={[
-              "w-11 h-13 text-center text-xl font-bold rounded-lg border-2 outline-none transition-all duration-150",
-              "focus:border-[#087F5B] focus:ring-2 focus:ring-[#087F5B]/20",
+              "w-11 h-12 text-center text-lg font-bold rounded-xl border-2 outline-none",
+              "transition-all duration-150 select-none",
+              "focus:ring-2 focus:ring-[#087F5B]/20",
               digit
-                ? "border-[#087F5B] bg-[#E8F7F0] text-[#087F5B]"
-                : "border-gray-200 bg-white text-gray-900",
-              isPending ? "opacity-50 cursor-not-allowed" : "",
+                ? "border-[#087F5B] bg-[#F0FDF4] text-[#087F5B]"
+                : "border-gray-200 bg-white text-gray-800 focus:border-[#087F5B]",
+              isPending ? "opacity-50 cursor-not-allowed" : "cursor-text",
             ].join(" ")}
-            style={{ height: "52px" }}
           />
         ))}
       </div>
