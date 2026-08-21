@@ -15,6 +15,7 @@ export default function DashboardLayout({
   const isAuthRoute = pathname?.includes("/auth/");
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     // Check if user has seen onboarding before
@@ -48,6 +49,8 @@ export default function DashboardLayout({
         <AdminSidebar
           mobileOpen={mobileMenuOpen}
           onMobileClose={() => setMobileMenuOpen(false)}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         />
         <main className="flex-1 min-w-0 px-4 sm:px-6 py-6 sm:py-8">
           {children}
