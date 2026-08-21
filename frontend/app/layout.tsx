@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import ProgressBar from "./components/ProgressBar";
 import Providers from "./providers";
@@ -49,19 +48,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-        >
-          <Providers>
-            <Suspense fallback={null}>
-              <ProgressBar />
-            </Suspense>
-            {children}
-          </Providers>
-          <Analytics />
-        </ThemeProvider>
+        <Providers>
+          <Suspense fallback={null}>
+            <ProgressBar />
+          </Suspense>
+          {children}
+        </Providers>
+        <Analytics />
       </body>
     </html>
   );
