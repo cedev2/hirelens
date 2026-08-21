@@ -11,13 +11,14 @@ import {
   FileText,
   Briefcase,
   User,
-  CalendarDays,
   Settings,
-  HelpCircle,
-  LogOut,
   UserSquare2,
   ScanTextIcon,
+  ChevronLeft,
+  ChevronRight,
+  X,
 } from "lucide-react";
+
 import { api } from "@/lib/api/client";
 
 type UserData = {
@@ -30,9 +31,7 @@ type UserData = {
   role?: "applicant" | "admin";
 };
 
-type MeUser = {
-  user?: UserData;
-};
+type MeUser = { user?: UserData };
 
 type NavItem = {
   label: string;
@@ -41,56 +40,37 @@ type NavItem = {
 };
 
 const mainNav: NavItem[] = [
-  {
-    label: "Dashboard",
-    href: "/admin",
-    icon: <LayoutGrid className="h-5 w-5" />,
-  },
-  {
-    label: "Jobs",
-    href: "/admin/jobs",
-    icon: <Briefcase className="h-5 w-5" />,
-  },
-  {
-    label: "Applications",
-    href: "/admin/applications",
-    icon: <FileText className="h-5 w-5" />,
-  },
-  {
-    label: "Talents",
-    href: "/admin/candidates",
-    icon: <UserSquare2 className="h-5 w-5" />,
-  },
-  {
-    label: "Screening",
-    href: "/admin/screening",
-    icon: <ScanTextIcon className="h-5 w-5" />,
-  },
+  { label: "Dashboard", href: "/admin", icon: <LayoutGrid className="h-5 w-5" /> },
+  { label: "Jobs", href: "/admin/jobs", icon: <Briefcase className="h-5 w-5" /> },
+  { label: "Applications", href: "/admin/applications", icon: <FileText className="h-5 w-5" /> },
+  { label: "Talents", href: "/admin/candidates", icon: <UserSquare2 className="h-5 w-5" /> },
+  { label: "Screening", href: "/admin/screening", icon: <ScanTextIcon className="h-5 w-5" /> },
 ];
 
 const bottomNav: NavItem[] = [
-  {
-    label: "Profile",
-    href: "/admin/profile",
-    icon: <User className="h-5 w-5" />,
-  },
-  {
-    label: "Setting",
-    href: "/admin/settings",
-    icon: <Settings className="h-5 w-5" />,
-  },
-  // {
-  //   label: "Logout",
-  //   href: "/admin/logout",
-  //   icon: <LogOut className="h-5 w-5" />,
-  // },
+  { label: "Profile", href: "/admin/profile", icon: <User className="h-5 w-5" /> },
+  { label: "Setting", href: "/admin/settings", icon: <Settings className="h-5 w-5" /> },
 ];
 
-function NavLink({ item, active }: { item: NavItem; active: boolean }) {
+function NavLink({
+  item,
+  active,
+  collapsed,
+  onClick,
+}: {
+  item: NavItem;
+  active: boolean;
+  collapsed: boolean;
+  onClick?: () => void;
+}) {
   return (
     <Link
       href={item.href}
-      className={`group relative flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+      onClick={onClick}
+      title={collapsed ? item.label : undefined}
+      className={`group relative flex items-center rounded-lg px-3 py-3 text-sm font-medium transition-all duration-200 ${
+        collapsed ? "justify-center" : "gap-3"
+      } ${
         active
           ? "bg-[#E8F7F0] text-[#087F5B]"
           : "text-[#25324B] hover:bg-[#F8F8FD]"
@@ -101,30 +81,24 @@ function NavLink({ item, active }: { item: NavItem; active: boolean }) {
           active ? "bg-[#087F5B] opacity-100" : "opacity-0"
         }`}
       />
-      <span
-        className={
-          active
-            ? "text-[#087F5B]"
-            : "text-[#7C8493] group-hover:text-[#25324B]"
-        }
-      >
+      <span className={active ? "text-[#087F5B]" : "text-[#7C8493] group-hover:text-[#25324B]"}>
         {item.icon}
       </span>
-      <span>{item.label}</span>
+      {!collapsed && <span className="truncate">{item.label}</span>}
     </Link>
   );
 }
 
-export default function AdminSidebar({
-  mobileOpen = false,
-  onMobileClose,
+function SidebarContent({
+  collapsed,
+  onNavigate,
 }: {
-  mobileOpen?: boolean;
-  onMobileClose?: () => void;
+  collapsed: boolean;
+  onNavigate?: () => void;
 }) {
   const pathname = usePathname();
 
-  const { data: user, isLoading } = useQuery<MeUser>({
+  const { data: user } = useQuery<MeUser>({
     queryKey: ["admin-me"],
     queryFn: async () => {
       const res = await api.get("/auth/me");
@@ -133,79 +107,125 @@ export default function AdminSidebar({
   });
 
   const meUser = user?.user;
-
   const displayName = meUser
     ? `${meUser.firstName || ""} ${meUser.lastName || ""}`.trim()
     : "HR Admin";
   const role = meUser?.role ?? "admin";
   const avatarUrl = meUser?.picture || "/images/companies/dummy.png";
 
-  const content = (
-    <phantom-ui loading={isLoading}>
-      <div className="h-full px-5 py-12 flex flex-col overflow-y-auto">
-        {/* User card */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-              <Image
-                src={avatarUrl}
-                alt="User avatar"
-                fill
-                className="object-cover"
-                sizes="40px"
-              />
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold text-[#25324B]">
-                {displayName || "Admin User"}
-              </p>
-              <p className="text-xs text-[#7C8493] capitalize">{role}</p>
-            </div>
-          </div>
+  return (
+    <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
+      {/* User card */}
+      <div className={`flex items-center mt-6 mb-6 px-4 ${collapsed ? "justify-center" : "gap-3"}`}>
+        <div
+          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100"
+          title={collapsed ? displayName : undefined}
+        >
+          <Image src={avatarUrl} alt="User avatar" fill className="object-cover" sizes="40px" />
         </div>
-
-        {/* Main nav */}
-        <nav className="space-y-2 relative left-[-21px]" onClick={onMobileClose}>
-          {mainNav.map((item) => {
-            const active = pathname === item.href;
-            return <NavLink key={item.href} item={item} active={active} />;
-          })}
-        </nav>
-
-        <div className="my-3 h-px w-full bg-gray-100" />
-
-        {/* Bottom nav */}
-        <nav className="space-y-2 relative left-[-21px]" onClick={onMobileClose}>
-          {bottomNav.map((item) => {
-            const active = pathname === item.href;
-            return <NavLink key={item.href} item={item} active={active} />;
-          })}
-        </nav>
-
-        <div className="flex-1" />
+        {!collapsed && (
+          <div className="leading-tight min-w-0">
+            <p className="text-sm font-semibold text-[#25324B] truncate">{displayName || "Admin User"}</p>
+            <p className="text-xs text-[#7C8493] capitalize">{role}</p>
+          </div>
+        )}
       </div>
-    </phantom-ui>
-  );
 
+      {/* Main nav */}
+      <nav className="space-y-1 px-2" data-tour="sidebar-navigation">
+        {mainNav.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <NavLink key={item.href} item={item} active={active} collapsed={collapsed} onClick={onNavigate} />
+          );
+        })}
+      </nav>
+
+      <div className="my-3 mx-4 h-px bg-gray-100" />
+
+      {/* Bottom nav */}
+      <nav className="space-y-1 px-2">
+        {bottomNav.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <NavLink key={item.href} item={item} active={active} collapsed={collapsed} onClick={onNavigate} />
+          );
+        })}
+      </nav>
+
+      <div className="flex-1" />
+    </div>
+  );
+}
+
+export default function AdminSidebar({
+  mobileOpen = false,
+  onMobileClose,
+  collapsed = false,
+  onToggleCollapse,
+}: {
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
+  collapsed?: boolean;
+  onToggleCollapse?: () => void;
+}) {
   return (
     <>
       {/* Desktop sidebar */}
       <aside
-        className="hidden lg:block sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100"
-        data-tour="sidebar-navigation"
+        className={`hidden lg:flex flex-col sticky top-[56px] h-[calc(100vh-56px)] shrink-0 bg-white border-r border-gray-100 transition-all duration-300 ${
+          collapsed ? "w-[64px]" : "w-[240px]"
+        }`}
       >
-        {content}
+        {/* Logo + toggle row */}
+        <div className={`flex items-center border-b border-gray-100 px-3 py-4 ${collapsed ? "justify-center" : "justify-between"}`}>
+          {!collapsed && (
+            <Link href="/admin" className="shrink-0">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="HireLens"
+                width={130}
+                height={40}
+                className="h-[32px] w-auto"
+              />
+            </Link>
+          )}
+          <button
+            onClick={onToggleCollapse}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            className="rounded-lg p-1.5 text-[#7C8493] hover:bg-[#F8F8FD] hover:text-[#087F5B] transition-colors"
+          >
+            {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+          </button>
+        </div>
+
+        <SidebarContent collapsed={collapsed} />
       </aside>
 
       {/* Mobile drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[60] lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={onMobileClose}
-          />
+          <div className="absolute inset-0 bg-black/40" onClick={onMobileClose} />
           <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
-            {content}
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="HireLens Logo"
+                width={130}
+                height={40}
+                className="h-[32px] w-auto"
+              />
+              <button
+                onClick={onMobileClose}
+                aria-label="Close menu"
+                className="rounded-lg p-2 text-[#7C8493] hover:bg-gray-100"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="h-[calc(100%-61px)]">
+              <SidebarContent collapsed={false} onNavigate={onMobileClose} />
+            </div>
           </aside>
         </div>
       )}

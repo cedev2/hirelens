@@ -15,6 +15,8 @@ import {
   HelpCircle,
   LogOut,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 import { useQuery } from "@tanstack/react-query";
@@ -32,92 +34,74 @@ type NavItem = {
 };
 
 const mainNav: NavItem[] = [
-  {
-    label: "Dashboard",
-    href: "/dashboard",
-    icon: <LayoutGrid className="h-5 w-5" />,
-  },
-  {
-    label: "My Profile",
-    href: "/dashboard/profile",
-    icon: <User className="h-5 w-5" />,
-  },
-  {
-    label: "Jobs",
-    href: "/dashboard/jobs",
-    icon: <Briefcase className="h-5 w-5" />,
-  },
-  {
-    label: "Applications",
-    href: "/dashboard/applications",
-    icon: <FileText className="h-5 w-5" />,
-  },
-  {
-    label: "Calendar",
-    href: "/dashboard/calendar",
-    icon: <CalendarDays className="h-5 w-5" />,
-  },
+  { label: "Dashboard", href: "/dashboard", icon: <LayoutGrid className="h-5 w-5" /> },
+  { label: "My Profile", href: "/dashboard/profile", icon: <User className="h-5 w-5" /> },
+  { label: "Jobs", href: "/dashboard/jobs", icon: <Briefcase className="h-5 w-5" /> },
+  { label: "Applications", href: "/dashboard/applications", icon: <FileText className="h-5 w-5" /> },
+  { label: "Calendar", href: "/dashboard/calendar", icon: <CalendarDays className="h-5 w-5" /> },
 ];
 
-function NavLink({ item, active }: { item: NavItem; active: boolean }) {
+function NavLink({
+  item,
+  active,
+  collapsed,
+}: {
+  item: NavItem;
+  active: boolean;
+  collapsed: boolean;
+}) {
+  const baseClass = `group relative flex items-center rounded-lg px-3 py-3 text-sm font-medium transition-all duration-200 ${
+    collapsed ? "justify-center" : "gap-3"
+  } ${
+    active
+      ? "bg-[#E8F7F0] text-[#087F5B]"
+      : "text-[#25324B] hover:bg-[#F8F8FD]"
+  }`;
+
+  const activeLine = (
+    <span
+      className={`absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full transition-opacity ${
+        active ? "bg-[#087F5B] opacity-100" : "opacity-0"
+      }`}
+    />
+  );
+
+  const iconEl = (
+    <span className={active ? "text-[#087F5B]" : "text-[#7C8493] group-hover:text-[#25324B]"}>
+      {item.icon}
+    </span>
+  );
+
+  const inner = (
+    <>
+      {activeLine}
+      {iconEl}
+      {!collapsed && <span className="truncate">{item.label}</span>}
+    </>
+  );
+
   if (item.onClick) {
     return (
-      <button
-        onClick={item.onClick}
-        className={`w-full group relative flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-          active
-            ? "bg-[#E8F7F0] text-[#087F5B]"
-            : "text-[#25324B] hover:bg-[#F8F8FD]"
-        }`}
-      >
-        <span
-          className={`absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full transition-opacity ${
-            active ? "bg-[#087F5B] opacity-100" : "opacity-0"
-          }`}
-        />
-        <span
-          className={
-            active
-              ? "text-[#087F5B]"
-              : "text-[#7C8493] group-hover:text-[#25324B]"
-          }
-        >
-          {item.icon}
-        </span>
-        <span>{item.label}</span>
+      <button onClick={item.onClick} title={collapsed ? item.label : undefined} className={`w-full ${baseClass}`}>
+        {inner}
       </button>
     );
   }
 
   return (
-    <Link
-      href={item.href}
-      className={`group relative flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-        active
-          ? "bg-[#E8F7F0] text-[#087F5B]"
-          : "text-[#25324B] hover:bg-[#F8F8FD]"
-      }`}
-    >
-      <span
-        className={`absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full transition-opacity ${
-          active ? "bg-[#087F5B] opacity-100" : "opacity-0"
-        }`}
-      />
-      <span
-        className={
-          active
-            ? "text-[#087F5B]"
-            : "text-[#7C8493] group-hover:text-[#25324B]"
-        }
-      >
-        {item.icon}
-      </span>
-      <span>{item.label}</span>
+    <Link href={item.href} title={collapsed ? item.label : undefined} className={baseClass}>
+      {inner}
     </Link>
   );
 }
 
-function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+function SidebarContent({
+  collapsed,
+  onNavigate,
+}: {
+  collapsed: boolean;
+  onNavigate?: () => void;
+}) {
   const pathname = usePathname();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -146,89 +130,60 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   };
 
   const bottomNav: NavItem[] = [
-    {
-      label: "Setting",
-      href: "/dashboard/settings",
-      icon: <Settings className="h-5 w-5" />,
-    },
-    {
-      label: "Help & Support",
-      href: "/dashboard/help",
-      icon: <HelpCircle className="h-5 w-5" />,
-    },
-    {
-      label: "Logout",
-      href: "#",
-      icon: <LogOut className="h-5 w-5" />,
-      onClick: handleLogout,
-    },
+    { label: "Setting", href: "/dashboard/settings", icon: <Settings className="h-5 w-5" /> },
+    { label: "Help & Support", href: "/dashboard/help", icon: <HelpCircle className="h-5 w-5" /> },
+    { label: "Logout", href: "#", icon: <LogOut className="h-5 w-5" />, onClick: handleLogout },
   ];
 
   const currentUser = reduxUser || user;
   const displayName = currentUser
     ? `${currentUser.firstName} ${currentUser.lastName || ""}`.trim()
     : "Loading...";
-  const userPicture =
-    currentUser?.picture ||
-    talent?.userId?.picture ||
-    "/images/companies/dummy.png";
+  const userPicture = currentUser?.picture || talent?.userId?.picture || "/images/companies/dummy.png";
   const userHeadline = talent?.headline || "Talent";
 
   const wrapClick = (item: NavItem) =>
-    item.onClick
-      ? item.onClick
-      : () => {
-          onNavigate?.();
-        };
+    item.onClick ? item.onClick : () => { onNavigate?.(); };
 
   return (
-    <div className="h-full px-5 py-8 flex flex-col overflow-y-auto">
+    <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
       {/* User card */}
-      <div className="flex items-center justify-between mb-8">
-        <phantom-ui loading={!currentUser && userLoading}>
-          <div className="flex items-center gap-3">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-              <Image
-                src={userPicture}
-                alt="User avatar"
-                fill
-                className="object-cover"
-                sizes="40px"
-              />
-            </div>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold text-[#25324B]">
-                {displayName}
-              </p>
-              <p className="text-xs text-[#7C8493] line-clamp-1">
-                {userHeadline}
-              </p>
-            </div>
+      <div className={`flex items-center mt-6 mb-6 px-4 ${collapsed ? "justify-center" : "gap-3"}`}>
+        <div
+          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100"
+          title={collapsed ? displayName : undefined}
+        >
+          <Image src={userPicture} alt="User avatar" fill className="object-cover" sizes="40px" />
+        </div>
+        {!collapsed && (
+          <div className="leading-tight min-w-0">
+            <p className="text-sm font-semibold text-[#25324B] truncate">{displayName}</p>
+            <p className="text-xs text-[#7C8493] truncate">{userHeadline}</p>
           </div>
-        </phantom-ui>
+        )}
       </div>
 
       {/* Main nav */}
-      <nav className="space-y-2 relative left-[-21px]">
+      <nav className="space-y-1 px-2">
         {mainNav.map((item) => {
           const active = pathname === item.href;
           return (
             <div key={item.href} onClick={wrapClick(item)}>
-              <NavLink item={item} active={active} />
+              <NavLink item={item} active={active} collapsed={collapsed} />
             </div>
           );
         })}
       </nav>
 
-      <div className="my-3 h-px w-full bg-gray-100" />
+      <div className="my-3 mx-4 h-px bg-gray-100" />
 
       {/* Bottom nav */}
-      <nav className="space-y-2 relative left-[-21px]">
+      <nav className="space-y-1 px-2">
         {bottomNav.map((item) => {
           const active = pathname === item.href;
           return (
             <div key={item.href} onClick={wrapClick(item)}>
-              <NavLink item={item} active={active} />
+              <NavLink item={item} active={active} collapsed={collapsed} />
             </div>
           );
         })}
@@ -242,32 +197,59 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 export default function DashboardSidebar({
   mobileOpen = false,
   onMobileClose,
+  collapsed = false,
+  onToggleCollapse,
 }: {
   mobileOpen?: boolean;
   onMobileClose?: () => void;
+  collapsed?: boolean;
+  onToggleCollapse?: () => void;
 }) {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block sticky top-[56px] h-[calc(100vh-56px)] w-[240px] shrink-0 bg-white border-r border-gray-100">
-        <SidebarContent />
+      <aside
+        className={`hidden lg:flex flex-col sticky top-[56px] h-[calc(100vh-56px)] shrink-0 bg-white border-r border-gray-100 transition-all duration-300 ${
+          collapsed ? "w-[64px]" : "w-[240px]"
+        }`}
+      >
+        {/* Logo + toggle row */}
+        <div className={`flex items-center border-b border-gray-100 px-3 py-4 ${collapsed ? "justify-center" : "justify-between"}`}>
+          {!collapsed && (
+            <Link href="/dashboard" className="shrink-0">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="HireLens"
+                width={130}
+                height={40}
+                className="h-[32px] w-auto"
+              />
+            </Link>
+          )}
+          <button
+            onClick={onToggleCollapse}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            className="rounded-lg p-1.5 text-[#7C8493] hover:bg-[#F8F8FD] hover:text-[#087F5B] transition-colors"
+          >
+            {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+          </button>
+        </div>
+
+        <SidebarContent collapsed={collapsed} />
       </aside>
 
       {/* Mobile drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[60] lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={onMobileClose}
-          />
+          <div className="absolute inset-0 bg-black/40" onClick={onMobileClose} />
           <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl animate-in slide-in-from-left duration-200">
-            <div className="flex items-center justify-between px-5 pt-4">
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
               <Image
                 src="/images/logo/logo.svg"
                 alt="HireLens Logo"
-                width={80}
-                height={14}
-                className="h-[14px] w-auto"
+                width={130}
+                height={40}
+                className="h-[32px] w-auto"
               />
               <button
                 onClick={onMobileClose}
@@ -277,8 +259,8 @@ export default function DashboardSidebar({
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="h-[calc(100%-52px)]">
-              <SidebarContent onNavigate={onMobileClose} />
+            <div className="h-[calc(100%-61px)]">
+              <SidebarContent collapsed={false} onNavigate={onMobileClose} />
             </div>
           </aside>
         </div>

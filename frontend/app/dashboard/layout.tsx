@@ -13,6 +13,7 @@ export default function DashboardLayout({
 }: Readonly<{ children: ReactNode }>) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const isAuthRoute = pathname?.includes("/auth/");
   const isProfileRoute = pathname?.includes("/profile");
 
@@ -40,6 +41,8 @@ export default function DashboardLayout({
         <DashboardSidebar
           mobileOpen={mobileMenuOpen}
           onMobileClose={() => setMobileMenuOpen(false)}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
         />
         <main className="flex-1 min-w-0 px-4 sm:px-6 py-6 sm:py-8">
           {children}

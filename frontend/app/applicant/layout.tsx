@@ -15,6 +15,8 @@ import {
   LayoutGrid,
   Menu,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import ChatWidget from "@/app/components/chat/ChatWidget";
 
@@ -34,10 +36,9 @@ export default function ApplicantLayout({
   const user = useSelector((state: any) => state.auth?.user);
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     if (!isAuthRoute && (!user || user.role !== "applicant")) {
@@ -54,6 +55,9 @@ export default function ApplicantLayout({
     dispatch(logout());
     router.push("/dashboard/auth/login");
   };
+
+  const sidebarWidth = sidebarCollapsed ? "w-[64px]" : "w-[220px]";
+  const mainMargin = sidebarCollapsed ? "lg:ml-[64px]" : "lg:ml-[220px]";
 
   return (
     <div className="min-h-screen bg-[#F8F8FD]">
@@ -72,9 +76,9 @@ export default function ApplicantLayout({
               <Image
                 src="/images/logo/logo.svg"
                 alt="HireLens"
-                width={80}
-                height={14}
-                className="h-[14px] w-auto"
+                width={110}
+                height={32}
+                className="h-[28px] w-auto"
               />
             </Link>
           </div>
@@ -94,46 +98,76 @@ export default function ApplicantLayout({
       </header>
 
       <div className="flex pt-[53px]">
-        {/* Sidebar - desktop */}
-        <aside className="hidden lg:block fixed left-0 top-[53px] bottom-0 w-[220px] bg-white border-r border-gray-100 p-4">
-          <nav className="space-y-1 mt-2">
+        {/* Desktop sidebar */}
+        <aside
+          className={`hidden lg:flex flex-col fixed left-0 top-[53px] bottom-0 bg-white border-r border-gray-100 transition-all duration-300 ${sidebarWidth}`}
+        >
+          {/* Logo + collapse toggle */}
+          <div className={`flex items-center border-b border-gray-100 px-3 py-4 ${sidebarCollapsed ? "justify-center" : "justify-between"}`}>
+            {!sidebarCollapsed && (
+              <Link href="/applicant" className="shrink-0">
+                <Image
+                  src="/images/logo/logo.svg"
+                  alt="HireLens"
+                  width={130}
+                  height={40}
+                  className="h-[32px] w-auto"
+                />
+              </Link>
+            )}
+            <button
+              onClick={() => setSidebarCollapsed((v) => !v)}
+              aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+              className="rounded-lg p-1.5 text-[#7C8493] hover:bg-[#F8F8FD] hover:text-[#087F5B] transition-colors"
+            >
+              {sidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+            </button>
+          </div>
+
+          {/* Nav items */}
+          <nav className="space-y-1 px-2 mt-4">
             {navItems.map((item) => {
               const active = pathname === item.href || (item.href !== "/applicant" && pathname?.startsWith(item.href));
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+                  title={sidebarCollapsed ? item.label : undefined}
+                  className={`group relative flex items-center rounded-lg px-3 py-3 text-sm font-medium transition-all duration-200 ${
+                    sidebarCollapsed ? "justify-center" : "gap-3"
+                  } ${
                     active
                       ? "bg-[#E8F7F0] text-[#087F5B]"
                       : "text-[#25324B] hover:bg-[#F8F8FD]"
                   }`}
                 >
-                  <span className={active ? "text-[#087F5B]" : "text-[#7C8493]"}>
+                  <span
+                    className={`absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full transition-opacity ${
+                      active ? "bg-[#087F5B] opacity-100" : "opacity-0"
+                    }`}
+                  />
+                  <span className={active ? "text-[#087F5B]" : "text-[#7C8493] group-hover:text-[#25324B]"}>
                     {item.icon}
                   </span>
-                  {item.label}
+                  {!sidebarCollapsed && <span className="truncate">{item.label}</span>}
                 </Link>
               );
             })}
           </nav>
         </aside>
 
-        {/* Sidebar - mobile drawer */}
+        {/* Mobile drawer */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[60] lg:hidden">
-            <div
-              className="absolute inset-0 bg-black/40"
-              onClick={() => setMobileMenuOpen(false)}
-            />
+            <div className="absolute inset-0 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
             <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
-              <div className="flex items-center justify-between px-5 pt-4 pb-2">
+              <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
                 <Image
                   src="/images/logo/logo.svg"
                   alt="HireLens"
-                  width={80}
-                  height={14}
-                  className="h-[14px] w-auto"
+                  width={130}
+                  height={40}
+                  className="h-[32px] w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -151,14 +185,10 @@ export default function ApplicantLayout({
                       key={item.href}
                       href={item.href}
                       className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-                        active
-                          ? "bg-[#E8F7F0] text-[#087F5B]"
-                          : "text-[#25324B] hover:bg-[#F8F8FD]"
+                        active ? "bg-[#E8F7F0] text-[#087F5B]" : "text-[#25324B] hover:bg-[#F8F8FD]"
                       }`}
                     >
-                      <span className={active ? "text-[#087F5B]" : "text-[#7C8493]"}>
-                        {item.icon}
-                      </span>
+                      <span className={active ? "text-[#087F5B]" : "text-[#7C8493]"}>{item.icon}</span>
                       {item.label}
                     </Link>
                   );
@@ -169,7 +199,7 @@ export default function ApplicantLayout({
         )}
 
         {/* Main content */}
-        <main className="flex-1 min-w-0 lg:ml-[220px] px-4 sm:px-6 py-6 sm:py-8">
+        <main className={`flex-1 min-w-0 ${mainMargin} px-4 sm:px-6 py-6 sm:py-8 transition-all duration-300`}>
           {children}
         </main>
       </div>
