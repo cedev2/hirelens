@@ -3,12 +3,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api/client";
 import { useSelector } from "react-redux";
-import { Briefcase, FileText, Clock, CheckCircle, XCircle, Award } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Briefcase, FileText, Clock, CheckCircle, Award } from "lucide-react";
 import Link from "next/link";
 
 export default function ApplicantDashboard() {
   const user = useSelector((state: any) => state.auth?.user);
   const talentId = user?.talentProfileId;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const { data: applications = [], isLoading } = useQuery({
     queryKey: ["applicant", "applications", talentId],
@@ -33,7 +36,6 @@ export default function ApplicantDashboard() {
   const reviewing = applications.filter((a: any) => a.status === "reviewing");
   const shortlisted = applications.filter((a: any) => a.status === "shortlisted");
   const hired = applications.filter((a: any) => a.status === "hired");
-  const rejected = applications.filter((a: any) => a.status === "rejected");
 
   const stats = [
     { label: "Open Jobs", value: openJobs.length, icon: <Briefcase className="h-5 w-5" />, color: "text-blue-600", bg: "bg-blue-50" },
@@ -81,7 +83,7 @@ export default function ApplicantDashboard() {
               View all
             </Link>
           </div>
-          {isLoading ? (
+          {mounted && isLoading ? (
             <p className="text-sm text-gray-400">Loading...</p>
           ) : recentApplications.length === 0 ? (
             <div className="text-center py-8">
