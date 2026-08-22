@@ -20,9 +20,9 @@ async function seed() {
     Screening.deleteMany({}),
   ]);
 
-  const adminPassword = await bcrypt.hash("Admin@123", 10);
+  const adminPassword = await bcrypt.hash("Groupx@2026", 10);
   const admin = await User.create({
-    email: "admin@hirelens.com",
+    email: "ejolabsgroupx@gmail.com",
     password: adminPassword,
     firstName: "HireLens",
     lastName: "Admin",
