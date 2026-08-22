@@ -47,7 +47,7 @@ export default function JobsPage() {
   return (
     <div className="max-w-6xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-[#25324B]">Browse Jobs</h1>
+        <h1 className="text-2xl font-bold text-[#111827]">Browse Jobs</h1>
         <p className="text-gray-500 text-sm mt-1">
           Find your next opportunity from {openJobs.length} open position{openJobs.length !== 1 ? "s" : ""}
         </p>
@@ -102,7 +102,7 @@ export default function JobsPage() {
               className="bg-white rounded-xl border border-gray-100 p-6 hover:border-[#087F5B] hover:shadow-md transition-all group"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-semibold text-[#25324B] group-hover:text-[#087F5B] transition-colors">
+                <h3 className="text-lg font-semibold text-[#111827] group-hover:text-[#087F5B] transition-colors">
                   {job.title}
                 </h3>
                 <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-[#087F5B] transition-colors mt-1 shrink-0" />

@@ -24,25 +24,18 @@ export default function AdminHeader({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#F8F8FD]/80 backdrop-blur-md border-b border-gray-100/60">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 gap-3">
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onMenuClick}
             aria-label="Open menu"
-            className="lg:hidden rounded-lg p-2 text-[#25324B] hover:bg-white/70"
+            className="lg:hidden rounded-lg p-2 text-[#111827] hover:bg-white/70"
           >
             <Menu className="h-5 w-5" />
           </button>
           <Link href="/admin" className="shrink-0">
-            <Image
-              src="/images/logo/logo.jpg"
-              alt="HireLens"
-              width={120}
-              height={32}
-              loading="eager"
-              className="h-[32px] w-auto object-contain"
-            />
+            <Image src="/images/logo/hirelens.jpg" alt="HireLens" width={120} height={32} className="h-[32px] w-auto object-contain" />
           </Link>
         </div>
 

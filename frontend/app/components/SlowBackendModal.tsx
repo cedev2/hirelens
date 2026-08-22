@@ -30,16 +30,16 @@ export default function SlowBackendModal() {
       title="Backend waking up"
     >
       <div className="space-y-4">
-        <p className="text-[#25324B] leading-relaxed">{state.message}</p>
-        <div className="rounded-xl bg-[#F8F8FD] p-4">
-          <p className="text-sm text-[#25324B]">
+        <p className="text-[#111827] leading-relaxed">{state.message}</p>
+        <div className="rounded-xl bg-[#F9FAFB] p-4">
+          <p className="text-sm text-[#111827]">
             Pending requests:{" "}
             <span className="font-semibold">{state.pendingCount}</span>
           </p>
         </div>
         <div className="flex justify-end">
           <button
-            className="px-4 py-2 rounded-lg bg-[#25324B] text-white disabled:opacity-50"
+            className="px-4 py-2 rounded-lg bg-[#111827] text-white disabled:opacity-50"
             onClick={() => setState((s) => ({ ...s, visible: false }))}
           >
             Ok

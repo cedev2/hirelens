@@ -98,7 +98,7 @@ export default function AdminProfilePage() {
         <button
           type="button"
           onClick={() => router.push("/admin")}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827]"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Dashboard
@@ -113,7 +113,7 @@ export default function AdminProfilePage() {
 
         {meQuery.isLoading ? (
           <div className="rounded-xl border border-gray-200 bg-white p-10">
-            <div className="flex items-center gap-2 text-sm font-semibold text-[#25324B]">
+            <div className="flex items-center gap-2 text-sm font-semibold text-[#111827]">
               <Loader2 className="h-4 w-4 animate-spin" />
               Loading profile...
             </div>
@@ -123,7 +123,7 @@ export default function AdminProfilePage() {
             Failed to load profile.
           </div>
         ) : !user ? (
-          <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm text-[#7C8493]">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm text-[#6B7280]">
             No user session.
           </div>
         ) : (
@@ -137,7 +137,7 @@ export default function AdminProfilePage() {
                       src={
                         form.picture ||
                         user.picture ||
-                        "/images/companies/dummy.png"
+                        "/images/companies/dummy.jpg"
                       }
                       alt="Profile"
                       className="h-full w-full object-cover"
@@ -149,10 +149,10 @@ export default function AdminProfilePage() {
                 </div>
 
                 <div>
-                  <p className="text-lg font-bold text-[#25324B]">
+                  <p className="text-lg font-bold text-[#111827]">
                     {String(user.firstName ?? "")} {String(user.lastName ?? "")}
                   </p>
-                  <p className="text-xs font-semibold text-[#7C8493]">
+                  <p className="text-xs font-semibold text-[#6B7280]">
                     Role: {user.role ?? "admin"}
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function AdminProfilePage() {
 
             <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+                <label className="mb-1 block text-sm font-semibold text-[#111827]">
                   First name
                 </label>
                 <div className="relative">
@@ -195,7 +195,7 @@ export default function AdminProfilePage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+                <label className="mb-1 block text-sm font-semibold text-[#111827]">
                   Last name
                 </label>
                 <input
@@ -208,7 +208,7 @@ export default function AdminProfilePage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+                <label className="mb-1 block text-sm font-semibold text-[#111827]">
                   Email
                 </label>
                 <div className="relative">
@@ -222,7 +222,7 @@ export default function AdminProfilePage() {
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+                <label className="mb-1 block text-sm font-semibold text-[#111827]">
                   Phone
                 </label>
                 <PhoneInput
@@ -237,11 +237,11 @@ export default function AdminProfilePage() {
               </div>
 
               <div className="md:col-span-2">
-                <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-5">
-                  <p className="text-sm font-semibold text-[#25324B] mb-1">
+                <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-5">
+                  <p className="text-sm font-semibold text-[#111827] mb-1">
                     Profile Photo
                   </p>
-                  <p className="text-xs text-[#7C8493] mb-3">
+                  <p className="text-xs text-[#6B7280] mb-3">
                     Upload a new profile picture. This will be shown in the sidebar and across the admin panel.
                   </p>
                   <UploadButton
@@ -266,7 +266,7 @@ export default function AdminProfilePage() {
               </div>
 
               <div className="md:col-span-2">
-                <p className="mt-2 text-xs text-[#7C8493]">
+                <p className="mt-2 text-xs text-[#6B7280]">
                   Change password via settings.{" "}
                   <button
                     type="button"

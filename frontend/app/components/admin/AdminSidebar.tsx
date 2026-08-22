@@ -57,7 +57,7 @@ function NavLink({
       } ${
         active
           ? "bg-[#E8F7F0] text-[#087F5B]"
-          : "text-[#25324B] hover:bg-[#F8F8FD]"
+          : "text-[#111827] hover:bg-[#F9FAFB]"
       }`}
     >
       <span
@@ -65,7 +65,7 @@ function NavLink({
           active ? "bg-[#087F5B] opacity-100" : "opacity-0"
         }`}
       />
-      <span className={active ? "text-[#087F5B]" : "text-[#7C8493] group-hover:text-[#25324B]"}>
+      <span className={active ? "text-[#087F5B]" : "text-[#6B7280] group-hover:text-[#111827]"}>
         {item.icon}
       </span>
       {!collapsed && <span className="truncate">{item.label}</span>}
@@ -140,7 +140,7 @@ export default function AdminSidebar({
           <button
             onClick={onToggleCollapse}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-            className="rounded-lg p-1.5 text-[#7C8493] hover:bg-[#F8F8FD] hover:text-[#087F5B] transition-colors"
+            className="rounded-lg p-1.5 text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#087F5B] transition-colors"
           >
             {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
           </button>
@@ -155,13 +155,13 @@ export default function AdminSidebar({
           <div className="absolute inset-0 bg-black/40" onClick={onMobileClose} />
           <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
             <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-              <Link href="/admin">
+              <Link href="/admin" className="shrink-0">
                 <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
               </Link>
               <button
                 onClick={onMobileClose}
                 aria-label="Close menu"
-                className="rounded-lg p-2 text-[#7C8493] hover:bg-gray-100"
+                className="rounded-lg p-2 text-[#6B7280] hover:bg-gray-100"
               >
                 <X className="h-5 w-5" />
               </button>

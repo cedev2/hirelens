@@ -62,7 +62,7 @@ export default function HelpDocsPage() {
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h1 className="text-5xl font-bold text-[#25324B] mb-6">
+            <h1 className="text-5xl font-bold text-[#111827] mb-6">
               Help <span className="text-[#087F5B]">Center</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl">
@@ -75,7 +75,7 @@ export default function HelpDocsPage() {
         {/* Docs Grid */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-8">Documentation</h2>
+            <h2 className="text-3xl font-bold text-[#111827] mb-8">Documentation</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {docs.map((doc, index) => (
                 <a
@@ -84,7 +84,7 @@ export default function HelpDocsPage() {
                   className="p-6 border border-gray-100 rounded-lg hover:border-[#087F5B] hover:shadow-md transition-all"
                 >
                   <div className="text-[#087F5B] mb-4">{doc.icon}</div>
-                  <h3 className="text-lg font-semibold text-[#25324B] mb-2">{doc.title}</h3>
+                  <h3 className="text-lg font-semibold text-[#111827] mb-2">{doc.title}</h3>
                   <p className="text-gray-600 text-sm">{doc.description}</p>
                 </a>
               ))}
@@ -95,11 +95,11 @@ export default function HelpDocsPage() {
         {/* FAQ Section */}
         <section className="py-16 bg-[#f8f8fd]">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-8">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-[#111827] mb-8">Frequently Asked Questions</h2>
             <div className="space-y-6 max-w-3xl">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="font-semibold text-[#25324B] mb-2">{faq.question}</h3>
+                  <h3 className="font-semibold text-[#111827] mb-2">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
                 </div>
               ))}
@@ -110,7 +110,7 @@ export default function HelpDocsPage() {
         {/* Support CTA */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] text-center">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-4">
+            <h2 className="text-3xl font-bold text-[#111827] mb-4">
               Need More Help?
             </h2>
             <p className="text-gray-600 mb-6">

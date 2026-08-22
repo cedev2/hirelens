@@ -77,17 +77,17 @@ export default function ApplicationCard({
         <div className="flex items-center gap-3">
           <div className="w-13 h-13 rounded-full bg-[#F8FAFC] border border-gray-50 flex items-center justify-center overflow-hidden shrink-0">
             <img
-              src="/images/logo/hirelens-ai-logo.svg"
+              src="/images/logo/hirelens.jpg"
               alt="HireLens logo"
               className="w-full h-full object-cover"
             />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-[#25324B] group-hover:text-[#087F5B] transition-colors leading-tight">
+            <h3 className="text-xl font-bold text-[#111827] group-hover:text-[#087F5B] transition-colors leading-tight">
               {application.jobTitle}
             </h3>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5">
-              <p className="text-sm font-semibold text-[#7C8493]">
+              <p className="text-sm font-semibold text-[#6B7280]">
                 {application.company}
               </p>
               <span className="w-1 h-1 rounded-full bg-gray-300 hidden sm:block"></span>
@@ -104,7 +104,7 @@ export default function ApplicationCard({
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">
               Date Applied
             </span>
-            <div className="flex items-center gap-2 text-sm font-bold text-[#25324B]">
+            <div className="flex items-center gap-2 text-sm font-bold text-[#111827]">
               <Calendar className="w-4 h-4 text-gray-400" />
               {application.appliedDate}
             </div>
@@ -134,7 +134,7 @@ export default function ApplicationCard({
             <div className="p-2 bg-green-50 text-[#087F5B] rounded-full">
               <AlertCircle className="w-4 h-4" />
             </div>
-            <p className="text-sm font-semibold text-[#25324B]">
+            <p className="text-sm font-semibold text-[#111827]">
               Next Step:{" "}
               <span className="text-[#087F5B]">{application.nextStep}</span>
             </p>

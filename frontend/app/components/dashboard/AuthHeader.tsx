@@ -8,7 +8,7 @@ export default function AuthHeader() {
     <header className="fixed left-6 top-5 z-50">
       <Link href="/">
         <Image
-          src="/images/logo/logo.jpg"
+          src="/images/logo/hirelens.jpg"
           alt="HireLens"
           width={130}
           height={36}

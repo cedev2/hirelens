@@ -15,13 +15,13 @@ export default function UpcomingDeadlines({
 }) {
   return (
     <div className="rounded-[10px] bg-white border border-gray-100 p-6">
-      <p className="text-lg font-semibold text-[#25324B]">Upcoming Deadlines</p>
+      <p className="text-lg font-semibold text-[#111827]">Upcoming Deadlines</p>
 
       <div className="mt-4 space-y-3">
         {deadlines.map((d) => (
           <div
             key={d.name}
-            className="flex items-center justify-between rounded-[10px] bg-[#F8F8FD] px-2 py-3"
+            className="flex items-center justify-between rounded-[10px] bg-[#F9FAFB] px-2 py-3"
           >
             <div className="flex items-center gap-3">
               <div className="relative h-10 w-10">
@@ -34,10 +34,10 @@ export default function UpcomingDeadlines({
                 />
               </div>
               <div className="leading-tight">
-                <p className="text-sm font-semibold text-[#25324B] line-clamp-1">
+                <p className="text-sm font-semibold text-[#111827] line-clamp-1">
                   {d.name}
                 </p>
-                <p className="text-xs text-[#7C8493]">{d.company}</p>
+                <p className="text-xs text-[#6B7280]">{d.company}</p>
               </div>
             </div>
             <div className="text-xs text-[#087F5B] font-medium inline-flex items-center gap-1">

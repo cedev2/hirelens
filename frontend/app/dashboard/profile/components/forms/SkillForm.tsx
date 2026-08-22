@@ -24,7 +24,7 @@ export default function SkillForm({ initialData, onSubmit, onDelete }: SkillForm
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Skill Name</label>
+        <label className="text-sm font-bold text-[#111827]">Skill Name</label>
         <input 
           name="name" 
           defaultValue={initialData?.name} 
@@ -35,7 +35,7 @@ export default function SkillForm({ initialData, onSubmit, onDelete }: SkillForm
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Level</label>
+          <label className="text-sm font-bold text-[#111827]">Level</label>
           <select 
             name="level" 
             defaultValue={initialData?.level || "Intermediate"} 
@@ -49,7 +49,7 @@ export default function SkillForm({ initialData, onSubmit, onDelete }: SkillForm
           </select>
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Years of Experience</label>
+          <label className="text-sm font-bold text-[#111827]">Years of Experience</label>
           <input 
             name="yearsOfExperience" 
             type="number" 

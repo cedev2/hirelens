@@ -340,11 +340,11 @@ export default function ProfilePage() {
 
                 <div className="text-center sm:text-left pt-2">
                   <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
-                    <h1 className="text-3xl sm:text-3xl font-extrabold text-[#25324B]">
+                    <h1 className="text-3xl sm:text-3xl font-extrabold text-[#111827]">
                       {userData.firstName} {userData.lastName}
                     </h1>
                   </div>
-                  <p className="text-lg font-semibold text-[#7C8493] mb-4 max-w-xl">
+                  <p className="text-lg font-semibold text-[#6B7280] mb-4 max-w-xl">
                     {talentData.headline}
                   </p>
 
@@ -402,13 +402,13 @@ export default function ProfilePage() {
                 onClick={() => openModal("bio")}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-[#25324B] flex items-center gap-3">
+                  <h2 className="text-xl font-bold text-[#111827] flex items-center gap-3">
                     <User className="w-5 h-5 text-[#087F5B]" />
                     Personal Bio
                   </h2>
                   <Edit3 className="w-4 h-4 text-gray-300 group-hover:text-[#087F5B] transition-colors" />
                 </div>
-                <p className="text-sm leading-relaxed text-[#7C8493] font-medium">
+                <p className="text-sm leading-relaxed text-[#6B7280] font-medium">
                   {talentData.bio}
                 </p>
               </Card>

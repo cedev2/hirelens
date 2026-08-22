@@ -151,19 +151,19 @@ export default function ResultsStep({
       <div ref={topRef} />
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to History
       </button>
 
-      <div className="flex flex-col items-center justify-between gap-6 rounded-[10px] border border-green-100 bg-[#F8F8FD] p-6 md:flex-row">
+      <div className="flex flex-col items-center justify-between gap-6 rounded-[10px] border border-green-100 bg-[#F9FAFB] p-6 md:flex-row">
         <div className="flex items-center gap-4">
           <div>
-            <h3 className="text-lg font-bold text-[#25324B]">
+            <h3 className="text-lg font-bold text-[#111827]">
               Screening Summary
             </h3>
-            <p className="text-sm text-[#7C8493]">
+            <p className="text-sm text-[#6B7280]">
               {displayedSummary}
               {displayedSummary !==
                 (comparisonSummary ||
@@ -173,13 +173,13 @@ export default function ResultsStep({
         </div>
         <div className="flex gap-3">
           <div className="rounded-xl border border-green-50 bg-white px-4 py-2 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#7C8493]">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#6B7280]">
               Total Evaluated
             </p>
-            <p className="text-xl font-bold text-[#25324B]">{summary.total}</p>
+            <p className="text-xl font-bold text-[#111827]">{summary.total}</p>
           </div>
           <div className="rounded-xl border border-green-50 bg-white px-4 py-2 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#7C8493]">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#6B7280]">
               High Confidence
             </p>
             <p className="text-xl font-bold text-green-600">{summary.high}</p>
@@ -189,7 +189,7 @@ export default function ResultsStep({
 
       <div className="flex flex-col gap-3 pb-2 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-lg font-bold text-[#25324B]">
+          <h3 className="text-lg font-bold text-[#111827]">
             Ranked Candidates
           </h3>
           <div className="inline-flex items-center rounded-xl border border-gray-200 bg-white p-1">
@@ -198,7 +198,7 @@ export default function ResultsStep({
               className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-colors ${
                 view === "summary"
                   ? "bg-[#087F5B] text-white"
-                  : "text-[#25324B] hover:bg-gray-50"
+                  : "text-[#111827] hover:bg-gray-50"
               }`}
             >
               Summary
@@ -208,7 +208,7 @@ export default function ResultsStep({
               className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-colors ${
                 view === "detailed"
                   ? "bg-[#087F5B] text-white"
-                  : "text-[#25324B] hover:bg-gray-50"
+                  : "text-[#111827] hover:bg-gray-50"
               }`}
             >
               Detailed
@@ -302,20 +302,20 @@ export default function ResultsStep({
                           ? "bg-[#b7c0bf] text-[#2f3131]"
                           : c.rank === 3
                             ? "bg-[#7e5920] text-[#f0aa3c]"
-                            : "bg-gray-100 text-[#25324B]"
+                            : "bg-gray-100 text-[#111827]"
                     }`}
                   >
                     {"#" + c.rank}
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <h4 className="truncate font-bold text-[#25324B]">
+                    <h4 className="truncate font-bold text-[#111827]">
                       {c.name}
                     </h4>
                     <div className="mt-1 flex items-center gap-3">
-                      <div className="flex items-center gap-1 text-xs text-[#7C8493]">
+                      <div className="flex items-center gap-1 text-xs text-[#6B7280]">
                         Score:{" "}
-                        <span className="font-bold text-[#25324B]">
+                        <span className="font-bold text-[#111827]">
                           {c.matchScore}%
                         </span>
                       </div>
@@ -348,7 +348,7 @@ export default function ResultsStep({
                         <p className="text-xs font-bold text-green-600">
                           Recommended
                         </p>
-                        <p className="text-[10px] text-[#7C8493]">
+                        <p className="text-[10px] text-[#6B7280]">
                           Technical Assessment
                         </p>
                       </div>
@@ -363,7 +363,7 @@ export default function ResultsStep({
               </div>
 
               {isExpanded && (
-                <div className="ml-10 animate-in slide-in-from-top-2 duration-200 border-t border-gray-50 bg-[#F8F8FD]/50 px-5 pb-6">
+                <div className="ml-10 animate-in slide-in-from-top-2 duration-200 border-t border-gray-50 bg-[#F9FAFB]/50 px-5 pb-6">
                   <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
                     <div className="space-y-5">
                       <div>
@@ -398,11 +398,11 @@ export default function ResultsStep({
                       </div>
                       {c.comparisonNotes && (
                         <div>
-                          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+                          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                             Notes
                           </p>
                           <div className="rounded-xl border border-gray-100 bg-white p-4">
-                            <p className="text-sm leading-relaxed text-[#25324B]">
+                            <p className="text-sm leading-relaxed text-[#111827]">
                               {c.comparisonNotes}
                             </p>
                           </div>
@@ -412,11 +412,11 @@ export default function ResultsStep({
 
                     <div className="space-y-5">
                       <div>
-                        <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+                        <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                           AI Reasoning
                         </p>
                         <div className="rounded-xl border border-gray-100 bg-white p-4">
-                          <p className="text-sm leading-relaxed italic text-[#25324B]">
+                          <p className="text-sm leading-relaxed italic text-[#111827]">
                             "{c.reasoning}"
                           </p>
                         </div>
@@ -460,7 +460,7 @@ export default function ResultsStep({
       <div className="flex justify-center pt-6">
         <button
           onClick={onRestart}
-          className="text-sm font-bold text-[#7C8493] transition-colors hover:text-[#25324B]"
+          className="text-sm font-bold text-[#6B7280] transition-colors hover:text-[#111827]"
         >
           Restart Screening Process
         </button>

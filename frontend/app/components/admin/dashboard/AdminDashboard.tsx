@@ -227,7 +227,7 @@ export default function AdminDashboard() {
           department: "HireLens",
           experience: "HireLens",
           status: statusMap[String(app.status)] || "Under Review",
-          avatar: user?.picture || "/images/companies/dummy.png",
+          avatar: user?.picture || "/images/companies/dummy.jpg",
         };
       });
   }, [applications, jobs, talents]);
@@ -337,17 +337,17 @@ export default function AdminDashboard() {
         >
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <p className="text-lg font-semibold text-[#25324B]">
+              <p className="text-lg font-semibold text-[#111827]">
                 Recent Jobs
               </p>
-              <p className="text-sm text-[#7C8493]">
+              <p className="text-sm text-[#6B7280]">
                 Quick snapshot of active roles
               </p>
             </div>
             <button
               type="button"
               onClick={() => router.push("/admin/jobs")}
-              className="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50"
+              className="rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50"
             >
               View All
             </button>

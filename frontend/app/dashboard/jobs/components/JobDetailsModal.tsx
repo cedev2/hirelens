@@ -45,14 +45,14 @@ export default function JobDetailsModal({
         <div className="px-4 sm:px-8 py-5 border-b border-gray-100 flex items-start justify-between bg-linear-to-r from-white to-green-50/30">
           <div className="flex gap-6 min-w-0">
             <div className="min-w-0">
-              <h2 className="text-xl sm:text-2xl font-black text-[#25324B] mb-2 break-words">
+              <h2 className="text-xl sm:text-2xl font-black text-[#111827] mb-2 break-words">
                 {job.title}
               </h2>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 <p className="text-lg font-bold text-[#087F5B]">
                   {job.company}
                 </p>
-                <div className="flex items-center gap-1.5 text-sm font-semibold text-[#7C8493]">
+                <div className="flex items-center gap-1.5 text-sm font-semibold text-[#6B7280]">
                   <MapPin className="w-4 h-4" />
                   {job.location}
                 </div>
@@ -73,17 +73,17 @@ export default function JobDetailsModal({
             {/* Left Side: Job Info */}
             <div className="lg:col-span-2 space-y-10">
               <section>
-                <h3 className="text-xl font-black text-[#25324B] mb-4">
+                <h3 className="text-xl font-black text-[#111827] mb-4">
                   Description
                 </h3>
                 <SafeHtml
                   html={job.description}
-                  className="text-[#7C8493] leading-relaxed font-medium"
+                  className="text-[#6B7280] leading-relaxed font-medium"
                 />
               </section>
 
               <section>
-                <h3 className="text-xl font-black text-[#25324B] mb-4">
+                <h3 className="text-xl font-black text-[#111827] mb-4">
                   Required Skills
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -110,7 +110,7 @@ export default function JobDetailsModal({
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                       Type
                     </p>
-                    <p className="text-sm font-bold text-[#25324B]">
+                    <p className="text-sm font-bold text-[#111827]">
                       {job.type}
                     </p>
                   </div>
@@ -123,7 +123,7 @@ export default function JobDetailsModal({
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                       Salary
                     </p>
-                    <p className="text-sm font-bold text-[#25324B]">
+                    <p className="text-sm font-bold text-[#111827]">
                       {job.salary}
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function JobDetailsModal({
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                       Posted
                     </p>
-                    <p className="text-sm font-bold text-[#25324B]">
+                    <p className="text-sm font-bold text-[#111827]">
                       {job.postedAt}
                     </p>
                   </div>
@@ -151,7 +151,7 @@ export default function JobDetailsModal({
                   Apply Now
                   <CheckCircle2 className="w-5 h-5" />
                 </button>
-                {/* <button className="w-full py-5 border-2 border-gray-100 text-[#25324B] rounded-[10px] font-black uppercase tracking-widest text-sm hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
+                {/* <button className="w-full py-5 border-2 border-gray-100 text-[#111827] rounded-[10px] font-black uppercase tracking-widest text-sm hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
                   Save for Later
                   <Share2 className="w-5 h-5" />
                 </button> */}

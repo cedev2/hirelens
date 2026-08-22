@@ -28,20 +28,20 @@ export default function SourceSelectionStep({
     <div className="space-y-6">
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Job Selection
       </button>
 
       <div className="rounded-[10px] border border-gray-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-bold text-[#25324B]">Top candidates</p>
-        <p className="mt-1 text-xs text-[#7C8493]">
+        <p className="text-sm font-bold text-[#111827]">Top candidates</p>
+        <p className="mt-1 text-xs text-[#6B7280]">
           Choose number of top ranked candidates to keep.
         </p>
 
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#25324B]">
+          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#111827]">
             <input
               type="radio"
               name="topN"
@@ -51,7 +51,7 @@ export default function SourceSelectionStep({
             />
             10
           </label>
-          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#25324B]">
+          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#111827]">
             <input
               type="radio"
               name="topN"
@@ -61,7 +61,7 @@ export default function SourceSelectionStep({
             />
             20
           </label>
-          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#25324B]">
+          <label className="inline-flex items-center gap-2 text-sm font-semibold text-[#111827]">
             <input
               type="radio"
               name="topN"
@@ -77,12 +77,12 @@ export default function SourceSelectionStep({
               value={customTop}
               onChange={(e) => setCustomTop(e.target.value)}
               inputMode="numeric"
-              className="w-full sm:w-40 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-[#25324B] outline-none focus:ring-2 focus:ring-[#087F5B]"
+              className="w-full sm:w-40 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-[#111827] outline-none focus:ring-2 focus:ring-[#087F5B]"
               placeholder="e.g. 15"
             />
           )}
 
-          <span className="text-xs font-semibold text-[#7C8493] sm:ml-auto">
+          <span className="text-xs font-semibold text-[#6B7280] sm:ml-auto">
             Selected: {topN}
           </span>
         </div>
@@ -96,10 +96,10 @@ export default function SourceSelectionStep({
           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-[10px] bg-green-50 text-[#087F5B] transition-transform group-hover:scale-110">
             <Users className="h-10 w-10" />
           </div>
-          <h3 className="mb-2 text-xl font-bold text-[#25324B]">
+          <h3 className="mb-2 text-xl font-bold text-[#111827]">
             Use Submitted Applications
           </h3>
-          <p className="max-w-xs text-sm leading-relaxed text-[#7C8493]">
+          <p className="max-w-xs text-sm leading-relaxed text-[#6B7280]">
             Analyze candidates who applied through the platform for this
             specific job.
           </p>
@@ -115,10 +115,10 @@ export default function SourceSelectionStep({
           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-[10px] bg-emerald-50 text-emerald-600 transition-transform group-hover:scale-110">
             <Globe className="h-10 w-10" />
           </div>
-          <h3 className="mb-2 text-xl font-bold text-[#25324B]">
+          <h3 className="mb-2 text-xl font-bold text-[#111827]">
             Import from HireLens Talent Pool
           </h3>
-          <p className="max-w-xs text-sm leading-relaxed text-[#7C8493]">
+          <p className="max-w-xs text-sm leading-relaxed text-[#6B7280]">
             Pull candidates from HireLens pool (dummy API for now) and rank them
             against job.
           </p>
@@ -139,10 +139,10 @@ export default function SourceSelectionStep({
           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-[10px] bg-indigo-50 text-indigo-600 transition-transform group-hover:scale-110">
             <FileUp className="h-10 w-10" />
           </div>
-          <h3 className="mb-2 text-xl font-bold text-[#25324B]">
+          <h3 className="mb-2 text-xl font-bold text-[#111827]">
             Upload External Data
           </h3>
-          <p className="max-w-xs text-sm leading-relaxed text-[#7C8493]">
+          <p className="max-w-xs text-sm leading-relaxed text-[#6B7280]">
             Upload CSV, Excel, or PDF files. AI will parse and rank them against
             the job description.
           </p>

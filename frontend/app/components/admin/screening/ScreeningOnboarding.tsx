@@ -226,7 +226,7 @@ export default function ScreeningOnboarding({
         dismissKeyAction: false,
         primaryColor: "#4F46E5",
         spotlightPadding: 10,
-        textColor: "#25324B",
+        textColor: "#111827",
         backgroundColor: "#FFFFFF",
         beaconSize: 36,
         zIndex: 100,

@@ -68,7 +68,7 @@ export default function ScreeningHistoryStep({
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-[#25324B]">Recent Screenings</h2>
+        <h2 className="text-lg font-bold text-[#111827]">Recent Screenings</h2>
         <button
           onClick={onStartNew}
           className="inline-flex items-center gap-2 rounded-xl bg-[#087F5B] px-4 py-2 text-sm font-bold text-white shadow-md shadow-green-100 transition-all hover:bg-[#066B4D]"
@@ -83,10 +83,10 @@ export default function ScreeningHistoryStep({
           <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-[10px] bg-gray-50 text-gray-400">
             <BrainCircuit className="h-8 w-8" />
           </div>
-          <h3 className="text-lg font-bold text-[#25324B]">
+          <h3 className="text-lg font-bold text-[#111827]">
             No screenings yet
           </h3>
-          <p className="mt-1 max-w-xs text-sm text-[#7C8493]">
+          <p className="mt-1 max-w-xs text-sm text-[#6B7280]">
             Start your first AI-powered candidate screening to see results here.
           </p>
         </div>
@@ -99,10 +99,10 @@ export default function ScreeningHistoryStep({
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="font-bold text-[#25324B] group-hover:text-[#087F5B]">
+                  <h3 className="font-bold text-[#111827] group-hover:text-[#087F5B]">
                     {s.jobTitle}
                   </h3>
-                  <div className="mt-1 flex items-center gap-3 text-xs text-[#7C8493]">
+                  <div className="mt-1 flex items-center gap-3 text-xs text-[#6B7280]">
                     <span className="flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
                       {s.date}
@@ -128,7 +128,7 @@ export default function ScreeningHistoryStep({
               {s.currentStep && (
                 <div className="mt-4">
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-[#7C8493]">
+                    <span className="text-[#6B7280]">
                       {STEP_LABELS[s.currentStep] || s.currentStep}
                     </span>
                     <span className="text-[#087F5B] font-semibold">
@@ -152,7 +152,7 @@ export default function ScreeningHistoryStep({
               )}
 
               <div className="mt-6 flex items-center justify-between border-t border-gray-50 pt-4">
-                <div className="flex items-center gap-1 text-sm font-bold text-[#25324B]">
+                <div className="flex items-center gap-1 text-sm font-bold text-[#111827]">
                   <Target className="h-4 w-4 text-[#087F5B]" />
                   Top Score: {s.topScore}%
                 </div>
@@ -177,14 +177,14 @@ export default function ScreeningHistoryStep({
                   )}
                   <button
                     onClick={() => onReRun(s.id)}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-[#7C8493] transition-colors hover:border-[#087F5B] hover:bg-green-50 hover:text-[#087F5B]"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-[#6B7280] transition-colors hover:border-[#087F5B] hover:bg-green-50 hover:text-[#087F5B]"
                     title="Re-run Screening"
                   >
                     <Play className="h-3.5 w-3.5" />
                   </button>
                   <button
                     onClick={() => onView(s.id)}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-gray-50 px-3 text-xs font-bold text-[#25324B] transition-colors hover:bg-gray-100"
+                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-gray-50 px-3 text-xs font-bold text-[#111827] transition-colors hover:bg-gray-100"
                   >
                     <Eye className="h-3.5 w-3.5" />
                     View Results

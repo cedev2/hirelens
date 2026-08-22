@@ -122,10 +122,10 @@ export default function ApplicationsPage() {
         {/* Header & Title */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <h1 className="text-3xl font-black text-[#25324B] tracking-tight">
+            <h1 className="text-3xl font-black text-[#111827] tracking-tight">
               My Applications
             </h1>
-            <p className="text-lg font-semibold text-[#7C8493] mt-2">
+            <p className="text-lg font-semibold text-[#6B7280] mt-2">
               Track your progress and upcoming interviews
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function ApplicationsPage() {
                   className={`px-5 py-1.5 rounded-[10px] text-sm font-bold transition-all ${
                     activeTab === tab
                       ? "bg-[#087F5B] text-white shadow-md shadow-green-100"
-                      : "text-[#7C8493] hover:text-[#087F5B] hover:bg-green-50/50"
+                      : "text-[#6B7280] hover:text-[#087F5B] hover:bg-green-50/50"
                   }`}
                 >
                   {tab}
@@ -158,7 +158,7 @@ export default function ApplicationsPage() {
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                 Total
               </p>
-              <p className="text-2xl font-black text-[#25324B]">
+              <p className="text-2xl font-black text-[#111827]">
                 {stats.total}
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function ApplicationsPage() {
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                 Active
               </p>
-              <p className="text-2xl font-black text-[#25324B]">
+              <p className="text-2xl font-black text-[#111827]">
                 {stats.active}
               </p>
             </div>
@@ -184,7 +184,7 @@ export default function ApplicationsPage() {
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                 Shortlisted
               </p>
-              <p className="text-2xl font-black text-[#25324B]">
+              <p className="text-2xl font-black text-[#111827]">
                 {stats.shortlisted}
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function ApplicationsPage() {
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                 Rejected
               </p>
-              <p className="text-2xl font-black text-[#25324B]">
+              <p className="text-2xl font-black text-[#111827]">
                 {stats.rejected}
               </p>
             </div>
@@ -212,7 +212,7 @@ export default function ApplicationsPage() {
               <input
                 type="text"
                 placeholder="Search by job title or company..."
-                className="w-full pl-12 pr-6 py-3 bg-[#F8FAFC] rounded-[8px] border-none outline-none focus:ring-2 focus:ring-[#087F5B] font-semibold text-[#25324B] transition-all"
+                className="w-full pl-12 pr-6 py-3 bg-[#F8FAFC] rounded-[8px] border-none outline-none focus:ring-2 focus:ring-[#087F5B] font-semibold text-[#111827] transition-all"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -232,7 +232,7 @@ export default function ApplicationsPage() {
                 <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
                   <LayoutList className="w-10 h-10 text-gray-300" />
                 </div>
-                <h3 className="text-2xl font-black text-[#25324B]">
+                <h3 className="text-2xl font-black text-[#111827]">
                   No applications found
                 </h3>
                 <p className="text-gray-500 mt-2">

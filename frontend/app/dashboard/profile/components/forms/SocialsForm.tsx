@@ -29,7 +29,7 @@ export default function SocialsForm({ initialData, onSubmit }: SocialsFormProps)
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">LinkedIn Profile URL</label>
+          <label className="text-sm font-bold text-[#111827]">LinkedIn Profile URL</label>
           <input 
             name="linkedin" 
             defaultValue={linkedin} 
@@ -38,7 +38,7 @@ export default function SocialsForm({ initialData, onSubmit }: SocialsFormProps)
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">GitHub Profile URL</label>
+          <label className="text-sm font-bold text-[#111827]">GitHub Profile URL</label>
           <input 
             name="github" 
             defaultValue={github} 

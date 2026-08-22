@@ -171,15 +171,15 @@ export default function AdminJobApplicationsPage({ jobId }: { jobId: string }) {
             <ArrowLeft className="h-4 w-4" />
             Back to Job Details
           </Link>
-          <h1 className="text-2xl font-bold text-[#25324B]">Applications</h1>
-          <p className="text-sm text-[#7C8493]">
+          <h1 className="text-2xl font-bold text-[#111827]">Applications</h1>
+          <p className="text-sm text-[#6B7280]">
             Managing candidates for{" "}
-            <span className="font-semibold text-[#25324B]">
+            <span className="font-semibold text-[#111827]">
               {jobQuery.data?.title || "..."}
             </span>
           </p>
         </div>
-        <button className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 transition-colors">
+        <button className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 transition-colors">
           <Download className="h-4 w-4" />
           Export All
         </button>
@@ -224,12 +224,12 @@ export default function AdminJobApplicationsPage({ jobId }: { jobId: string }) {
           >
             Vs
           </button>
-          <button className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 transition-colors">
+          <button className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 transition-colors">
             <Filter className="h-4 w-4 text-gray-400" />
             Filters
           </button>
           <div className="h-8 w-px bg-gray-100 hidden md:block" />
-          <p className="text-sm font-medium text-[#25324B]">
+          <p className="text-sm font-medium text-[#111827]">
             {filteredApplications.length} Candidates
           </p>
         </div>
@@ -239,7 +239,7 @@ export default function AdminJobApplicationsPage({ jobId }: { jobId: string }) {
       {!isLoading && applications.length > 0 && (
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {[
-            { label: "Total", value: stats.total, icon: Users, color: "text-[#25324B]", bg: "bg-gray-50" },
+            { label: "Total", value: stats.total, icon: Users, color: "text-[#111827]", bg: "bg-gray-50" },
             { label: "Pending", value: stats.pending, icon: Clock, color: "text-gray-600", bg: "bg-gray-50" },
             { label: "Reviewing", value: stats.reviewing, icon: Eye, color: "text-amber-600", bg: "bg-amber-50" },
             { label: "Shortlisted", value: stats.shortlisted, icon: Star, color: "text-green-600", bg: "bg-green-50" },
@@ -250,8 +250,8 @@ export default function AdminJobApplicationsPage({ jobId }: { jobId: string }) {
                 <s.icon className={`h-4 w-4 ${s.color}`} />
               </div>
               <div>
-                <p className="text-lg font-bold text-[#25324B]">{s.value}</p>
-                <p className="text-xs font-medium text-[#7C8493]">{s.label}</p>
+                <p className="text-lg font-bold text-[#111827]">{s.value}</p>
+                <p className="text-xs font-medium text-[#6B7280]">{s.label}</p>
               </div>
             </div>
           ))}
@@ -262,7 +262,7 @@ export default function AdminJobApplicationsPage({ jobId }: { jobId: string }) {
       {isLoading ? (
         <div className="flex flex-col items-center justify-center py-20 rounded-xl border border-gray-200 bg-white shadow-sm">
           <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mb-2" />
-          <p className="text-sm text-[#7C8493]">Loading applications...</p>
+          <p className="text-sm text-[#6B7280]">Loading applications...</p>
         </div>
       ) : (
         <AdminApplicationsTable

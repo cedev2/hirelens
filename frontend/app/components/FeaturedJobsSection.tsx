@@ -43,7 +43,7 @@ export default function FeaturedJobsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#25324B]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111827]">
             Active <span className="text-[#087F5B]">Job Postings</span>
           </h2>
           <a
@@ -89,7 +89,7 @@ export default function FeaturedJobsSection() {
                 </div>
 
                 {/* Job Info */}
-                <h3 className="text-lg font-semibold text-[#25324B] mb-1">
+                <h3 className="text-lg font-semibold text-[#111827] mb-1">
                   {job.title}
                 </h3>
                 <p className="text-sm text-gray-500 mb-3">{job.locationType}</p>

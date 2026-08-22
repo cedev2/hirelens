@@ -27,18 +27,18 @@ export default function AdminJobStatisticsChart({
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-lg font-semibold text-[#25324B]">Job Statistics</p>
-          <p className="text-sm text-[#7C8493]">Posted vs applications</p>
+          <p className="text-lg font-semibold text-[#111827]">Job Statistics</p>
+          <p className="text-sm text-[#6B7280]">Posted vs applications</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-4 text-sm">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#C7D2FE]" />
-              <span className="text-[#7C8493]">Jobs Posted</span>
+              <span className="text-[#6B7280]">Jobs Posted</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#4F46E5]" />
-              <span className="text-[#7C8493]">Job Applied</span>
+              <span className="text-[#6B7280]">Job Applied</span>
             </div>
           </div>
           <span className="rounded-lg bg-[#E8F7F0] px-3 py-2 text-xs font-semibold text-[#087F5B] hidden">

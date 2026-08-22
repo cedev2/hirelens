@@ -74,8 +74,8 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
       <div className="rounded-[10px] bg-white border border-gray-100 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-[#7C8493]">Jobs recommendations</p>
-            <p className="text-lg font-semibold text-[#25324B]">
+            <p className="text-sm text-[#6B7280]">Jobs recommendations</p>
+            <p className="text-lg font-semibold text-[#111827]">
               Recommendations ({jobs.length})
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
                 <div className="flex items-start gap-3">
                   <div className="size-10 rounded-full relative">
                     <Image
-                      src="/images/logo/hirelens-ai-logo.svg"
+                      src="/images/logo/hirelens.jpg"
                       alt=""
                       width={50}
                       height={50}
@@ -101,7 +101,7 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-[#25324B] line-clamp-2 group-hover:text-[#087F5B] transition-colors">
+                      <p className="text-sm font-semibold text-[#111827] line-clamp-2 group-hover:text-[#087F5B] transition-colors">
                         {job.title}
                       </p>
                       {job.status === "Applied" && (
@@ -110,7 +110,7 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#7C8493]">{job.company}</p>
+                    <p className="text-xs text-[#6B7280]">{job.company}</p>
                   </div>
                 </div>
                 <Button
@@ -129,7 +129,7 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
                 {stripHtmlToText(job.description)}
               </p>
 
-              <div className="mt-5 flex items-center gap-6 text-xs text-[#7C8493]">
+              <div className="mt-5 flex items-center gap-6 text-xs text-[#6B7280]">
                 <span className="inline-flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
                   {job.location}
@@ -152,12 +152,12 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
         </div>
 
         <div className="mt-6 flex items-center justify-between rounded-xl border border-gray-100 bg-white px-4 py-3">
-          <p className="text-xs text-[#7C8493]">Showing {jobs.length} of 20 jobs</p>
+          <p className="text-xs text-[#6B7280]">Showing {jobs.length} of 20 jobs</p>
           <div className="flex items-center gap-2 text-xs">
-            <button className="rounded-lg border border-gray-100 px-3 py-2 text-[#25324B] hover:bg-gray-50">
+            <button className="rounded-lg border border-gray-100 px-3 py-2 text-[#111827] hover:bg-gray-50">
               Previous
             </button>
-            <button className="rounded-lg border border-gray-100 px-3 py-2 text-[#25324B] hover:bg-gray-50">
+            <button className="rounded-lg border border-gray-100 px-3 py-2 text-[#111827] hover:bg-gray-50">
               Next
             </button>
           </div>

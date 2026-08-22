@@ -84,7 +84,7 @@ export default function ApplicantLayoutClient({
             </button>
             <Link href="/applicant" className="shrink-0">
               <Image
-                src="/images/logo/logo.jpg"
+                src="/images/logo/hirelens.jpg"
                 alt="HireLens"
                 width={120}
                 height={32}

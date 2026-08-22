@@ -308,7 +308,7 @@ export default function AdminJobsPage() {
       )}
 
       {isLoading && (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#25324B]">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#111827]">
           Loading jobs...
         </div>
       )}

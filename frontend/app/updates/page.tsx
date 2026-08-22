@@ -69,7 +69,7 @@ export default function UpdatesPage() {
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h1 className="text-5xl font-bold text-[#25324B] mb-6">
+            <h1 className="text-5xl font-bold text-[#111827] mb-6">
               Product <span className="text-[#087F5B]">Updates</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl">
@@ -82,7 +82,7 @@ export default function UpdatesPage() {
         {/* Updates Timeline */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-8">
+            <h2 className="text-3xl font-bold text-[#111827] mb-8">
               Recent Updates
             </h2>
             <div className="space-y-8">
@@ -104,7 +104,7 @@ export default function UpdatesPage() {
                           {update.version}
                         </span>
                       </div>
-                      <h3 className="text-xl font-semibold text-[#25324B] mb-3">
+                      <h3 className="text-xl font-semibold text-[#111827] mb-3">
                         {update.title}
                       </h3>
                       <ul className="space-y-2">
@@ -129,7 +129,7 @@ export default function UpdatesPage() {
         {/* Upcoming */}
         <section className="py-16 bg-[#f8f8fd]">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-8">
+            <h2 className="text-3xl font-bold text-[#111827] mb-8">
               Coming Soon
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -138,7 +138,7 @@ export default function UpdatesPage() {
                   key={index}
                   className="bg-white p-6 rounded-lg shadow-sm flex items-center justify-between"
                 >
-                  <span className="font-semibold text-[#25324B]">
+                  <span className="font-semibold text-[#111827]">
                     {item.title}
                   </span>
                   <span className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
@@ -153,7 +153,7 @@ export default function UpdatesPage() {
         {/* Newsletter */}
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] text-center">
-            <h2 className="text-3xl font-bold text-[#25324B] mb-4">
+            <h2 className="text-3xl font-bold text-[#111827] mb-4">
               Stay Updated
             </h2>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">

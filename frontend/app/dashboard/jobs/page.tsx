@@ -121,10 +121,10 @@ export default function JobsPage() {
           {/* Header Section */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <h1 className="text-3xl font-black text-[#25324B] tracking-tight">
+              <h1 className="text-3xl font-black text-[#111827] tracking-tight">
                 Available Jobs
               </h1>
-              <p className="text-lg font-semibold text-[#7C8493] mt-2">
+              <p className="text-lg font-semibold text-[#6B7280] mt-2">
                 Find your next big opportunity today
               </p>
             </div>
@@ -138,13 +138,13 @@ export default function JobsPage() {
                 <input
                   type="text"
                   placeholder="Search job titles, companies, or skills..."
-                  className="w-full pl-14 pr-6 py-4 bg-[#F8FAFC] rounded-[10px] border-none outline-none focus:ring-2 focus:ring-[#087F5B] font-semibold text-[#25324B] transition-all"
+                  className="w-full pl-14 pr-6 py-4 bg-[#F8FAFC] rounded-[10px] border-none outline-none focus:ring-2 focus:ring-[#087F5B] font-semibold text-[#111827] transition-all"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
               <div className="flex items-center gap-3 w-full lg:w-auto">
-                <button className="flex-1 lg:flex-none flex items-center justify-center gap-3 px-5 py-3 bg-white border-2 border-gray-100 rounded-[10px] font-bold text-[#25324B] hover:border-[#087F5B] hover:text-[#087F5B] transition-all uppercase tracking-widest text-xs">
+                <button className="flex-1 lg:flex-none flex items-center justify-center gap-3 px-5 py-3 bg-white border-2 border-gray-100 rounded-[10px] font-bold text-[#111827] hover:border-[#087F5B] hover:text-[#087F5B] transition-all uppercase tracking-widest text-xs">
                   <SlidersHorizontal className="w-4 h-4" />
                   Filters
                 </button>
@@ -172,7 +172,7 @@ export default function JobsPage() {
                 <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="w-10 h-10 text-gray-300" />
                 </div>
-                <h3 className="text-2xl font-black text-[#25324B]">
+                <h3 className="text-2xl font-black text-[#111827]">
                   No jobs found
                 </h3>
                 <p className="text-gray-500 mt-2">

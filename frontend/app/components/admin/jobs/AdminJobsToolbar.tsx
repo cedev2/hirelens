@@ -38,8 +38,8 @@ export default function AdminJobsToolbar({
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-xl font-semibold text-[#25324B]">Jobs</p>
-          <p className="text-sm text-[#7C8493]">
+          <p className="text-xl font-semibold text-[#111827]">Jobs</p>
+          <p className="text-sm text-[#6B7280]">
             Manage job posts, status, and performance
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function AdminJobsToolbar({
           <select
             value={status}
             onChange={(e) => onStatus(e.target.value)}
-            className="bg-transparent text-sm font-semibold text-[#25324B] outline-none"
+            className="bg-transparent text-sm font-semibold text-[#111827] outline-none"
           >
             <option value="all">All status</option>
             <option value="Open">Open</option>
@@ -85,7 +85,7 @@ export default function AdminJobsToolbar({
           <select
             value={type}
             onChange={(e) => onType(e.target.value)}
-            className="bg-transparent text-sm font-semibold text-[#25324B] outline-none"
+            className="bg-transparent text-sm font-semibold text-[#111827] outline-none"
           >
             <option value="all">All types</option>
             <option value="Full-time">Full-time</option>
@@ -96,11 +96,11 @@ export default function AdminJobsToolbar({
         </div>
 
         <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2">
-          <span className="text-sm font-semibold text-[#7C8493]">Rows</span>
+          <span className="text-sm font-semibold text-[#6B7280]">Rows</span>
           <select
             value={pageSize}
             onChange={(e) => onPageSize(Number(e.target.value))}
-            className="bg-transparent text-sm font-semibold text-[#25324B] outline-none"
+            className="bg-transparent text-sm font-semibold text-[#111827] outline-none"
           >
             <option value={5}>5</option>
             <option value={10}>10</option>
@@ -109,10 +109,10 @@ export default function AdminJobsToolbar({
         </div>
 
         <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-3 py-2">
-          <span className="text-sm font-semibold text-[#25324B]">
+          <span className="text-sm font-semibold text-[#111827]">
             {totalLabel}
           </span>
-          <div className="flex items-center gap-1 rounded-lg bg-[#F8F8FD] p-1">
+          <div className="flex items-center gap-1 rounded-lg bg-[#F9FAFB] p-1">
             <button
               type="button"
               onClick={() => onViewMode("table")}
@@ -123,7 +123,7 @@ export default function AdminJobsToolbar({
               }`}
               aria-label="Table view"
             >
-              <List className="h-4 w-4 text-[#25324B]" />
+              <List className="h-4 w-4 text-[#111827]" />
             </button>
             <button
               type="button"
@@ -135,7 +135,7 @@ export default function AdminJobsToolbar({
               }`}
               aria-label="Card view"
             >
-              <LayoutGrid className="h-4 w-4 text-[#25324B]" />
+              <LayoutGrid className="h-4 w-4 text-[#111827]" />
             </button>
           </div>
         </div>

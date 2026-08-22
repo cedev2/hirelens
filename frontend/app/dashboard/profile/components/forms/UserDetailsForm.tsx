@@ -106,7 +106,7 @@ export default function UserDetailsForm({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">First Name</label>
+          <label className="text-sm font-bold text-[#111827]">First Name</label>
           <input
             name="firstName"
             defaultValue={initialData.firstName}
@@ -115,7 +115,7 @@ export default function UserDetailsForm({
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Last Name</label>
+          <label className="text-sm font-bold text-[#111827]">Last Name</label>
           <input
             name="lastName"
             defaultValue={initialData.lastName}
@@ -125,7 +125,7 @@ export default function UserDetailsForm({
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Email</label>
+        <label className="text-sm font-bold text-[#111827]">Email</label>
         <input
           name="email"
           type="email"
@@ -135,7 +135,7 @@ export default function UserDetailsForm({
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Headline</label>
+        <label className="text-sm font-bold text-[#111827]">Headline</label>
         <input
           name="headline"
           defaultValue={initialData.headline}
@@ -144,7 +144,7 @@ export default function UserDetailsForm({
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Location</label>
+        <label className="text-sm font-bold text-[#111827]">Location</label>
         <input
           name="location"
           defaultValue={initialData.location}
@@ -154,7 +154,7 @@ export default function UserDetailsForm({
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">
+          <label className="text-sm font-bold text-[#111827]">
             LinkedIn URL
           </label>
           <input
@@ -165,7 +165,7 @@ export default function UserDetailsForm({
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">GitHub URL</label>
+          <label className="text-sm font-bold text-[#111827]">GitHub URL</label>
           <input
             name="github"
             defaultValue={github}

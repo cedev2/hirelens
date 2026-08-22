@@ -88,8 +88,8 @@ export default function AdminApplicationsJobPicker() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#25324B]">Applications</h1>
-        <p className="text-sm text-[#7C8493]">
+        <h1 className="text-2xl font-bold text-[#111827]">Applications</h1>
+        <p className="text-sm text-[#6B7280]">
           Select a job to manage its candidates
         </p>
       </div>
@@ -109,14 +109,14 @@ export default function AdminApplicationsJobPicker() {
         {isLoading ? (
           <div className="col-span-full flex flex-col items-center justify-center py-20 rounded-[10px] border border-gray-200 bg-white">
             <Loader2 className="h-8 w-8 animate-spin text-[#087F5B] mb-2" />
-            <p className="text-sm text-[#7C8493]">Loading jobs...</p>
+            <p className="text-sm text-[#6B7280]">Loading jobs...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="col-span-full flex flex-col items-center justify-center py-20 rounded-[10px] border border-gray-200 bg-white">
-            <p className="text-sm font-semibold text-[#25324B]">
+            <p className="text-sm font-semibold text-[#111827]">
               No jobs found
             </p>
-            <p className="text-xs text-[#7C8493] mt-1">
+            <p className="text-xs text-[#6B7280] mt-1">
               Try adjusting your search query.
             </p>
           </div>
@@ -129,10 +129,10 @@ export default function AdminApplicationsJobPicker() {
             >
               <div className="flex items-start justify-between">
                 <div className="min-w-0">
-                  <p className="truncate text-lg font-bold text-[#25324B] group-hover:text-[#087F5B]">
+                  <p className="truncate text-lg font-bold text-[#111827] group-hover:text-[#087F5B]">
                     {job.title}
                   </p>
-                  <p className="text-sm text-[#7C8493]">{job.company}</p>
+                  <p className="text-sm text-[#6B7280]">{job.company}</p>
                 </div>
                 <span
                   className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -149,11 +149,11 @@ export default function AdminApplicationsJobPicker() {
 
               <div className="mt-6 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1.5 text-sm font-semibold text-[#25324B]">
-                    <Users className="h-4 w-4 text-[#7C8493]" />
+                  <div className="flex items-center gap-1.5 text-sm font-semibold text-[#111827]">
+                    <Users className="h-4 w-4 text-[#6B7280]" />
                     {job.applicants}
                   </div>
-                  <div className="text-xs text-[#7C8493]">
+                  <div className="text-xs text-[#6B7280]">
                     Posted {job.postedAt}
                   </div>
                 </div>
