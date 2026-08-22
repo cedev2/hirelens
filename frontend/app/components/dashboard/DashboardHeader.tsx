@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Bell, Menu, Search } from "lucide-react";
 import NotificationDropdown from "../notifications/NotificationDropdown";
@@ -21,7 +22,7 @@ export default function DashboardHeader({
             <Menu className="h-5 w-5" />
           </button>
           <Link href="/dashboard" className="shrink-0">
-            <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
+            <Image src="/images/logo/hirelens.jpg" alt="HireLens" width={120} height={32} className="h-[32px] w-auto object-contain" />
           </Link>
         </div>
 

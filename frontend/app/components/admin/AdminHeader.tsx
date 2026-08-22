@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
@@ -34,7 +35,7 @@ export default function AdminHeader({
             <Menu className="h-5 w-5" />
           </button>
           <Link href="/admin" className="shrink-0">
-            <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
+            <Image src="/images/logo/hirelens.jpg" alt="HireLens" width={120} height={32} className="h-[32px] w-auto object-contain" />
           </Link>
         </div>
 
