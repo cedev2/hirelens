@@ -92,7 +92,7 @@ export default function JobRecommendations({ jobs }: { jobs: RecommendedJob[] })
                 <div className="flex items-start gap-3">
                   <div className="size-10 rounded-full relative">
                     <Image
-                      src="/images/logo/hirelens-ai-logo.svg"
+                      src="/images/logo/hirelens.jpg"
                       alt=""
                       width={50}
                       height={50}

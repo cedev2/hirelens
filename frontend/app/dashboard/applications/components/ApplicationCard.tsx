@@ -77,7 +77,7 @@ export default function ApplicationCard({
         <div className="flex items-center gap-3">
           <div className="w-13 h-13 rounded-full bg-[#F8FAFC] border border-gray-50 flex items-center justify-center overflow-hidden shrink-0">
             <img
-              src="/images/logo/hirelens-ai-logo.svg"
+              src="/images/logo/hirelens.jpg"
               alt="HireLens logo"
               className="w-full h-full object-cover"
             />

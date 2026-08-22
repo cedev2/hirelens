@@ -105,7 +105,7 @@ export default function ContractEmailStep({
   // Generate and download contract PDF
   const generateContractPDF = (candidate: ContractWithEmail) => {
     const doc = new jsPDF();
-    const logoUrl = "/images/logo/hirelens-ai-logo.svg";
+    const logoUrl = "/images/logo/hirelens.jpg";
     const primaryColor = [40, 110, 240]; // #087F5B
 
     // Header with logo placeholder

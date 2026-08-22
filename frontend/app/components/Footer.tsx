@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import { ImLinkedin2, ImYoutube, ImFacebook } from "react-icons/im";
 
@@ -42,13 +41,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-gray-700">
           {/* Brand */}
           <div className="sm:col-span-2">
-            <Image
-              src="/images/logo/logo-light.svg"
-              alt="HireLens Logo"
-              className="mb-3"
-              width={140}
-              height={64}
-            />
+            <span className="text-2xl font-bold tracking-tight text-white mb-3 block">HireLens</span>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Great platform for the job seeker that passionate about startups.
               Find your dream job easier.

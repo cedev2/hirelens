@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "An AI Recruiter system that explains, compares, and guides hiring decisions",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/images/logo/hirelens.jpg",
   },
 };
 

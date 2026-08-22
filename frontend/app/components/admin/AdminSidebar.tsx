@@ -2,10 +2,8 @@
 
 import type { ReactNode } from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
 import {
   LayoutGrid,
   FileText,
@@ -18,20 +16,6 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
-
-import { api } from "@/lib/api/client";
-
-type UserData = {
-  _id?: string;
-  email?: string;
-  firstName?: string;
-  lastName?: string;
-  phone?: string;
-  picture?: string;
-  role?: "applicant" | "admin";
-};
-
-type MeUser = { user?: UserData };
 
 type NavItem = {
   label: string;
@@ -98,38 +82,8 @@ function SidebarContent({
 }) {
   const pathname = usePathname();
 
-  const { data: user } = useQuery<MeUser>({
-    queryKey: ["admin-me"],
-    queryFn: async () => {
-      const res = await api.get("/auth/me");
-      return res.data as MeUser;
-    },
-  });
-
-  const meUser = user?.user;
-  const displayName = meUser
-    ? `${meUser.firstName || ""} ${meUser.lastName || ""}`.trim()
-    : "HR Admin";
-  const role = meUser?.role ?? "admin";
-  const avatarUrl = meUser?.picture || "/images/companies/dummy.png";
-
   return (
     <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
-      {/* User card */}
-      <div className={`flex items-center mt-6 mb-6 px-4 ${collapsed ? "justify-center" : "gap-3"}`}>
-        <div
-          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100"
-          title={collapsed ? displayName : undefined}
-        >
-          <Image src={avatarUrl} alt="User avatar" fill className="object-cover" sizes="40px" />
-        </div>
-        {!collapsed && (
-          <div className="leading-tight min-w-0">
-            <p className="text-sm font-semibold text-[#25324B] truncate">{displayName || "Admin User"}</p>
-            <p className="text-xs text-[#7C8493] capitalize">{role}</p>
-          </div>
-        )}
-      </div>
 
       {/* Main nav */}
       <nav className="space-y-1 px-2" data-tour="sidebar-navigation">
@@ -202,7 +156,7 @@ export default function AdminSidebar({
           <div className="absolute inset-0 bg-black/40" onClick={onMobileClose} />
           <aside className="absolute left-0 top-0 h-full w-[270px] max-w-[85vw] bg-white shadow-xl">
             <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-gray-100">
-              <Link href="/admin">
+              <Link href="/admin" className="shrink-0">
                 <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
               </Link>
               <button
