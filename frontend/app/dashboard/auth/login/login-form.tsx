@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api/client";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "@/lib/store/authSlice";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type LoginValues = {
   email: string;
@@ -25,6 +25,9 @@ type AuthResponse = {
 export default function LoginForm() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectParam = searchParams.get("redirect");
+  const user = useSelector((state: any) => state.auth?.user);
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -41,6 +44,9 @@ export default function LoginForm() {
     onSuccess: (data) => {
       dispatch(setAuth({ user: data.user, tokens: data.tokens }));
       toast.success("Login successful");
+      if (redirectParam && redirectParam.startsWith("/")) {
+        return router.push(redirectParam);
+      }
       if (data.user.role === "admin") return router.push("/admin");
       if (data.user.role === "applicant") return router.push("/applicant");
       router.push("/dashboard");
@@ -134,6 +140,18 @@ export default function LoginForm() {
       >
         {loginMutation.isPending ? "Logging in..." : "Login"}
       </button>
+
+      <div className="text-center mt-2">
+        <span className="text-sm text-gray-500">
+          Don&apos;t have an account?{" "}
+          <Link
+            href={`/applicant/auth/register${redirectParam ? `?redirect=${encodeURIComponent(redirectParam)}` : ""}`}
+            className="text-[#087F5B] font-semibold hover:underline"
+          >
+            Create one
+          </Link>
+        </span>
+      </div>
 
       <div className="text-center mt-2">
         <span className="text-sm w-full text-gray-500">

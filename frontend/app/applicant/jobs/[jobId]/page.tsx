@@ -5,7 +5,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/api/client";
 import { useSelector } from "react-redux";
 import { useRouter, useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import {
   MapPin,
@@ -75,6 +75,16 @@ export default function JobDetailPage() {
   const router = useRouter();
   const user = useSelector((state: any) => state.auth?.user);
   const talentId = user?.talentProfileId;
+
+  const isLoggedIn = !!user;
+  useEffect(() => {
+    if (!isLoggedIn) {
+      toast("Please log in to apply for this job", { icon: "🔐" });
+      router.replace(
+        `/dashboard/auth/login?redirect=${encodeURIComponent(`/applicant/jobs/${jobId}`)}`
+      );
+    }
+  }, [isLoggedIn, jobId, router]);
 
   const [coverLetter, setCoverLetter] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -287,6 +297,14 @@ export default function JobDetailPage() {
     }
     applyMutation.mutate();
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="text-center py-16 text-sm text-gray-400">
+        Redirecting to login...
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (

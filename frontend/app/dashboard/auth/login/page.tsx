@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import LoginForm from "./login-form";
 import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
@@ -61,7 +62,9 @@ export default function page() {
             <p className="text-gray-500 text-sm mt-1">Welcome back — sign in to continue.</p>
           </div>
 
-          <LoginForm />
+          <Suspense fallback={null}>
+            <LoginForm />
+          </Suspense>
 
           <div className="flex items-center justify-center gap-4 mt-8 pt-6 border-t border-gray-100 text-xs text-gray-400">
             <Link href="/advice" className="hover:text-[#087F5B] transition-colors">Advice</Link>

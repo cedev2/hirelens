@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api/client";
 import { useDispatch } from "react-redux";
 import { setAuth } from "@/lib/store/authSlice";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type RegisterValues = {
   firstName: string;
@@ -29,6 +29,8 @@ type AuthResponse = {
 export default function RegisterForm() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectParam = searchParams.get("redirect");
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -188,7 +190,7 @@ export default function RegisterForm() {
         <span className="text-sm w-full">
           Already have an account?{" "}
           <Link
-            href="/dashboard/auth/login"
+            href={`/dashboard/auth/login${redirectParam ? `?redirect=${encodeURIComponent(redirectParam)}` : ""}`}
             className="text-[#087F5B] font-semibold hover:text-[#087F5B]/80"
           >
             Login

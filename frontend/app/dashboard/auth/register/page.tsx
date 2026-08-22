@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import RegisterForm from "./register-form";
 import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
@@ -40,7 +41,9 @@ export default function page() {
             Create A New Account
           </h1>
 
-          <RegisterForm />
+          <Suspense fallback={null}>
+            <RegisterForm />
+          </Suspense>
 
           <div className="flex items-center justify-center gap-4 mt-6 pt-5 border-t border-gray-100 text-xs text-gray-400">
             <Link href="/advice" className="hover:text-[#087F5B] transition-colors">Advice</Link>

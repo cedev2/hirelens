@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import ApplicantRegisterForm from "./register-form";
 import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
@@ -35,7 +36,9 @@ export default function ApplicantRegisterPage() {
         <div className="bg-white rounded-[10px] shadow-xl p-6 sm:p-8 w-full max-w-[460px] mx-4 max-h-[90vh] overflow-y-auto">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Create Account</h1>
           <p className="text-sm text-gray-500 mb-6">Join as an applicant to start applying</p>
-          <ApplicantRegisterForm />
+          <Suspense fallback={null}>
+            <ApplicantRegisterForm />
+          </Suspense>
         </div>
       </div>
     </section>

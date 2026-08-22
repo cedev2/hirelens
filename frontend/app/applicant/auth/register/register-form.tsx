@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api/client";
 import { useDispatch } from "react-redux";
 import { setAuth } from "@/lib/store/authSlice";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type RegisterValues = {
   firstName: string;
@@ -22,6 +22,8 @@ type RegisterValues = {
 export default function ApplicantRegisterForm() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectParam = searchParams.get("redirect") || "/applicant";
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -43,13 +45,13 @@ export default function ApplicantRegisterForm() {
       if (data.requiresVerification && data.email) {
         toast.success("Account created! Check your email for a verification code.");
         router.push(
-          `/dashboard/auth/verify-email?email=${encodeURIComponent(data.email)}&redirect=/applicant`
+          `/dashboard/auth/verify-email?email=${encodeURIComponent(data.email)}&redirect=${encodeURIComponent(redirectParam)}`
         );
         return;
       }
       dispatch(setAuth({ user: data.user, tokens: data.tokens }));
       toast.success("Account created successfully!");
-      router.push("/applicant");
+      router.push(redirectParam);
     },
     onError: (error: any) => {
       const message = error?.response?.data?.message || "Registration failed";
@@ -187,7 +189,10 @@ export default function ApplicantRegisterForm() {
 
       <p className="text-center text-sm text-gray-500">
         Already have an account?{" "}
-        <Link href="/dashboard/auth/login" className="text-[#087F5B] font-semibold hover:underline">
+        <Link
+          href={`/dashboard/auth/login?redirect=${encodeURIComponent(redirectParam)}`}
+          className="text-[#087F5B] font-semibold hover:underline"
+        >
           Login
         </Link>
       </p>

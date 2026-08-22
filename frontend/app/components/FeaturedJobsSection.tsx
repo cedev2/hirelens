@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api/client";
 import { stripHtmlToText } from "./SafeHtml";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 type ApiJob = {
   _id: string;
@@ -25,6 +26,7 @@ const tagColors = [
 ];
 
 export default function FeaturedJobsSection() {
+  const user = useSelector((state: any) => state.auth?.user);
   const jobsQuery = useQuery({
     queryKey: ["jobs", "featured"],
     queryFn: async () => {
@@ -115,7 +117,11 @@ export default function FeaturedJobsSection() {
 
                 {/* Apply Button */}
                 <Link
-                  href={`/applicant/jobs/${job._id}`}
+                  href={
+                    user
+                      ? `/applicant/jobs/${job._id}`
+                      : `/dashboard/auth/login?redirect=${encodeURIComponent(`/applicant/jobs/${job._id}`)}`
+                  }
                   className="block w-full rounded-xl bg-[#087F5B] px-4 py-2 text-center text-sm font-semibold text-white hover:bg-[#066B4D] transition-colors"
                 >
                   Apply Now
