@@ -111,7 +111,7 @@ function SidebarContent({
     ? `${meUser.firstName || ""} ${meUser.lastName || ""}`.trim()
     : "HR Admin";
   const role = meUser?.role ?? "admin";
-  const avatarUrl = meUser?.picture || "/images/companies/dummy.png";
+  const avatarUrl = meUser?.picture || "/images/companies/dummy.jpg";
 
   return (
     <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">

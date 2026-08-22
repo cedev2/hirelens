@@ -54,7 +54,7 @@ export default function HeroSection() {
         <div className="relative w-full max-w-[500px] aspect-[10/9] flex items-center justify-center">
           <div className="w-full max-w-[401px] aspect-square relative z-10 overflow-hidden shadow-lg rounded-xl">
             <Image
-              src="/images/companies/group x.png"
+              src="/images/companies/group x.jpg"
               alt="HireLens Dashboard"
               fill
               className="object-cover"

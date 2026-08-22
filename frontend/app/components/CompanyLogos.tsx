@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const companies = [
-  { src: "/images/companies/group x.png", alt: "Group X" },
-  { src: "/images/companies/dummy.png", alt: "Dummy" },
+  { src: "/images/companies/group x.jpg", alt: "Group X" },
+  { src: "/images/companies/dummy.jpg", alt: "Dummy" },
 ];
 
 export default function CompanyLogos() {
