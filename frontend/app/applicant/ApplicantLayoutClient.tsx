@@ -17,6 +17,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  User,
+  Settings,
 } from "lucide-react";
 import ChatWidget from "@/app/components/chat/ChatWidget";
 
@@ -24,6 +26,8 @@ const navItems = [
   { label: "Dashboard", href: "/applicant", icon: <LayoutGrid className="h-5 w-5" /> },
   { label: "Browse Jobs", href: "/applicant/jobs", icon: <Briefcase className="h-5 w-5" /> },
   { label: "My Applications", href: "/applicant/applications", icon: <FileText className="h-5 w-5" /> },
+  { label: "Profile", href: "/applicant/profile", icon: <User className="h-5 w-5" /> },
+  { label: "Settings", href: "/applicant/settings", icon: <Settings className="h-5 w-5" /> },
 ];
 
 export default function ApplicantLayoutClient({
