@@ -83,8 +83,7 @@ function SidebarContent({
   const pathname = usePathname();
 
   return (
-    <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
-
+    <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden pt-2">
       {/* Main nav */}
       <nav className="space-y-1 px-2" data-tour="sidebar-navigation">
         {mainNav.map((item) => {
