@@ -139,7 +139,7 @@ function SidebarContent({
   const displayName = currentUser
     ? `${currentUser.firstName} ${currentUser.lastName || ""}`.trim()
     : "Loading...";
-  const userPicture = currentUser?.picture || talent?.userId?.picture || "/images/companies/dummy.png";
+  const userPicture = currentUser?.picture || talent?.userId?.picture || "/images/companies/dummy.jpg";
   const userHeadline = talent?.headline || "Talent";
 
   const wrapClick = (item: NavItem) =>

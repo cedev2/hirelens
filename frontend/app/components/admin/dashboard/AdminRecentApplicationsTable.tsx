@@ -108,7 +108,7 @@ export default function AdminRecentApplicationsTable() {
                   ? `${talent.userId.firstName || ""} ${talent.userId.lastName || ""}`.trim()
                   : "Unknown";
                 const avatarUrl =
-                  talent.userId?.picture || "/images/companies/dummy.png";
+                  talent.userId?.picture || "/images/companies/dummy.jpg";
 
                 return (
                   <tr key={talent._id} className="border-t border-gray-100">

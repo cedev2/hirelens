@@ -137,7 +137,7 @@ export default function AdminProfilePage() {
                       src={
                         form.picture ||
                         user.picture ||
-                        "/images/companies/dummy.png"
+                        "/images/companies/dummy.jpg"
                       }
                       alt="Profile"
                       className="h-full w-full object-cover"

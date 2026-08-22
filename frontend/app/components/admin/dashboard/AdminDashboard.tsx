@@ -227,7 +227,7 @@ export default function AdminDashboard() {
           department: "HireLens",
           experience: "HireLens",
           status: statusMap[String(app.status)] || "Under Review",
-          avatar: user?.picture || "/images/companies/dummy.png",
+          avatar: user?.picture || "/images/companies/dummy.jpg",
         };
       });
   }, [applications, jobs, talents]);
