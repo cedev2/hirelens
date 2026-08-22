@@ -21,15 +21,15 @@ export default function ModelSelectionStep({
     <div className="space-y-6">
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Weights
       </button>
 
       <div className="rounded-[10px] border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-[#25324B]">Choose AI model</h3>
-        <p className="mt-1 text-sm text-[#7C8493]">
+        <h3 className="text-lg font-bold text-[#111827]">Choose AI model</h3>
+        <p className="mt-1 text-sm text-[#6B7280]">
           Select which provider to use for screening.
         </p>
 
@@ -59,8 +59,8 @@ export default function ModelSelectionStep({
               />
             </div>
             <div className="min-w-0 flex flex-col">
-              <p className="font-bold text-[#25324B]">Gemini</p>
-              <p className="mt-1 text-xs text-[#7C8493]">
+              <p className="font-bold text-[#111827]">Gemini</p>
+              <p className="mt-1 text-xs text-[#6B7280]">
                 Default model. May rate-limit on heavy traffic.
               </p>
 
@@ -104,8 +104,8 @@ export default function ModelSelectionStep({
               />
             </div>
             <div className="min-w-0">
-              <p className="font-bold text-[#25324B]">Groq</p>
-              <p className="mt-1 text-xs text-[#7C8493]">
+              <p className="font-bold text-[#111827]">Groq</p>
+              <p className="mt-1 text-xs text-[#6B7280]">
                 Groq powered models. Uses lates Groq LPU.
               </p>
               <div className="flex flex-wrap gap-2 mt-1">

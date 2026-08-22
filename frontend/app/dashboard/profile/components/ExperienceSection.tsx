@@ -46,7 +46,7 @@ export default function ExperienceSection({
           <div>
             <Briefcase className="w-5 h-5 text-[#087F5B]" />
           </div>
-          <h2 className="text-xl font-bold text-[#25324B]">Work Experience</h2>
+          <h2 className="text-xl font-bold text-[#111827]">Work Experience</h2>
         </div>
         <button
           onClick={onAdd}
@@ -76,7 +76,7 @@ export default function ExperienceSection({
 
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-lg font-bold text-[#25324B] group-hover:text-[#087F5B] transition-colors">
+                <h3 className="text-lg font-bold text-[#111827] group-hover:text-[#087F5B] transition-colors">
                   {exp.role}
                 </h3>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-1">
@@ -98,7 +98,7 @@ export default function ExperienceSection({
               )}
             </div>
 
-            <p className="text-sm leading-relaxed text-[#7C8493] font-medium max-w-2xl mb-5">
+            <p className="text-sm leading-relaxed text-[#6B7280] font-medium max-w-2xl mb-5">
               {exp.description}
             </p>
 

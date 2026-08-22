@@ -17,7 +17,7 @@ export default function BioForm({ initialData, onSubmit }: BioFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Bio</label>
+        <label className="text-sm font-bold text-[#111827]">Bio</label>
         <textarea 
           name="bio" 
           defaultValue={initialData} 

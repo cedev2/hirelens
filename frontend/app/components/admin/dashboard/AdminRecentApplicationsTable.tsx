@@ -72,10 +72,10 @@ export default function AdminRecentApplicationsTable() {
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-lg font-semibold text-[#25324B]">Talents</p>
-          <p className="text-sm text-[#7C8493]">Recent talents</p>
+          <p className="text-lg font-semibold text-[#111827]">Talents</p>
+          <p className="text-sm text-[#6B7280]">Recent talents</p>
         </div>
-        {/* <button className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] hover:bg-gray-50">
+        {/* <button className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] hover:bg-gray-50">
           Filter &amp; Sort
         </button> */}
       </div>
@@ -83,7 +83,7 @@ export default function AdminRecentApplicationsTable() {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px]">
           <thead>
-            <tr className="text-left text-xs font-semibold text-[#7C8493]">
+            <tr className="text-left text-xs font-semibold text-[#6B7280]">
               <th className="pb-3 w-[40%]">Talent Name</th>
               <th className="pb-3">Experience</th>
               <th className="pb-3">Status</th>
@@ -92,13 +92,13 @@ export default function AdminRecentApplicationsTable() {
           <tbody className="text-sm">
             {isLoading ? (
               <tr>
-                <td colSpan={5} className="py-8 text-center text-[#7C8493]">
+                <td colSpan={5} className="py-8 text-center text-[#6B7280]">
                   Loading talents...
                 </td>
               </tr>
             ) : rows.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-8 text-center text-[#7C8493]">
+                <td colSpan={5} className="py-8 text-center text-[#6B7280]">
                   No talents found
                 </td>
               </tr>
@@ -124,13 +124,13 @@ export default function AdminRecentApplicationsTable() {
                           />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#25324B]">
+                          <p className="font-semibold text-[#111827]">
                             {fullName || "Unknown Talent"}
                           </p>
                         </div>
                       </div>
                     </td>
-                    <td className="py-4 text-[#25324B]">
+                    <td className="py-4 text-[#111827]">
                       {Array.isArray(talent.experience) &&
                       talent.experience.length > 0
                         ? `${talent.experience.length} yrs exp`

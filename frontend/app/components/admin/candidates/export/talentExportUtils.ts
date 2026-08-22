@@ -210,7 +210,7 @@ export function exportTalentsToPDF(
   doc.setFont("helvetica", "bold");
   doc.text("HIRELENS", 14, 17);
 
-  doc.setTextColor(124, 132, 147); // #7C8493
+  doc.setTextColor(124, 132, 147); // #6B7280
   doc.setFontSize(12);
   doc.setFont("helvetica", "normal");
   doc.text("Talent Pool Export", 60, 17);
@@ -222,7 +222,7 @@ export function exportTalentsToPDF(
   });
 
   // Subtitle
-  doc.setTextColor(37, 50, 75); // #25324B
+  doc.setTextColor(37, 50, 75); // #111827
   doc.setFontSize(11);
   doc.text(`Total Talents: ${talents.length}`, 14, 35);
 
@@ -324,19 +324,19 @@ export function printTalents(talents: ExportTalent[]): void {
       <title>HireLens Talent Pool - ${new Date().toLocaleDateString()}</title>
       <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; line-height: 1.5; color: #25324B; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; line-height: 1.5; color: #111827; }
         .header { background: #E8F7F0; padding: 20px; border-bottom: 3px solid #087F5B; }
         .header h1 { color: #087F5B; font-size: 24px; margin: 0; }
-        .header .subtitle { color: #7C8493; font-size: 14px; margin-top: 4px; }
-        .header .date { color: #7C8493; font-size: 12px; margin-top: 8px; }
+        .header .subtitle { color: #6B7280; font-size: 14px; margin-top: 4px; }
+        .header .date { color: #6B7280; font-size: 12px; margin-top: 8px; }
         .content { padding: 20px; }
         table { width: 100%; border-collapse: collapse; }
         th { background: #087F5B; color: white; padding: 12px 8px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; }
         td { padding: 10px 8px; border-bottom: 1px solid #e5e7eb; }
-        tr:nth-child(even) { background: #F8F8FD; }
+        tr:nth-child(even) { background: #F9FAFB; }
         tr:hover { background: #E8F7F0; }
-        .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; background: white; border-top: 1px solid #e5e7eb; font-size: 10px; color: #7C8493; }
-        .count { padding: 20px; font-size: 14px; font-weight: 600; color: #25324B; }
+        .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; background: white; border-top: 1px solid #e5e7eb; font-size: 10px; color: #6B7280; }
+        .count { padding: 20px; font-size: 14px; font-weight: 600; color: #111827; }
         @media print {
           .no-print { display: none; }
           .footer { position: fixed; bottom: 0; }

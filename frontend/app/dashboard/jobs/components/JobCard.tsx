@@ -91,7 +91,7 @@ export default function JobCard({ job, onClick }: JobCardProps) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-lg font-bold text-[#25324B] group-hover:text-[#087F5B] transition-colors leading-tight">
+              <h3 className="text-lg font-bold text-[#111827] group-hover:text-[#087F5B] transition-colors leading-tight">
                 {job.title}
               </h3>
               <div className="absolute right-[-5px] top-[-10px]">
@@ -104,7 +104,7 @@ export default function JobCard({ job, onClick }: JobCardProps) {
                 ) : null}
               </div>
             </div>
-            <p className="text-sm font-semibold text-[#7C8493] mt-1">
+            <p className="text-sm font-semibold text-[#6B7280] mt-1">
               {job.company}
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function JobCard({ job, onClick }: JobCardProps) {
           <BsCash className="w-4 h-4 text-gray-400" />
           {job.salary}
         </div>
-        <div className="flex items-center gap-2 text-[13px] font-medium text-[#7C8493]">
+        <div className="flex items-center gap-2 text-[13px] font-medium text-[#6B7280]">
           <Clock className="w-4 h-4 text-gray-400" />
           {job.postedAt}
         </div>

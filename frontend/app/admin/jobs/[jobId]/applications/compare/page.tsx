@@ -93,7 +93,7 @@ function DiffSection({
 }) {
   return (
     <section className="rounded-[10px] border border-gray-200 bg-white p-5">
-      <h3 className="text-sm font-bold text-[#25324B] mb-4">{title}</h3>
+      <h3 className="text-sm font-bold text-[#111827] mb-4">{title}</h3>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-4">
           {left}
@@ -202,10 +202,10 @@ export default function ApplicationsComparePage() {
             <ArrowLeft className="h-4 w-4" />
             Back to Applications
           </Link>
-          <h1 className="text-2xl font-bold text-[#25324B]">
+          <h1 className="text-2xl font-bold text-[#111827]">
             Compare Applicants
           </h1>
-          <p className="text-sm text-[#7C8493]">Side-by-side profile diff.</p>
+          <p className="text-sm text-[#6B7280]">Side-by-side profile diff.</p>
         </div>
       </div>
 
@@ -220,7 +220,7 @@ export default function ApplicationsComparePage() {
       ) : isLoading ? (
         <div className="flex flex-col items-center justify-center rounded-[10px] border border-gray-200 bg-white py-20">
           <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mb-2" />
-          <p className="text-sm text-[#7C8493]">Loading comparison...</p>
+          <p className="text-sm text-[#6B7280]">Loading comparison...</p>
         </div>
       ) : !talentA || !talentB ? (
         <div className="rounded-[10px] border border-red-200 bg-red-50 p-5 text-sm text-red-700">
@@ -230,35 +230,35 @@ export default function ApplicationsComparePage() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="rounded-[10px] border border-gray-200 bg-white p-5">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                 Applicant A
               </p>
-              <p className="mt-1 text-lg font-bold text-[#25324B]">
+              <p className="mt-1 text-lg font-bold text-[#111827]">
                 {fullName(talentA)}
               </p>
-              <p className="text-sm text-[#7C8493]">{talentA.headline}</p>
+              <p className="text-sm text-[#6B7280]">{talentA.headline}</p>
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Skills
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {skillList(talentA).length}
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Experience
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.aExp}
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Projects
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.aProj}
                   </p>
                 </div>
@@ -266,35 +266,35 @@ export default function ApplicationsComparePage() {
             </div>
 
             <div className="rounded-[10px] border border-gray-200 bg-white p-5">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                 Applicant B
               </p>
-              <p className="mt-1 text-lg font-bold text-[#25324B]">
+              <p className="mt-1 text-lg font-bold text-[#111827]">
                 {fullName(talentB)}
               </p>
-              <p className="text-sm text-[#7C8493]">{talentB.headline}</p>
+              <p className="text-sm text-[#6B7280]">{talentB.headline}</p>
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Skills
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {skillList(talentB).length}
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Experience
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.bExp}
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Projects
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.bProj}
                   </p>
                 </div>
@@ -313,21 +313,21 @@ export default function ApplicationsComparePage() {
             </div>
             <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
               <div className="rounded-xl bg-white border border-indigo-100 p-4">
-                <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                   Experience entries
                 </p>
-                <p className="mt-1 text-sm font-bold text-[#25324B]">
+                <p className="mt-1 text-sm font-bold text-[#111827]">
                   A: {computed.aExp} ({winsLabel(computed.aExp, computed.bExp)})
                 </p>
-                <p className="text-sm font-bold text-[#25324B]">
+                <p className="text-sm font-bold text-[#111827]">
                   B: {computed.bExp} ({winsLabel(computed.bExp, computed.aExp)})
                 </p>
               </div>
               <div className="rounded-xl bg-white border border-indigo-100 p-4">
-                <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                   Skills count
                 </p>
-                <p className="mt-1 text-sm font-bold text-[#25324B]">
+                <p className="mt-1 text-sm font-bold text-[#111827]">
                   A: {skillList(talentA).length} (
                   {winsLabel(
                     skillList(talentA).length,
@@ -335,7 +335,7 @@ export default function ApplicationsComparePage() {
                   )}
                   )
                 </p>
-                <p className="text-sm font-bold text-[#25324B]">
+                <p className="text-sm font-bold text-[#111827]">
                   B: {skillList(talentB).length} (
                   {winsLabel(
                     skillList(talentB).length,
@@ -345,14 +345,14 @@ export default function ApplicationsComparePage() {
                 </p>
               </div>
               <div className="rounded-xl bg-white border border-indigo-100 p-4">
-                <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                   Projects count
                 </p>
-                <p className="mt-1 text-sm font-bold text-[#25324B]">
+                <p className="mt-1 text-sm font-bold text-[#111827]">
                   A: {computed.aProj} (
                   {winsLabel(computed.aProj, computed.bProj)})
                 </p>
-                <p className="text-sm font-bold text-[#25324B]">
+                <p className="text-sm font-bold text-[#111827]">
                   B: {computed.bProj} (
                   {winsLabel(computed.bProj, computed.aProj)})
                 </p>
@@ -365,7 +365,7 @@ export default function ApplicationsComparePage() {
             left={
               <div className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">Shared</p>
+                  <p className="text-xs font-semibold text-[#111827]">Shared</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.sharedSkills.length ? (
                       computed.sharedSkills.map((s) => (
@@ -377,12 +377,12 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">
+                  <p className="text-xs font-semibold text-[#111827]">
                     A only (gaps vs B)
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -396,7 +396,7 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
@@ -405,7 +405,7 @@ export default function ApplicationsComparePage() {
             right={
               <div className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">Shared</p>
+                  <p className="text-xs font-semibold text-[#111827]">Shared</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.sharedSkills.length ? (
                       computed.sharedSkills.map((s) => (
@@ -417,12 +417,12 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">
+                  <p className="text-xs font-semibold text-[#111827]">
                     B only (gaps vs A)
                   </p>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -436,7 +436,7 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
@@ -449,7 +449,7 @@ export default function ApplicationsComparePage() {
             left={
               <div className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">Shared</p>
+                  <p className="text-xs font-semibold text-[#111827]">Shared</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.sharedLang.length ? (
                       computed.sharedLang.map((l) => (
@@ -461,12 +461,12 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">A only</p>
+                  <p className="text-xs font-semibold text-[#111827]">A only</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.aOnlyLang.length ? (
                       computed.aOnlyLang.map((l) => (
@@ -478,7 +478,7 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
@@ -487,7 +487,7 @@ export default function ApplicationsComparePage() {
             right={
               <div className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">Shared</p>
+                  <p className="text-xs font-semibold text-[#111827]">Shared</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.sharedLang.length ? (
                       computed.sharedLang.map((l) => (
@@ -499,12 +499,12 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">B only</p>
+                  <p className="text-xs font-semibold text-[#111827]">B only</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {computed.bOnlyLang.length ? (
                       computed.bOnlyLang.map((l) => (
@@ -516,7 +516,7 @@ export default function ApplicationsComparePage() {
                         </span>
                       ))
                     ) : (
-                      <span className="text-xs text-[#7C8493]">None</span>
+                      <span className="text-xs text-[#6B7280]">None</span>
                     )}
                   </div>
                 </div>
@@ -529,18 +529,18 @@ export default function ApplicationsComparePage() {
             left={
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#25324B]">
+                  <span className="text-xs font-semibold text-[#111827]">
                     Education entries
                   </span>
-                  <span className="text-xs font-bold text-[#25324B]">
+                  <span className="text-xs font-bold text-[#111827]">
                     {computed.aEdu}
                   </span>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">
+                  <p className="text-xs font-semibold text-[#111827]">
                     Availability
                   </p>
-                  <p className="mt-1 text-xs text-[#7C8493]">
+                  <p className="mt-1 text-xs text-[#6B7280]">
                     {talentA.availability?.type ?? "HireLens"} •{" "}
                     {talentA.availability?.status ?? "HireLens"}
                   </p>
@@ -550,18 +550,18 @@ export default function ApplicationsComparePage() {
             right={
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#25324B]">
+                  <span className="text-xs font-semibold text-[#111827]">
                     Education entries
                   </span>
-                  <span className="text-xs font-bold text-[#25324B]">
+                  <span className="text-xs font-bold text-[#111827]">
                     {computed.bEdu}
                   </span>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[#25324B]">
+                  <p className="text-xs font-semibold text-[#111827]">
                     Availability
                   </p>
-                  <p className="mt-1 text-xs text-[#7C8493]">
+                  <p className="mt-1 text-xs text-[#6B7280]">
                     {talentB.availability?.type ?? "HireLens"} •{" "}
                     {talentB.availability?.status ?? "HireLens"}
                   </p>

@@ -145,7 +145,7 @@ export default function ProfileStatus({ progress }: ProfileStatusProps) {
                   <FileText className="w-6 h-6 text-[#d93025]" />
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     View uploaded CV
                   </p>
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
@@ -164,7 +164,7 @@ export default function ProfileStatus({ progress }: ProfileStatusProps) {
           ) : (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-[#7C8493]">
+                <p className="text-sm font-medium text-[#6B7280]">
                   {hasCv
                     ? "Upload new CV"
                     : "Upload your CV to complete your profile"}

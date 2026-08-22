@@ -50,13 +50,13 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.13 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.13 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --popover-foreground: oklch(0.13 0 0);
+  --primary: oklch(0.47 0.12 162);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -131,7 +131,7 @@
 
 body,
 html {
-  background-color: #F8FAFC !important;
+  background-color: #FFFFFF !important;
 }
 
 * {
@@ -144,7 +144,7 @@ html {
 }
 
 phantom-ui {
-  --shimmer-color: rgba(6, 118, 179, 0.3);
+  --shimmer-color: rgba(8, 127, 91, 0.25);
 }
 
 phantom-ui[loading] * {

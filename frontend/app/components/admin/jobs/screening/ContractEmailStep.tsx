@@ -194,29 +194,29 @@ export default function ContractEmailStep({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Contract Generation
         </button>
-        <div className="flex items-center gap-2 text-sm text-[#7C8493]">
+        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
           <Mail className="h-4 w-4" />
           <span>Send Contracts for Signature</span>
         </div>
       </div>
 
       {/* Progress */}
-      <div className="rounded-xl border border-green-100 bg-[#F8F8FD] p-4">
+      <div className="rounded-xl border border-green-100 bg-[#F9FAFB] p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#087F5B]/10 text-[#087F5B]">
               <FileText className="h-5 w-5" />
             </div>
             <div>
-              <p className="font-semibold text-[#25324B]">
+              <p className="font-semibold text-[#111827]">
                 {sentIds.size} of {candidates.length} contracts sent
               </p>
-              <p className="text-xs text-[#7C8493]">
+              <p className="text-xs text-[#6B7280]">
                 {allSent
                   ? "All contracts have been sent!"
                   : "Send contracts to candidates"}
@@ -251,13 +251,13 @@ export default function ContractEmailStep({
         {/* Left: Email Template */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-bold text-[#25324B]">Email Template</h3>
+            <h3 className="font-bold text-[#111827]">Email Template</h3>
             <button
               onClick={() => setIsEditing(!isEditing)}
               className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
                 isEditing
                   ? "bg-[#087F5B] text-white"
-                  : "bg-gray-100 text-[#25324B] hover:bg-gray-200"
+                  : "bg-gray-100 text-[#111827] hover:bg-gray-200"
               }`}
             >
               <Edit3 className="h-3 w-3" />
@@ -268,7 +268,7 @@ export default function ContractEmailStep({
           {isEditing ? (
             <div className="space-y-3">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#25324B]">
+                <label className="text-sm font-semibold text-[#111827]">
                   Subject
                 </label>
                 <input
@@ -279,7 +279,7 @@ export default function ContractEmailStep({
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#25324B]">
+                <label className="text-sm font-semibold text-[#111827]">
                   Body
                 </label>
                 <textarea
@@ -289,13 +289,13 @@ export default function ContractEmailStep({
                   className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-[#087F5B] font-mono"
                 />
               </div>
-              <p className="text-xs text-[#7C8493]">
+              <p className="text-xs text-[#6B7280]">
                 Variables: {"{{candidateName}}, {{position}}, {{email}}"}
               </p>
             </div>
           ) : (
             <div className="rounded-lg border border-gray-200 bg-white p-4 space-y-3">
-              <p className="font-semibold text-[#25324B]">
+              <p className="font-semibold text-[#111827]">
                 {replaceVariables(
                   subject,
                   candidates[0] || {
@@ -307,7 +307,7 @@ export default function ContractEmailStep({
                   },
                 )}
               </p>
-              <p className="text-sm text-[#25324B] whitespace-pre-wrap">
+              <p className="text-sm text-[#111827] whitespace-pre-wrap">
                 {replaceVariables(
                   body,
                   candidates[0] || {
@@ -325,7 +325,7 @@ export default function ContractEmailStep({
 
         {/* Right: Candidates List */}
         <div className="space-y-4">
-          <h3 className="font-bold text-[#25324B]">Candidates</h3>
+          <h3 className="font-bold text-[#111827]">Candidates</h3>
           <div className="space-y-2 max-h-[400px] overflow-y-auto">
             {candidates.map((c) => {
               const isSent = sentIds.has(c.candidateId);
@@ -346,10 +346,10 @@ export default function ContractEmailStep({
                         <User className="h-4 w-4 text-gray-600" />
                       </div>
                       <div>
-                        <p className="font-semibold text-sm text-[#25324B]">
+                        <p className="font-semibold text-sm text-[#111827]">
                           {c.name}
                         </p>
-                        <p className="text-xs text-[#7C8493]">{c.email}</p>
+                        <p className="text-xs text-[#6B7280]">{c.email}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -391,7 +391,7 @@ export default function ContractEmailStep({
 
       {/* Actions */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div className="text-sm text-[#7C8493]">
+        <div className="text-sm text-[#6B7280]">
           {allSent ? (
             <span className="inline-flex items-center gap-1 text-green-600">
               <CheckCircle2 className="h-4 w-4" />
@@ -404,7 +404,7 @@ export default function ContractEmailStep({
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
-            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50"
+            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50"
           >
             Back
           </button>

@@ -158,10 +158,10 @@ export default function AdminCandidatesPage() {
         accessorKey: "name",
         cell: ({ row }) => (
           <div>
-            <p className="text-sm font-semibold text-[#25324B]">
+            <p className="text-sm font-semibold text-[#111827]">
               {row.original.name}
             </p>
-            <p className="text-xs text-[#7C8493]">{row.original.headline}</p>
+            <p className="text-xs text-[#6B7280]">{row.original.headline}</p>
           </div>
         ),
       },
@@ -169,7 +169,7 @@ export default function AdminCandidatesPage() {
         header: "Location",
         accessorKey: "location",
         cell: ({ row }) => (
-          <span className="text-sm text-[#7C8493]">
+          <span className="text-sm text-[#6B7280]">
             {row.original.location}
           </span>
         ),
@@ -178,7 +178,7 @@ export default function AdminCandidatesPage() {
         header: "Experience",
         accessorKey: "experience",
         cell: ({ row }) => (
-          <span className="text-sm text-[#7C8493]">
+          <span className="text-sm text-[#6B7280]">
             {row.original.experience}
           </span>
         ),
@@ -187,7 +187,7 @@ export default function AdminCandidatesPage() {
         header: "Education",
         accessorKey: "education",
         cell: ({ row }) => (
-          <span className="text-sm text-[#7C8493]">
+          <span className="text-sm text-[#6B7280]">
             {row.original.education}
           </span>
         ),
@@ -258,8 +258,8 @@ export default function AdminCandidatesPage() {
       {/* Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#25324B]">Candidates</h1>
-          <p className="text-sm text-[#7C8493]">
+          <h1 className="text-2xl font-bold text-[#111827]">Candidates</h1>
+          <p className="text-sm text-[#6B7280]">
             Browse and manage all registered talents
           </p>
         </div>
@@ -269,7 +269,7 @@ export default function AdminCandidatesPage() {
             className={`p-2 rounded-lg transition-colors ${
               viewMode === "cards"
                 ? "bg-indigo-50 text-indigo-600 shadow-sm"
-                : "text-[#7C8493] hover:bg-gray-50"
+                : "text-[#6B7280] hover:bg-gray-50"
             }`}
           >
             <LayoutGrid className="h-4 w-4" />
@@ -279,7 +279,7 @@ export default function AdminCandidatesPage() {
             className={`p-2 rounded-lg transition-colors ${
               viewMode === "table"
                 ? "bg-indigo-50 text-indigo-600 shadow-sm"
-                : "text-[#7C8493] hover:bg-gray-50"
+                : "text-[#6B7280] hover:bg-gray-50"
             }`}
           >
             <List className="h-4 w-4" />
@@ -300,7 +300,7 @@ export default function AdminCandidatesPage() {
           />
         </div>
         <div className="flex items-center gap-3">
-          <p className="text-sm font-medium text-[#25324B]">
+          <p className="text-sm font-medium text-[#111827]">
             {filtered.length} Candidates Found
           </p>
 
@@ -324,7 +324,7 @@ export default function AdminCandidatesPage() {
             )}
             disabled={isLoading}
           />
-          <button className="items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 transition-colors hidden">
+          <button className="items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 transition-colors hidden">
             <Filter className="h-4 w-4 text-gray-400" />
             Advanced Filter
           </button>
@@ -335,14 +335,14 @@ export default function AdminCandidatesPage() {
       {isLoading ? (
         <div className="flex flex-col items-center justify-center rounded-[10px] border border-gray-200 bg-white py-20">
           <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mb-2" />
-          <p className="text-sm text-[#7C8493]">Loading candidates...</p>
+          <p className="text-sm text-[#6B7280]">Loading candidates...</p>
         </div>
       ) : filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-[10px] border border-gray-200 bg-white py-20">
-          <p className="text-sm font-semibold text-[#25324B]">
+          <p className="text-sm font-semibold text-[#111827]">
             No candidates found
           </p>
-          <p className="text-xs text-[#7C8493] mt-1">
+          <p className="text-xs text-[#6B7280] mt-1">
             Try adjusting your search query.
           </p>
         </div>
@@ -374,7 +374,7 @@ export default function AdminCandidatesPage() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="h-8 w-8 rounded-lg border border-gray-100 flex items-center justify-center text-[#7C8493] hover:text-[#0A66C2] hover:bg-indigo-50 hover:border-indigo-100 transition-colors"
+                    className="h-8 w-8 rounded-lg border border-gray-100 flex items-center justify-center text-[#6B7280] hover:text-[#0A66C2] hover:bg-indigo-50 hover:border-indigo-100 transition-colors"
                   >
                     <FaLinkedin className="h-4 w-4" />
                   </a>
@@ -394,7 +394,7 @@ export default function AdminCandidatesPage() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="h-8 w-8 rounded-lg border border-gray-100 flex items-center justify-center text-[#7C8493] hover:text-[#181717] hover:bg-gray-50 hover:border-gray-200 transition-colors"
+                    className="h-8 w-8 rounded-lg border border-gray-100 flex items-center justify-center text-[#6B7280] hover:text-[#181717] hover:bg-gray-50 hover:border-gray-200 transition-colors"
                   >
                     <FaGithub className="h-4 w-4" />
                   </a>
@@ -402,19 +402,19 @@ export default function AdminCandidatesPage() {
               </div>
 
               <div className="mt-4">
-                <h3 className="text-lg font-bold text-[#25324B] group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-lg font-bold text-[#111827] group-hover:text-indigo-600 transition-colors">
                   {candidate.name}
                 </h3>
-                <p className="text-sm text-[#7C8493]">{candidate.headline}</p>
+                <p className="text-sm text-[#6B7280]">{candidate.headline}</p>
               </div>
 
               <div className="mt-4 flex flex-wrap gap-2">
-                <div className="flex items-center gap-1.5 rounded-lg border border-gray-100 bg-gray-50/50 px-2.5 py-1 text-xs text-[#25324B]">
-                  <MapPin className="h-3.5 w-3.5 text-[#7C8493]" />
+                <div className="flex items-center gap-1.5 rounded-lg border border-gray-100 bg-gray-50/50 px-2.5 py-1 text-xs text-[#111827]">
+                  <MapPin className="h-3.5 w-3.5 text-[#6B7280]" />
                   {candidate.location}
                 </div>
-                <div className="flex items-center gap-1.5 rounded-lg border border-gray-100 bg-gray-50/50 px-2.5 py-1 text-xs text-[#25324B]">
-                  <Briefcase className="h-3.5 w-3.5 text-[#7C8493]" />
+                <div className="flex items-center gap-1.5 rounded-lg border border-gray-100 bg-gray-50/50 px-2.5 py-1 text-xs text-[#111827]">
+                  <Briefcase className="h-3.5 w-3.5 text-[#6B7280]" />
                   {candidate.experience}
                 </div>
               </div>
@@ -447,7 +447,7 @@ export default function AdminCandidatesPage() {
         <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
-              <thead className="bg-[#F8F8FD] border-b border-gray-200">
+              <thead className="bg-[#F9FAFB] border-b border-gray-200">
                 {table.getHeaderGroups().map((hg) => (
                   <tr key={hg.id}>
                     {hg.headers.map((header) => {
@@ -455,7 +455,7 @@ export default function AdminCandidatesPage() {
                       return (
                         <th key={header.id} className="px-6 py-4">
                           <div
-                            className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#7C8493] ${
+                            className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6B7280] ${
                               header.column.getCanSort()
                                 ? "cursor-pointer select-none"
                                 : ""
@@ -483,7 +483,7 @@ export default function AdminCandidatesPage() {
                 {table.getRowModel().rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="hover:bg-[#F8F8FD]/50 transition-colors"
+                    className="hover:bg-[#F9FAFB]/50 transition-colors"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <td key={cell.id} className="px-6 py-4">
@@ -499,9 +499,9 @@ export default function AdminCandidatesPage() {
             </table>
           </div>
           <div className="flex items-center justify-between px-6 py-4 bg-white border-t border-gray-100">
-            <p className="text-sm text-[#7C8493]">
+            <p className="text-sm text-[#6B7280]">
               Showing{" "}
-              <span className="font-semibold text-[#25324B]">
+              <span className="font-semibold text-[#111827]">
                 {table.getRowModel().rows.length}
               </span>{" "}
               candidates

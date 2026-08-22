@@ -130,12 +130,12 @@ export default function InterviewManageStep({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Interview Invites
         </button>
-        <div className="flex items-center gap-2 text-sm text-[#7C8493]">
+        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
           <Calendar className="h-4 w-4" />
           <span>Manage Interviews</span>
         </div>
@@ -158,10 +158,10 @@ export default function InterviewManageStep({
               }`}
             >
               <div className="flex items-center gap-2">
-                <Icon className="h-4 w-4 text-[#7C8493]" />
-                <span className="text-xs text-[#7C8493]">{config.label}</span>
+                <Icon className="h-4 w-4 text-[#6B7280]" />
+                <span className="text-xs text-[#6B7280]">{config.label}</span>
               </div>
-              <p className="mt-1 text-xl font-bold text-[#25324B]">{count}</p>
+              <p className="mt-1 text-xl font-bold text-[#111827]">{count}</p>
             </div>
           );
         })}
@@ -192,18 +192,18 @@ export default function InterviewManageStep({
                   className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-bold ${
                     c.rank === 1
                       ? "bg-amber-100 text-amber-700"
-                      : "bg-gray-100 text-[#25324B]"
+                      : "bg-gray-100 text-[#111827]"
                   }`}
                 >
                   #{c.rank}
                 </div>
                 <div className="flex-1 min-w-[140px]">
-                  <h4 className="font-bold text-[#25324B] truncate">{c.name}</h4>
-                  <p className="text-sm text-[#7C8493] truncate">{c.email}</p>
+                  <h4 className="font-bold text-[#111827] truncate">{c.name}</h4>
+                  <p className="text-sm text-[#6B7280] truncate">{c.email}</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   {c.scheduledDate && (
-                    <span className="text-xs sm:text-sm text-[#7C8493]">
+                    <span className="text-xs sm:text-sm text-[#6B7280]">
                       {c.scheduledDate} {c.scheduledTime}
                     </span>
                   )}
@@ -223,11 +223,11 @@ export default function InterviewManageStep({
 
               {/* Expanded Details */}
               {isExpanded && (
-                <div className="border-t border-gray-100 p-4 bg-[#F8F8FD]/50">
+                <div className="border-t border-gray-100 p-4 bg-[#F9FAFB]/50">
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     {/* Status Update */}
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold text-[#25324B]">
+                      <label className="text-sm font-semibold text-[#111827]">
                         Update Status
                       </label>
                       <div className="flex flex-wrap gap-2">
@@ -257,7 +257,7 @@ export default function InterviewManageStep({
                     {/* Rating (for completed) */}
                     {c.status === "completed" && (
                       <div className="space-y-2">
-                        <label className="text-sm font-semibold text-[#25324B]">
+                        <label className="text-sm font-semibold text-[#111827]">
                           Interview Rating
                         </label>
                         <div className="flex items-center gap-1">
@@ -278,7 +278,7 @@ export default function InterviewManageStep({
 
                     {/* Notes */}
                     <div className="space-y-2 md:col-span-2">
-                      <label className="text-sm font-semibold text-[#25324B]">
+                      <label className="text-sm font-semibold text-[#111827]">
                         <MessageSquare className="inline h-4 w-4 mr-1" />
                         Interview Notes & Feedback
                       </label>
@@ -304,7 +304,7 @@ export default function InterviewManageStep({
 
       {/* Action */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div className="text-sm text-[#7C8493]">
+        <div className="text-sm text-[#6B7280]">
           {confirmedForContract.length > 0 ? (
             <span className="inline-flex items-center gap-1 text-green-600">
               <CheckCircle2 className="h-4 w-4" />
@@ -317,7 +317,7 @@ export default function InterviewManageStep({
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
-            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50"
+            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50"
           >
             Back
           </button>

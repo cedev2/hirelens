@@ -20,7 +20,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-8 py-6 border-b border-gray-100">
-          <h2 className="text-xl font-bold text-[#25324B]">{title}</h2>
+          <h2 className="text-xl font-bold text-[#111827]">{title}</h2>
           <button 
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"

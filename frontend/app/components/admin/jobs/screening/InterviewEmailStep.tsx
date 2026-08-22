@@ -167,28 +167,28 @@ export default function InterviewEmailStep({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Shortlist
         </button>
-        <div className="flex items-center gap-2 text-sm text-[#7C8493]">
+        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
           <Mail className="h-4 w-4" />
           <span>Compose Interview Invitations</span>
         </div>
       </div>
 
       {/* Recipients */}
-      <div className="rounded-xl border border-green-100 bg-[#F8F8FD] p-4">
+      <div className="rounded-xl border border-green-100 bg-[#F9FAFB] p-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#087F5B]/10 text-[#087F5B]">
             <User className="h-5 w-5" />
           </div>
           <div className="flex-1">
-            <p className="font-semibold text-[#25324B]">
+            <p className="font-semibold text-[#111827]">
               {candidates.length} candidates will receive interview invitations
             </p>
-            <p className="text-xs text-[#7C8493]">
+            <p className="text-xs text-[#6B7280]">
               {jobTitle} • Ranks #{candidates[0]?.rank || "-"} to #
               {candidates[candidates.length - 1]?.rank || "-"}
             </p>
@@ -199,11 +199,11 @@ export default function InterviewEmailStep({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Left: Interview Details */}
         <div className="space-y-4">
-          <h3 className="font-bold text-[#25324B]">Interview Details</h3>
+          <h3 className="font-bold text-[#111827]">Interview Details</h3>
 
           {/* Interview Type */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               Interview Type
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -215,7 +215,7 @@ export default function InterviewEmailStep({
                     className={`flex flex-col items-center gap-2 rounded-lg border p-3 transition-all ${
                       interviewType === type
                         ? "border-[#087F5B] bg-[#E8F7F0] text-[#087F5B]"
-                        : "border-gray-200 bg-white text-[#7C8493] hover:border-gray-300"
+                        : "border-gray-200 bg-white text-[#6B7280] hover:border-gray-300"
                     }`}
                   >
                     {type === "video" && <Video className="h-5 w-5" />}
@@ -233,7 +233,7 @@ export default function InterviewEmailStep({
           {/* Date & Time */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#25324B]">
+              <label className="text-sm font-semibold text-[#111827]">
                 <Calendar className="inline h-4 w-4 mr-1" />
                 Date
               </label>
@@ -245,7 +245,7 @@ export default function InterviewEmailStep({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#25324B]">
+              <label className="text-sm font-semibold text-[#111827]">
                 <Clock className="inline h-4 w-4 mr-1" />
                 Time
               </label>
@@ -260,7 +260,7 @@ export default function InterviewEmailStep({
 
           {/* Duration */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               Duration
             </label>
             <select
@@ -279,7 +279,7 @@ export default function InterviewEmailStep({
           {/* Location/Phone */}
           {interviewType === "in-person" && (
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#25324B]">
+              <label className="text-sm font-semibold text-[#111827]">
                 <MapPin className="inline h-4 w-4 mr-1" />
                 Location
               </label>
@@ -293,7 +293,7 @@ export default function InterviewEmailStep({
           )}
           {interviewType === "phone" && (
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#25324B]">
+              <label className="text-sm font-semibold text-[#111827]">
                 Your Phone Number
               </label>
               <input
@@ -310,13 +310,13 @@ export default function InterviewEmailStep({
         {/* Right: Email Template */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-bold text-[#25324B]">Email Template</h3>
+            <h3 className="font-bold text-[#111827]">Email Template</h3>
             <button
               onClick={() => setIsEditing(!isEditing)}
               className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
                 isEditing
                   ? "bg-[#087F5B] text-white"
-                  : "bg-gray-100 text-[#25324B] hover:bg-gray-200"
+                  : "bg-gray-100 text-[#111827] hover:bg-gray-200"
               }`}
             >
               <Edit3 className="h-3 w-3" />
@@ -327,7 +327,7 @@ export default function InterviewEmailStep({
           {isEditing ? (
             <div className="space-y-3">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#25324B]">
+                <label className="text-sm font-semibold text-[#111827]">
                   Subject
                 </label>
                 <input
@@ -338,7 +338,7 @@ export default function InterviewEmailStep({
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#25324B]">
+                <label className="text-sm font-semibold text-[#111827]">
                   Body
                 </label>
                 <textarea
@@ -348,7 +348,7 @@ export default function InterviewEmailStep({
                   className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-[#087F5B] font-mono"
                 />
               </div>
-              <p className="text-xs text-[#7C8493]">
+              <p className="text-xs text-[#6B7280]">
                 {
                   "Variables: {{candidateName}}, {{jobTitle}}, {{interviewDate}}, {{interviewTime}}, {{duration}}, {{location}}, {{phoneNumber}}"
                 }
@@ -358,17 +358,17 @@ export default function InterviewEmailStep({
             <div className="space-y-4">
               {/* Preview */}
               <div className="rounded-lg border border-gray-200 bg-white">
-                <div className="border-b border-gray-100 bg-gray-50 px-4 py-2 text-xs font-semibold text-[#7C8493]">
+                <div className="border-b border-gray-100 bg-gray-50 px-4 py-2 text-xs font-semibold text-[#6B7280]">
                   Preview (for {candidates[0]?.name || "Candidate"})
                 </div>
                 <div className="p-4 space-y-3">
-                  <p className="font-semibold text-[#25324B]">
+                  <p className="font-semibold text-[#111827]">
                     {replaceVariables(
                       subject,
                       candidates[0]?.name || "Candidate",
                     )}
                   </p>
-                  <div className="text-sm text-[#25324B] whitespace-pre-wrap">
+                  <div className="text-sm text-[#111827] whitespace-pre-wrap">
                     {replaceVariables(body, candidates[0]?.name || "Candidate")}
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function InterviewEmailStep({
 
       {/* Action Buttons */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div className="text-sm text-[#7C8493]">
+        <div className="text-sm text-[#6B7280]">
           {!canSend && (
             <span className="inline-flex items-center gap-1">
               <CheckCircle2 className="h-4 w-4 text-amber-500" />
@@ -391,7 +391,7 @@ export default function InterviewEmailStep({
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
-            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 transition-colors"
+            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 transition-colors"
           >
             Back
           </button>

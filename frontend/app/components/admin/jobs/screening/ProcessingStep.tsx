@@ -25,7 +25,7 @@ export default function ProcessingStep({
       </div>
 
       <div className="space-y-3 text-center">
-        <h2 className="text-2xl font-bold text-[#25324B]">
+        <h2 className="text-2xl font-bold text-[#111827]">
           Screening In Progress
         </h2>
         <div className="h-6 overflow-hidden relative">

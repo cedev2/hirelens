@@ -160,13 +160,13 @@ export default function AdminJobDetailsPage() {
       )}
 
       {isLoading && (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#25324B]">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#111827]">
           Loading job...
         </div>
       )}
 
       {!isLoading && !job && (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#25324B]">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 text-sm font-semibold text-[#111827]">
           Job not found.
         </div>
       )}
@@ -185,7 +185,7 @@ export default function AdminJobDetailsPage() {
                 </Link>
 
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <p className="text-2xl font-bold text-[#25324B]">
+                  <p className="text-2xl font-bold text-[#111827]">
                     {job.title}
                   </p>
                   <span
@@ -195,19 +195,19 @@ export default function AdminJobDetailsPage() {
                   </span>
                 </div>
 
-                <p className="mt-1 text-sm text-[#7C8493]">{job.company}</p>
+                <p className="mt-1 text-sm text-[#6B7280]">{job.company}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
-                    <MapPin className="h-3.5 w-3.5 text-[#7C8493]" />
+                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
+                    <MapPin className="h-3.5 w-3.5 text-[#6B7280]" />
                     {job.locationType}
                   </span>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
-                    <Briefcase className="h-3.5 w-3.5 text-[#7C8493]" />
+                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
+                    <Briefcase className="h-3.5 w-3.5 text-[#6B7280]" />
                     {job.jobType}
                   </span>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
-                    <CalendarDays className="h-3.5 w-3.5 text-[#7C8493]" />
+                  <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
+                    <CalendarDays className="h-3.5 w-3.5 text-[#6B7280]" />
                     Deadline: {job.deadline}
                   </span>
                 </div>
@@ -222,7 +222,7 @@ export default function AdminJobDetailsPage() {
                 </Link>
                 <Link
                   href={`/admin/jobs/${jobId}/edit`}
-                  className="rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50"
+                  className="rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50"
                 >
                   Edit job
                 </Link>
@@ -236,39 +236,39 @@ export default function AdminJobDetailsPage() {
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-4">
-              <div className="rounded-[10px] border border-gray-100 bg-[#F8F8FD] p-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#7C8493]">
+              <div className="rounded-[10px] border border-gray-100 bg-[#F9FAFB] p-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#6B7280]">
                   <Users className="h-4 w-4" />
                   Applicants
                 </div>
-                <p className="mt-2 text-2xl font-bold text-[#25324B]">
+                <p className="mt-2 text-2xl font-bold text-[#111827]">
                   {job.stats.applicants}
                 </p>
               </div>
-              <div className="rounded-[10px] border border-gray-100 bg-[#F8F8FD] p-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#7C8493]">
+              <div className="rounded-[10px] border border-gray-100 bg-[#F9FAFB] p-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#6B7280]">
                   <Eye className="h-4 w-4" />
                   Views
                 </div>
-                <p className="mt-2 text-2xl font-bold text-[#25324B]">
+                <p className="mt-2 text-2xl font-bold text-[#111827]">
                   {job.stats.views}
                 </p>
               </div>
-              <div className="rounded-[10px] border border-gray-100 bg-[#F8F8FD] p-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#7C8493]">
+              <div className="rounded-[10px] border border-gray-100 bg-[#F9FAFB] p-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#6B7280]">
                   <BsCash className="h-4 w-4" />
                   Salary
                 </div>
-                <p className="mt-2 text-2xl font-bold text-[#25324B]">
+                <p className="mt-2 text-2xl font-bold text-[#111827]">
                   {job.salary.amount.toLocaleString()} {job.salary.currency}
                 </p>
               </div>
-              <div className="rounded-[10px] border border-gray-100 bg-[#F8F8FD] p-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#7C8493]">
+              <div className="rounded-[10px] border border-gray-100 bg-[#F9FAFB] p-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#6B7280]">
                   <ShieldCheck className="h-4 w-4" />
                   Weights
                 </div>
-                <p className="mt-2 text-sm font-semibold text-[#25324B]">
+                <p className="mt-2 text-sm font-semibold text-[#111827]">
                   Skills {job.weights.skills * 100}% • Exp{" "}
                   {job.weights.experience * 100}% • Edu{" "}
                   {job.weights.education * 100}%
@@ -279,24 +279,24 @@ export default function AdminJobDetailsPage() {
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-3">
             <div className="xl:col-span-2 space-y-5">
               <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p className="text-lg font-semibold text-[#25324B]">
+                <p className="text-lg font-semibold text-[#111827]">
                   Description
                 </p>
                 <SafeHtml
                   html={job.description}
-                  className="mt-3 text-sm leading-6 text-[#25324B]"
+                  className="mt-3 text-sm leading-6 text-[#111827]"
                 />
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p className="text-lg font-semibold text-[#25324B]">
+                <p className="text-lg font-semibold text-[#111827]">
                   Requirements
                 </p>
                 <div className="mt-4 space-y-2">
                   {job.requirements.map((r, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl border border-gray-100 bg-[#F8F8FD] px-4 py-3 text-sm text-[#25324B]"
+                      className="rounded-xl border border-gray-100 bg-[#F9FAFB] px-4 py-3 text-sm text-[#111827]"
                     >
                       {r}
                     </div>
@@ -307,19 +307,19 @@ export default function AdminJobDetailsPage() {
 
             <div className="space-y-5">
               <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p className="text-lg font-semibold text-[#25324B]">Benefits</p>
+                <p className="text-lg font-semibold text-[#111827]">Benefits</p>
                 <div className="mt-4 space-y-2">
                   {job.benefits.length ? (
                     job.benefits.map((b, idx) => (
                       <div
                         key={idx}
-                        className="rounded-xl border border-gray-100 bg-[#F8F8FD] px-4 py-3 text-sm text-[#25324B]"
+                        className="rounded-xl border border-gray-100 bg-[#F9FAFB] px-4 py-3 text-sm text-[#111827]"
                       >
                         {b}
                       </div>
                     ))
                   ) : (
-                    <p className="text-sm text-[#7C8493]">
+                    <p className="text-sm text-[#6B7280]">
                       No benefits listed.
                     </p>
                   )}
@@ -327,23 +327,23 @@ export default function AdminJobDetailsPage() {
               </div>
 
               <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <p className="text-lg font-semibold text-[#25324B]">Meta</p>
+                <p className="text-lg font-semibold text-[#111827]">Meta</p>
                 <div className="mt-4 space-y-3 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-[#7C8493]">Job ID</span>
-                    <span className="font-semibold text-[#25324B]">
+                    <span className="text-[#6B7280]">Job ID</span>
+                    <span className="font-semibold text-[#111827]">
                       {job.id}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-[#7C8493]">Posted</span>
-                    <span className="font-semibold text-[#25324B]">
+                    <span className="text-[#6B7280]">Posted</span>
+                    <span className="font-semibold text-[#111827]">
                       {job.stats.postedAt}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-[#7C8493]">Location label</span>
-                    <span className="font-semibold text-[#25324B]">
+                    <span className="text-[#6B7280]">Location label</span>
+                    <span className="font-semibold text-[#111827]">
                       {job.locationLabel}
                     </span>
                   </div>

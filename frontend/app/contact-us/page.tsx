@@ -37,7 +37,7 @@ export default function ContactUsPage() {
         {/* Hero */}
         <section className="bg-[#f8f8fd] py-20">
           <div className="mx-[122px]">
-            <h1 className="text-5xl font-bold text-[#25324B] mb-6">
+            <h1 className="text-5xl font-bold text-[#111827] mb-6">
               Contact <span className="text-[#087F5B]">Us</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl">
@@ -54,7 +54,7 @@ export default function ContactUsPage() {
               {contactInfo.map((info, index) => (
                 <div key={index} className="p-6 border border-gray-100 rounded-lg text-center hover:shadow-md transition-shadow">
                   <div className="text-[#087F5B] mb-4 flex justify-center">{info.icon}</div>
-                  <h3 className="font-semibold text-[#25324B] mb-1">{info.title}</h3>
+                  <h3 className="font-semibold text-[#111827] mb-1">{info.title}</h3>
                   <p className="text-[#087F5B] font-medium mb-2">{info.value}</p>
                   <p className="text-gray-500 text-sm">{info.description}</p>
                 </div>
@@ -64,7 +64,7 @@ export default function ContactUsPage() {
             {/* Contact Form */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-bold text-[#25324B] mb-6">
+                <h2 className="text-3xl font-bold text-[#111827] mb-6">
                   Send us a Message
                 </h2>
                 <p className="text-gray-600 mb-8">
@@ -73,7 +73,7 @@ export default function ContactUsPage() {
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-[#25324B] mb-2">
+                      <label className="block text-sm font-semibold text-[#111827] mb-2">
                         First Name
                       </label>
                       <input
@@ -83,7 +83,7 @@ export default function ContactUsPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#25324B] mb-2">
+                      <label className="block text-sm font-semibold text-[#111827] mb-2">
                         Last Name
                       </label>
                       <input
@@ -94,7 +94,7 @@ export default function ContactUsPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#25324B] mb-2">
+                    <label className="block text-sm font-semibold text-[#111827] mb-2">
                       Email
                     </label>
                     <input
@@ -104,7 +104,7 @@ export default function ContactUsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#25324B] mb-2">
+                    <label className="block text-sm font-semibold text-[#111827] mb-2">
                       Subject
                     </label>
                     <select className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#087F5B]">
@@ -115,7 +115,7 @@ export default function ContactUsPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#25324B] mb-2">
+                    <label className="block text-sm font-semibold text-[#111827] mb-2">
                       Message
                     </label>
                     <textarea
@@ -136,7 +136,7 @@ export default function ContactUsPage() {
 
               {/* Map Placeholder */}
               <div className="bg-[#f8f8fd] rounded-lg p-8 flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-[#25324B] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] mb-4">
                   Visit Our Office
                 </h3>
                 <p className="text-gray-600 mb-6">
@@ -144,7 +144,7 @@ export default function ContactUsPage() {
                   Come say hello or schedule a demo of our platform.
                 </p>
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <p className="font-semibold text-[#25324B] mb-2">HireLens</p>
+                  <p className="font-semibold text-[#111827] mb-2">HireLens</p>
                   <p className="text-gray-600 text-sm">
                     KG 7 Ave, Kigali Innovation City<br />
                     Kigali, Rwanda<br />

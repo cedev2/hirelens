@@ -72,7 +72,7 @@ export default function TalentExportButton({
           {/* Dropdown */}
           <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-xl border border-gray-200 bg-white p-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100">
-              <span className="text-xs font-semibold text-[#7C8493]">
+              <span className="text-xs font-semibold text-[#6B7280]">
                 Export Options
               </span>
               <button
@@ -97,10 +97,10 @@ export default function TalentExportButton({
                   )}
                 </div>
                 <div>
-                  <p className="font-semibold text-[#25324B]">
+                  <p className="font-semibold text-[#111827]">
                     Excel Spreadsheet
                   </p>
-                  <p className="text-xs text-[#7C8493]">
+                  <p className="text-xs text-[#6B7280]">
                     Full data with all fields
                   </p>
                 </div>
@@ -119,8 +119,8 @@ export default function TalentExportButton({
                   )}
                 </div>
                 <div>
-                  <p className="font-semibold text-[#25324B]">PDF Report</p>
-                  <p className="text-xs text-[#7C8493]">Download as PDF file</p>
+                  <p className="font-semibold text-[#111827]">PDF Report</p>
+                  <p className="text-xs text-[#6B7280]">Download as PDF file</p>
                 </div>
               </button>
 
@@ -139,8 +139,8 @@ export default function TalentExportButton({
                   )}
                 </div>
                 <div>
-                  <p className="font-semibold text-[#25324B]">Print</p>
-                  <p className="text-xs text-[#7C8493]">Open print dialog</p>
+                  <p className="font-semibold text-[#111827]">Print</p>
+                  <p className="text-xs text-[#6B7280]">Open print dialog</p>
                 </div>
               </button>
             </div>

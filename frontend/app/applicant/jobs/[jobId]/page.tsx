@@ -67,7 +67,7 @@ type CertEntry = { name: string; issuer: string; issueDate: string };
 
 const fieldClass =
   "w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#087F5B]";
-const labelClass = "mb-1 block text-sm font-semibold text-[#25324B]";
+const labelClass = "mb-1 block text-sm font-semibold text-[#111827]";
 
 export default function JobDetailPage() {
   const params = useParams();
@@ -322,7 +322,7 @@ export default function JobDetailPage() {
 
       {/* Job Header */}
       <div className="bg-white rounded-xl border border-gray-100 p-8 mb-6">
-        <h1 className="text-3xl font-bold text-[#25324B] mb-4">{job.title}</h1>
+        <h1 className="text-3xl font-bold text-[#111827] mb-4">{job.title}</h1>
 
         <div className="flex items-center gap-5 mb-6 text-sm text-gray-500">
           <span className="flex items-center gap-1.5">
@@ -348,7 +348,7 @@ export default function JobDetailPage() {
         </div>
 
         <div className="mb-6">
-          <h2 className="text-lg font-semibold text-[#25324B] mb-3">
+          <h2 className="text-lg font-semibold text-[#111827] mb-3">
             Description
           </h2>
           <div
@@ -359,7 +359,7 @@ export default function JobDetailPage() {
 
         {job.requirements && job.requirements.length > 0 && (
           <div className="mb-6">
-            <h2 className="text-lg font-semibold text-[#25324B] mb-3">
+            <h2 className="text-lg font-semibold text-[#111827] mb-3">
               Requirements
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -377,7 +377,7 @@ export default function JobDetailPage() {
 
         {job.benefits && job.benefits.length > 0 && (
           <div>
-            <h2 className="text-lg font-semibold text-[#25324B] mb-3">
+            <h2 className="text-lg font-semibold text-[#111827] mb-3">
               Benefits
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -397,10 +397,10 @@ export default function JobDetailPage() {
 
       {/* Apply Section */}
       <div className="bg-white rounded-xl border border-gray-100 p-8">
-        <h2 className="text-lg font-semibold text-[#25324B] mb-2">
+        <h2 className="text-lg font-semibold text-[#111827] mb-2">
           Apply for this position
         </h2>
-        <p className="text-xs text-[#7C8493] mb-6">
+        <p className="text-xs text-[#6B7280] mb-6">
           Fields marked are required by this job
         </p>
 
@@ -561,7 +561,7 @@ export default function JobDetailPage() {
                         type="button"
                         onClick={() => setSkills(skills.filter((_, i) => i !== idx))}
                         disabled={skills.length === 1}
-                        className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#25324B] hover:bg-gray-50 disabled:opacity-50 shrink-0"
+                        className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#111827] hover:bg-gray-50 disabled:opacity-50 shrink-0"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
@@ -595,10 +595,10 @@ export default function JobDetailPage() {
                   {experience.map((exp, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-4 space-y-3"
+                      className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-4 space-y-3"
                     >
                       <div className="flex items-center justify-between">
-                        <p className="text-xs font-semibold text-[#7C8493]">
+                        <p className="text-xs font-semibold text-[#6B7280]">
                           Experience #{idx + 1}
                         </p>
                         <button
@@ -654,7 +654,7 @@ export default function JobDetailPage() {
                               }}
                             />
                           )}
-                          <label className="flex items-center gap-1.5 text-xs text-[#7C8493] whitespace-nowrap">
+                          <label className="flex items-center gap-1.5 text-xs text-[#6B7280] whitespace-nowrap">
                             <input
                               type="checkbox"
                               checked={exp.isCurrent}
@@ -720,10 +720,10 @@ export default function JobDetailPage() {
                   {education.map((edu, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-4 space-y-3"
+                      className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-4 space-y-3"
                     >
                       <div className="flex items-center justify-between">
-                        <p className="text-xs font-semibold text-[#7C8493]">
+                        <p className="text-xs font-semibold text-[#6B7280]">
                           Education #{idx + 1}
                         </p>
                         <button
@@ -852,7 +852,7 @@ export default function JobDetailPage() {
                           setCertifications(certifications.filter((_, i) => i !== idx))
                         }
                         disabled={certifications.length === 1}
-                        className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#25324B] hover:bg-gray-50 disabled:opacity-50 shrink-0"
+                        className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#111827] hover:bg-gray-50 disabled:opacity-50 shrink-0"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>

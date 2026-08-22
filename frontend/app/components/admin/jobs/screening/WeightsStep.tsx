@@ -178,11 +178,11 @@ export default function WeightsStep({
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="h-5 w-5 text-[#087F5B]" />
-          <h2 className="text-xl font-bold text-[#25324B]">
+          <h2 className="text-xl font-bold text-[#111827]">
             Adjust Screening Weights
           </h2>
         </div>
-        <p className="text-sm text-[#7C8493]">
+        <p className="text-sm text-[#6B7280]">
           Control how the AI prioritizes different candidate attributes. Total
           must equal 100%.
         </p>
@@ -200,18 +200,18 @@ export default function WeightsStep({
             }`}
           >
             <span
-              className={`text-sm font-semibold ${activePreset === key ? "text-[#087F5B]" : "text-[#25324B]"}`}
+              className={`text-sm font-semibold ${activePreset === key ? "text-[#087F5B]" : "text-[#111827]"}`}
             >
               {PRESET_LABELS[key].label}
             </span>
-            <span className="text-xs text-[#7C8493]">
+            <span className="text-xs text-[#6B7280]">
               {PRESET_LABELS[key].desc}
             </span>
           </button>
         ))}
         <button
           onClick={resetToInitial}
-          className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-[#7C8493] transition-all hover:border-gray-300"
+          className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-[#6B7280] transition-all hover:border-gray-300"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           Reset
@@ -234,10 +234,10 @@ export default function WeightsStep({
                     <Icon className={`h-5 w-5 ${config.textColor}`} />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#25324B]">
+                    <p className="font-semibold text-[#111827]">
                       {config.label}
                     </p>
-                    <p className="text-xs text-[#7C8493]">{config.desc}</p>
+                    <p className="text-xs text-[#6B7280]">{config.desc}</p>
                   </div>
                 </div>
                 <div className={`text-2xl font-bold ${config.textColor}`}>
@@ -259,7 +259,7 @@ export default function WeightsStep({
                 />
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-[#7C8493]">
+              <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                 <span>0%</span>
                 <div className="flex-1" />
                 <span>100%</span>
@@ -271,7 +271,7 @@ export default function WeightsStep({
 
       <div className="mt-6 rounded-lg bg-gray-50 p-4">
         <div className="flex items-center justify-between">
-          <span className="font-medium text-[#25324B]">Total Weight</span>
+          <span className="font-medium text-[#111827]">Total Weight</span>
           <span
             className={`text-xl font-bold ${isValid ? "text-emerald-600" : "text-amber-600"}`}
           >

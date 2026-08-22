@@ -106,13 +106,13 @@ export default function ShortlistStep({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Results
         </button>
-        <div className="flex items-center gap-2 text-sm text-[#7C8493]">
-          <span className="font-semibold text-[#25324B]">{jobTitle}</span>
+        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
+          <span className="font-semibold text-[#111827]">{jobTitle}</span>
           <span>•</span>
           <span>Select candidates for interview</span>
         </div>
@@ -120,16 +120,16 @@ export default function ShortlistStep({
 
       {/* Stats */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="rounded-xl border border-green-100 bg-[#F8F8FD] p-4">
+        <div className="rounded-xl border border-green-100 bg-[#F9FAFB] p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#087F5B]/10 text-[#087F5B]">
               <Users className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#25324B]">
+              <p className="text-2xl font-bold text-[#111827]">
                 {summary.total}
               </p>
-              <p className="text-xs text-[#7C8493]">Total Candidates</p>
+              <p className="text-xs text-[#6B7280]">Total Candidates</p>
             </div>
           </div>
         </div>
@@ -139,10 +139,10 @@ export default function ShortlistStep({
               <UserCheck className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#25324B]">
+              <p className="text-2xl font-bold text-[#111827]">
                 {summary.selected}
               </p>
-              <p className="text-xs text-[#7C8493]">Selected for Interview</p>
+              <p className="text-xs text-[#6B7280]">Selected for Interview</p>
             </div>
           </div>
         </div>
@@ -152,10 +152,10 @@ export default function ShortlistStep({
               <Star className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#25324B]">
+              <p className="text-2xl font-bold text-[#111827]">
                 {summary.highConfidence}
               </p>
-              <p className="text-xs text-[#7C8493]">High Confidence Picks</p>
+              <p className="text-xs text-[#6B7280]">High Confidence Picks</p>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function ShortlistStep({
         <div className="flex items-center gap-2">
           <button
             onClick={toggleAll}
-            className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 transition-colors"
+            className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 transition-colors"
           >
             {selectedIds.size === filteredCandidates.length
               ? "Deselect All"
@@ -219,13 +219,13 @@ export default function ShortlistStep({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-[#087F5B]" />
-              <span className="font-semibold text-[#25324B]">
+              <span className="font-semibold text-[#111827]">
                 {selectedIds.size} candidates selected
               </span>
             </div>
             <button
               onClick={() => setSelectedIds(new Set())}
-              className="text-sm text-[#7C8493] hover:text-red-500 transition-colors"
+              className="text-sm text-[#6B7280] hover:text-red-500 transition-colors"
             >
               Clear all
             </button>
@@ -237,7 +237,7 @@ export default function ShortlistStep({
               .map((c) => (
                 <span
                   key={c.candidateId}
-                  className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-xs font-medium text-[#25324B]"
+                  className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-xs font-medium text-[#111827]"
                 >
                   #{c.rank} {c.name}
                   <button
@@ -249,7 +249,7 @@ export default function ShortlistStep({
                 </span>
               ))}
             {selectedIds.size > 8 && (
-              <span className="rounded-full bg-white px-3 py-1 text-xs text-[#7C8493]">
+              <span className="rounded-full bg-white px-3 py-1 text-xs text-[#6B7280]">
                 +{selectedIds.size - 8} more
               </span>
             )}
@@ -275,26 +275,26 @@ export default function ShortlistStep({
                 className={`flex h-12 w-12 items-center justify-center rounded-xl font-bold text-lg ${
                   c.rank === 1
                     ? "bg-amber-100 text-amber-700"
-                    : "bg-gray-100 text-[#25324B]"
+                    : "bg-gray-100 text-[#111827]"
                 }`}
               >
                 #{c.rank}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <h4 className="font-bold text-[#25324B]">{c.name}</h4>
+                  <h4 className="font-bold text-[#111827]">{c.name}</h4>
                   {isSelected && (
                     <CheckCircle2 className="h-4 w-4 text-[#087F5B]" />
                   )}
                 </div>
-                <p className="text-sm text-[#7C8493] truncate">{c.email}</p>
+                <p className="text-sm text-[#6B7280] truncate">{c.email}</p>
                 {c.headline && (
                   <p className="text-xs text-gray-500 mt-0.5">{c.headline}</p>
                 )}
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <p className="text-lg font-bold text-[#25324B]">
+                  <p className="text-lg font-bold text-[#111827]">
                     {c.matchScore}%
                   </p>
                   <span
@@ -313,7 +313,7 @@ export default function ShortlistStep({
                   {c.strengths.slice(0, 3).map((s) => (
                     <span
                       key={s}
-                      className="rounded-md bg-gray-100 px-2 py-0.5 text-[10px] text-[#25324B]"
+                      className="rounded-md bg-gray-100 px-2 py-0.5 text-[10px] text-[#111827]"
                     >
                       {s}
                     </span>
@@ -327,7 +327,7 @@ export default function ShortlistStep({
 
       {filteredCandidates.length === 0 && (
         <div className="rounded-xl border border-gray-200 bg-gray-50 p-12 text-center">
-          <p className="text-[#7C8493]">No candidates match your filters</p>
+          <p className="text-[#6B7280]">No candidates match your filters</p>
         </div>
       )}
     </div>

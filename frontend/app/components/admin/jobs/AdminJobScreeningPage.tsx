@@ -344,12 +344,12 @@ export default function AdminJobScreeningPage({
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-bold text-[#25324B]">
+        <h1 className="text-2xl font-bold text-[#111827]">
           AI Candidate Screening
         </h1>
-        <p className="text-sm text-[#7C8493]">
+        <p className="text-sm text-[#6B7280]">
           Automated ranking and analysis for{" "}
-          <span className="font-semibold text-[#25324B]">
+          <span className="font-semibold text-[#111827]">
             {selectedJobId
               ? jobs.find((j) => j.id === selectedJobId)?.title
               : "Selected Job"}

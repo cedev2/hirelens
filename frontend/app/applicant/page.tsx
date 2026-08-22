@@ -51,7 +51,7 @@ export default function ApplicantDashboard() {
   return (
     <div className="max-w-6xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#25324B]" suppressHydrationWarning>
+        <h1 className="text-2xl font-bold text-[#111827]" suppressHydrationWarning>
           Welcome back, {user?.firstName || "Applicant"}
         </h1>
         <p className="text-gray-500 text-sm mt-1">
@@ -67,7 +67,7 @@ export default function ApplicantDashboard() {
               {stat.icon}
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#25324B]">{stat.value}</p>
+              <p className="text-2xl font-bold text-[#111827]">{stat.value}</p>
               <p className="text-sm text-gray-500">{stat.label}</p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function ApplicantDashboard() {
         {/* Recent Applications */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-[#25324B]">Recent Applications</h2>
+            <h2 className="text-lg font-semibold text-[#111827]">Recent Applications</h2>
             <Link href="/applicant/applications" className="text-sm text-[#087F5B] hover:underline">
               View all
             </Link>
@@ -97,7 +97,7 @@ export default function ApplicantDashboard() {
               {recentApplications.map((app: any) => (
                 <div key={app._id} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
                   <div>
-                    <p className="text-sm font-medium text-[#25324B]">
+                    <p className="text-sm font-medium text-[#111827]">
                       {app.jobId?.title || "Unknown Job"}
                     </p>
                     <p className="text-xs text-gray-500">
@@ -113,7 +113,7 @@ export default function ApplicantDashboard() {
 
         {/* Quick Actions */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <h2 className="text-lg font-semibold text-[#25324B] mb-4">Quick Actions</h2>
+          <h2 className="text-lg font-semibold text-[#111827] mb-4">Quick Actions</h2>
           <div className="space-y-3">
             <Link
               href="/applicant/jobs"
@@ -123,7 +123,7 @@ export default function ApplicantDashboard() {
                 <Briefcase className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#25324B]">Browse Jobs</p>
+                <p className="text-sm font-medium text-[#111827]">Browse Jobs</p>
                 <p className="text-xs text-gray-500">Find and apply to open positions</p>
               </div>
             </Link>
@@ -135,7 +135,7 @@ export default function ApplicantDashboard() {
                 <FileText className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#25324B]">Track Applications</p>
+                <p className="text-sm font-medium text-[#111827]">Track Applications</p>
                 <p className="text-xs text-gray-500">Check the status of your applications</p>
               </div>
             </Link>

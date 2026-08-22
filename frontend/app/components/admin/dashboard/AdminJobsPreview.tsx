@@ -30,11 +30,11 @@ export default function AdminJobsPreview({ jobs }: { jobs: Job[] }) {
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-lg font-semibold text-[#25324B]">Recent Jobs</p>
-          <p className="text-sm text-[#7C8493]">Quick snapshot of active roles</p>
+          <p className="text-lg font-semibold text-[#111827]">Recent Jobs</p>
+          <p className="text-sm text-[#6B7280]">Quick snapshot of active roles</p>
         </div>
-        <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B]">
-          <Briefcase className="h-4 w-4 text-[#7C8493]" />
+        <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827]">
+          <Briefcase className="h-4 w-4 text-[#6B7280]" />
           Showing {jobs.length}
         </div>
       </div>
@@ -47,10 +47,10 @@ export default function AdminJobsPreview({ jobs }: { jobs: Job[] }) {
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <p className="truncate text-sm font-semibold text-[#25324B]">
+                <p className="truncate text-sm font-semibold text-[#111827]">
                   {job.title}
                 </p>
-                <p className="truncate text-xs text-[#7C8493]">{job.company}</p>
+                <p className="truncate text-xs text-[#6B7280]">{job.company}</p>
               </div>
 
               <span
@@ -67,28 +67,28 @@ export default function AdminJobsPreview({ jobs }: { jobs: Job[] }) {
                 <Briefcase className="h-3.5 w-3.5" />
                 {job.type}
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
-                <MapPin className="h-3.5 w-3.5 text-[#7C8493]" />
+              <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
+                <MapPin className="h-3.5 w-3.5 text-[#6B7280]" />
                 {job.location}
               </span>
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-3 text-xs min-w-0">
-              <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
-                <div className="flex items-center gap-2 text-[#7C8493]">
+              <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
+                <div className="flex items-center gap-2 text-[#6B7280]">
                   <Users className="h-4 w-4" />
                   Applicants
                 </div>
-                <p className="mt-1 text-sm font-bold text-[#25324B]">
+                <p className="mt-1 text-sm font-bold text-[#111827]">
                   {job.applicants}
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
-                <div className="flex items-center gap-2 text-[#7C8493]">
+              <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
+                <div className="flex items-center gap-2 text-[#6B7280]">
                   <CalendarDays className="h-4 w-4" />
                   Posted
                 </div>
-                <p className="mt-1 text-sm font-bold text-[#25324B]">
+                <p className="mt-1 text-sm font-bold text-[#111827]">
                   {job.postedAtLabel}
                 </p>
               </div>

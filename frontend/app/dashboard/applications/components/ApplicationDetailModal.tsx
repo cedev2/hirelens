@@ -81,14 +81,14 @@ export default function ApplicationDetailModal({
         <div className="px-8 py-5 border-b border-gray-100 flex items-start justify-between bg-linear-to-r from-white to-green-50/30">
           <div className="flex gap-6">
             <div>
-              <h2 className="text-2xl font-black text-[#25324B] mb-2">
+              <h2 className="text-2xl font-black text-[#111827] mb-2">
                 {application.jobTitle}
               </h2>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 <p className="text-lg font-bold text-[#087F5B]">
                   {application.company}
                 </p>
-                <div className="flex items-center gap-1.5 text-sm font-semibold text-[#7C8493]">
+                <div className="flex items-center gap-1.5 text-sm font-semibold text-[#6B7280]">
                   <MapPin className="w-4 h-4" />
                   {application.location}
                 </div>
@@ -108,7 +108,7 @@ export default function ApplicationDetailModal({
           {/* Status Section */}
           <section className="">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-black text-[#25324B] uppercase tracking-widest">
+              <h3 className="text-sm font-black text-[#111827] uppercase tracking-widest">
                 Application Status
               </h3>
               <Badge
@@ -118,7 +118,7 @@ export default function ApplicationDetailModal({
                 {config.label}
               </Badge>
             </div>
-            <p className="text-[#7C8493] font-medium text-sm leading-relaxed">
+            <p className="text-[#6B7280] font-medium text-sm leading-relaxed">
               {config.description}
             </p>
             {application.nextStep && application.status !== "Rejected" && (
@@ -130,7 +130,7 @@ export default function ApplicationDetailModal({
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
                     Next Step
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {application.nextStep}
                   </p>
                 </div>
@@ -142,7 +142,7 @@ export default function ApplicationDetailModal({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-6">
               <section>
-                <h3 className="text-sm font-black text-[#25324B] uppercase tracking-widest mb-4">
+                <h3 className="text-sm font-black text-[#111827] uppercase tracking-widest mb-4">
                   Job Info
                 </h3>
                 <div className="space-y-4">
@@ -154,7 +154,7 @@ export default function ApplicationDetailModal({
                       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                         Employment Type
                       </p>
-                      <p className="text-sm font-bold text-[#25324B]">
+                      <p className="text-sm font-bold text-[#111827]">
                         {application.type}
                       </p>
                     </div>
@@ -167,7 +167,7 @@ export default function ApplicationDetailModal({
                       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                         Date Applied
                       </p>
-                      <p className="text-sm font-bold text-[#25324B]">
+                      <p className="text-sm font-bold text-[#111827]">
                         {application.appliedDate}
                       </p>
                     </div>
@@ -178,14 +178,14 @@ export default function ApplicationDetailModal({
 
             <div className="space-y-6">
               <section>
-                <h3 className="text-sm font-black text-[#25324B] uppercase tracking-widest mb-4">
+                <h3 className="text-sm font-black text-[#111827] uppercase tracking-widest mb-4">
                   Resources
                 </h3>
                 <div className="space-y-3">
                   <button className="w-full p-4 bg-white border border-gray-100 rounded-[10px] flex items-center justify-between hover:border-[#087F5B] hover:bg-green-50/30 transition-all group">
                     <div className="flex items-center gap-3">
                       <FileText className="w-5 h-5 text-gray-400 group-hover:text-[#087F5B]" />
-                      <span className="text-sm font-bold text-[#25324B]">
+                      <span className="text-sm font-bold text-[#111827]">
                         View Submitted Resume
                       </span>
                     </div>
@@ -194,7 +194,7 @@ export default function ApplicationDetailModal({
                   <button className="w-full p-4 bg-white border border-gray-100 rounded-[10px] flex items-center justify-between hover:border-[#087F5B] hover:bg-green-50/30 transition-all group">
                     <div className="flex items-center gap-3">
                       <MessageSquare className="w-5 h-5 text-gray-400 group-hover:text-[#087F5B]" />
-                      <span className="text-sm font-bold text-[#25324B]">
+                      <span className="text-sm font-bold text-[#111827]">
                         Contact Hiring Team
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function ApplicationDetailModal({
           </button>
           <button
             onClick={onClose}
-            className="flex-1 py-4 bg-gray-50 text-[#25324B] rounded-[10px] font-black uppercase tracking-widest text-xs hover:bg-gray-100 transition-all"
+            className="flex-1 py-4 bg-gray-50 text-[#111827] rounded-[10px] font-black uppercase tracking-widest text-xs hover:bg-gray-100 transition-all"
           >
             Close Details
           </button>

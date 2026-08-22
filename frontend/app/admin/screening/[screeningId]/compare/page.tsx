@@ -103,7 +103,7 @@ function ChipsRow({
 }) {
   return (
     <div>
-      <p className="text-xs font-semibold text-[#25324B]">{title}</p>
+      <p className="text-xs font-semibold text-[#111827]">{title}</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {items.length ? (
           items.map((x) => (
@@ -112,7 +112,7 @@ function ChipsRow({
             </Chip>
           ))
         ) : (
-          <span className="text-xs text-[#7C8493]">None</span>
+          <span className="text-xs text-[#6B7280]">None</span>
         )}
       </div>
     </div>
@@ -259,10 +259,10 @@ export default function ScreeningComparePage() {
           <ArrowLeft className="h-4 w-4" />
           Back to Results
         </Link>
-        <h1 className="text-2xl font-bold text-[#25324B]">
+        <h1 className="text-2xl font-bold text-[#111827]">
           Compare Candidates
         </h1>
-        <p className="text-sm text-[#7C8493]">Diff layout, gaps, wins.</p>
+        <p className="text-sm text-[#6B7280]">Diff layout, gaps, wins.</p>
       </div>
 
       {!canLoad ? (
@@ -278,7 +278,7 @@ export default function ScreeningComparePage() {
       ) : isLoading ? (
         <div className="flex flex-col items-center justify-center rounded-[10px] border border-gray-200 bg-white py-20">
           <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mb-2" />
-          <p className="text-sm text-[#7C8493]">Loading comparison...</p>
+          <p className="text-sm text-[#6B7280]">Loading comparison...</p>
         </div>
       ) : !talentA || !talentB ? (
         <div className="rounded-[10px] border border-red-200 bg-red-50 p-5 text-sm text-red-700">
@@ -288,13 +288,13 @@ export default function ScreeningComparePage() {
         <div className="rounded-[10px] border border-gray-200 bg-white p-5">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto_1fr] md:gap-0">
             <div className="md:pr-8">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                 Candidate A
               </p>
-              <p className="mt-1 text-xl font-bold text-[#25324B]">
+              <p className="mt-1 text-xl font-bold text-[#111827]">
                 {fullName(talentA)}
               </p>
-              <p className="text-sm text-[#7C8493]">{talentA.headline}</p>
+              <p className="text-sm text-[#6B7280]">{talentA.headline}</p>
 
               {aResumeUrl ? (
                 <div className="mt-4">
@@ -316,27 +316,27 @@ export default function ScreeningComparePage() {
 
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Skills
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.aSkillCount} (
                     {winsLabel(computed.aSkillCount, computed.bSkillCount)})
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Experience
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.aExp} ({winsLabel(computed.aExp, computed.bExp)})
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Projects
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.aProj} (
                     {winsLabel(computed.aProj, computed.bProj)})
                   </p>
@@ -345,7 +345,7 @@ export default function ScreeningComparePage() {
 
               <div className="mt-6 space-y-5">
                 <div>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     Skills Comparison
                   </p>
                   <div className="mt-3 space-y-3">
@@ -368,7 +368,7 @@ export default function ScreeningComparePage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     Languages Comparison
                   </p>
                   <div className="mt-3 space-y-3">
@@ -392,18 +392,18 @@ export default function ScreeningComparePage() {
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                    <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                       Education entries
                     </p>
-                    <p className="mt-1 text-sm font-bold text-[#25324B]">
+                    <p className="mt-1 text-sm font-bold text-[#111827]">
                       {computed.aEdu}
                     </p>
                   </div>
                   <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                    <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                       Availability
                     </p>
-                    <p className="mt-1 text-xs font-semibold text-[#25324B]">
+                    <p className="mt-1 text-xs font-semibold text-[#111827]">
                       {talentA.availability?.type ?? "HireLens"} •{" "}
                       {talentA.availability?.status ?? "HireLens"}
                     </p>
@@ -417,13 +417,13 @@ export default function ScreeningComparePage() {
             </div>
 
             <div className="md:pl-8">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                 Candidate B
               </p>
-              <p className="mt-1 text-xl font-bold text-[#25324B]">
+              <p className="mt-1 text-xl font-bold text-[#111827]">
                 {fullName(talentB)}
               </p>
-              <p className="text-sm text-[#7C8493]">{talentB.headline}</p>
+              <p className="text-sm text-[#6B7280]">{talentB.headline}</p>
 
               {bResumeUrl ? (
                 <div className="mt-4">
@@ -445,27 +445,27 @@ export default function ScreeningComparePage() {
 
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Skills
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.bSkillCount} (
                     {winsLabel(computed.bSkillCount, computed.aSkillCount)})
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Experience
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.bExp} ({winsLabel(computed.bExp, computed.aExp)})
                   </p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-3">
-                  <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                  <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                     Projects
                   </p>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     {computed.bProj} (
                     {winsLabel(computed.bProj, computed.aProj)})
                   </p>
@@ -474,7 +474,7 @@ export default function ScreeningComparePage() {
 
               <div className="mt-6 space-y-5">
                 <div>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     Skills Comparison
                   </p>
                   <div className="mt-3 space-y-3">
@@ -497,7 +497,7 @@ export default function ScreeningComparePage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold text-[#25324B]">
+                  <p className="text-sm font-bold text-[#111827]">
                     Languages Comparison
                   </p>
                   <div className="mt-3 space-y-3">
@@ -521,18 +521,18 @@ export default function ScreeningComparePage() {
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                    <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                       Education entries
                     </p>
-                    <p className="mt-1 text-sm font-bold text-[#25324B]">
+                    <p className="mt-1 text-sm font-bold text-[#111827]">
                       {computed.bEdu}
                     </p>
                   </div>
                   <div className="rounded-xl border border-gray-100 bg-gray-50/40 p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#7C8493]">
+                    <p className="text-[10px] font-bold uppercase text-[#6B7280]">
                       Availability
                     </p>
-                    <p className="mt-1 text-xs font-semibold text-[#25324B]">
+                    <p className="mt-1 text-xs font-semibold text-[#111827]">
                       {talentB.availability?.type ?? "HireLens"} •{" "}
                       {talentB.availability?.status ?? "HireLens"}
                     </p>
@@ -549,10 +549,10 @@ export default function ScreeningComparePage() {
           <div className="relative h-full max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-[10px] bg-white shadow-2xl">
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white px-5 py-4">
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
                   Resume
                 </p>
-                <p className="truncate text-sm font-bold text-[#25324B]">
+                <p className="truncate text-sm font-bold text-[#111827]">
                   {resumeModal.name}
                 </p>
               </div>

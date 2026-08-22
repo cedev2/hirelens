@@ -31,14 +31,14 @@ export default function ScreeningStepper({
                     ? "bg-green-500 text-white"
                     : isActive
                       ? "bg-[#087F5B] text-white shadow-lg shadow-green-200"
-                      : "bg-gray-100 text-[#7C8493]"
+                      : "bg-gray-100 text-[#6B7280]"
                 }`}
               >
                 {isCompleted ? <CheckCircle2 className="h-6 w-6" /> : idx + 1}
               </div>
               <span
                 className={`mt-2 text-xs font-bold ${
-                  isActive ? "text-[#25324B]" : "text-[#7C8493]"
+                  isActive ? "text-[#111827]" : "text-[#6B7280]"
                 }`}
               >
                 {s.label}

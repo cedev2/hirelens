@@ -72,7 +72,7 @@ export default function ApplicationsPage() {
   return (
     <div className="max-w-6xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-[#25324B]">My Applications</h1>
+        <h1 className="text-2xl font-bold text-[#111827]">My Applications</h1>
         <p className="text-gray-500 text-sm mt-1">
           Track the status of all your job applications
         </p>
@@ -133,7 +133,7 @@ export default function ApplicationsPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-semibold text-[#25324B]">
+                      <h3 className="text-lg font-semibold text-[#111827]">
                         {job?.title || "Unknown Job"}
                       </h3>
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full border ${config.bg} ${config.color}`}>

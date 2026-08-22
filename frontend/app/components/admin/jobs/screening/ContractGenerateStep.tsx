@@ -158,29 +158,29 @@ export default function ContractGenerateStep({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Interview Management
         </button>
-        <div className="flex items-center gap-2 text-sm text-[#7C8493]">
+        <div className="flex items-center gap-2 text-sm text-[#6B7280]">
           <FileText className="h-4 w-4" />
           <span>Generate Employment Contracts</span>
         </div>
       </div>
 
       {/* Candidates */}
-      <div className="rounded-xl border border-green-100 bg-[#F8F8FD] p-4">
+      <div className="rounded-xl border border-green-100 bg-[#F9FAFB] p-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#087F5B]/10 text-[#087F5B]">
             <User className="h-5 w-5" />
           </div>
           <div className="flex-1">
-            <p className="font-semibold text-[#25324B]">
+            <p className="font-semibold text-[#111827]">
               {candidates.length} contract{candidates.length > 1 ? "s" : ""} to
               generate
             </p>
-            <p className="text-xs text-[#7C8493]">Position: {jobTitle}</p>
+            <p className="text-xs text-[#6B7280]">Position: {jobTitle}</p>
           </div>
         </div>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -191,7 +191,7 @@ export default function ContractGenerateStep({
               className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                 previewId === c.candidateId
                   ? "bg-[#087F5B] text-white"
-                  : "bg-white text-[#25324B] border border-gray-200"
+                  : "bg-white text-[#111827] border border-gray-200"
               }`}
             >
               {c.name}
@@ -203,11 +203,11 @@ export default function ContractGenerateStep({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Left: Contract Details */}
         <div className="space-y-4">
-          <h3 className="font-bold text-[#25324B]">Contract Details</h3>
+          <h3 className="font-bold text-[#111827]">Contract Details</h3>
 
           {/* Salary */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               <BsCash className="inline h-4 w-4 mr-1" />
               Monthly Salary (RWF)
             </label>
@@ -221,7 +221,7 @@ export default function ContractGenerateStep({
 
           {/* Start Date */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               <Calendar className="inline h-4 w-4 mr-1" />
               Start Date
             </label>
@@ -235,7 +235,7 @@ export default function ContractGenerateStep({
 
           {/* Employment Type */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               Employment Type
             </label>
             <select
@@ -256,7 +256,7 @@ export default function ContractGenerateStep({
 
           {/* Probation */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               Probation Period
             </label>
             <select
@@ -274,7 +274,7 @@ export default function ContractGenerateStep({
 
           {/* Working Hours */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               <Clock className="inline h-4 w-4 mr-1" />
               Working Hours
             </label>
@@ -288,7 +288,7 @@ export default function ContractGenerateStep({
 
           {/* Benefits */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#25324B]">
+            <label className="text-sm font-semibold text-[#111827]">
               Benefits
             </label>
             <div className="flex flex-wrap gap-2">
@@ -332,7 +332,7 @@ export default function ContractGenerateStep({
         {/* Right: Template Editor & Preview */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-bold text-[#25324B]">Contract Template</h3>
+            <h3 className="font-bold text-[#111827]">Contract Template</h3>
             <div className="flex items-center gap-2">
               <button
                 onClick={() =>
@@ -341,7 +341,7 @@ export default function ContractGenerateStep({
                 className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
                   previewId
                     ? "bg-[#087F5B] text-white"
-                    : "bg-gray-100 text-[#25324B] hover:bg-gray-200"
+                    : "bg-gray-100 text-[#111827] hover:bg-gray-200"
                 }`}
               >
                 <Eye className="h-3 w-3" />
@@ -352,7 +352,7 @@ export default function ContractGenerateStep({
                 className={`inline-flex items-center gap-1 rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
                   isEditing
                     ? "bg-[#087F5B] text-white"
-                    : "bg-gray-100 text-[#25324B] hover:bg-gray-200"
+                    : "bg-gray-100 text-[#111827] hover:bg-gray-200"
                 }`}
               >
                 <Edit3 className="h-3 w-3" />
@@ -370,24 +370,24 @@ export default function ContractGenerateStep({
             />
           ) : previewId ? (
             <div className="rounded-lg border border-gray-200 bg-white">
-              <div className="border-b border-gray-100 bg-gray-50 px-4 py-2 text-xs font-semibold text-[#7C8493]">
+              <div className="border-b border-gray-100 bg-gray-50 px-4 py-2 text-xs font-semibold text-[#6B7280]">
                 Preview for {previewCandidate?.name}
               </div>
               <div className="max-h-[500px] overflow-y-auto p-4">
-                <pre className="whitespace-pre-wrap font-mono text-xs text-[#25324B]">
+                <pre className="whitespace-pre-wrap font-mono text-xs text-[#111827]">
                   {generateContract(previewCandidate)}
                 </pre>
               </div>
             </div>
           ) : (
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-center">
-              <p className="text-sm text-[#7C8493]">
+              <p className="text-sm text-[#6B7280]">
                 Click "Show Preview" to see the generated contract
               </p>
             </div>
           )}
 
-          <p className="text-xs text-[#7C8493]">
+          <p className="text-xs text-[#6B7280]">
             Variables:{" "}
             {
               "{{candidateName}}, {{position}}, {{startDate}}, {{salary}}, {{employmentType}}, {{probationPeriod}}, {{workingHours}}, {{benefits}}, {{signDate}}"
@@ -398,13 +398,13 @@ export default function ContractGenerateStep({
 
       {/* Actions */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <div className="text-sm text-[#7C8493]">
+        <div className="text-sm text-[#6B7280]">
           {!canGenerate && <span>Please fill in salary and start date</span>}
         </div>
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
-            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50"
+            className="rounded-lg border border-gray-200 px-6 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50"
           >
             Back
           </button>

@@ -22,7 +22,7 @@ export default function JobSelectionStep({
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
       <button
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-[#7C8493] hover:text-[#25324B] transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#111827] transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to History
@@ -38,13 +38,13 @@ export default function JobSelectionStep({
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-green-50 text-[#087F5B] transition-colors group-hover:bg-[#087F5B] group-hover:text-white">
               <Briefcase className="h-5 w-5" />
             </div>
-            <h3 className="font-bold text-[#25324B] group-hover:text-[#087F5B]">
+            <h3 className="font-bold text-[#111827] group-hover:text-[#087F5B]">
               {job.title}
             </h3>
-            <p className="mt-1 text-xs text-[#7C8493]">{job.company}</p>
+            <p className="mt-1 text-xs text-[#6B7280]">{job.company}</p>
             <div className="mt-6 flex w-full items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#25324B]">
-                <Users className="h-4 w-4 text-[#7C8493]" />
+              <div className="flex items-center gap-2 text-xs font-bold text-[#111827]">
+                <Users className="h-4 w-4 text-[#6B7280]" />
                 {job.applicants} Applicants
               </div>
               <ArrowRight className="h-4 w-4 text-gray-300 transition-all group-hover:translate-x-1 group-hover:text-[#087F5B]" />
