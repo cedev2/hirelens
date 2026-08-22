@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BiLogoInstagramAlt } from "react-icons/bi";
 import { ImLinkedin2, ImYoutube, ImFacebook } from "react-icons/im";
 
@@ -23,12 +24,11 @@ export default function Footer() {
   ];
 
   return (
- feature/ui-polish-and-branding
     <footer className="bg-[#1a1a2e] text-white py-10 sm:py-14">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Main grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-gray-700">
-          {/* Brand — full width on mobile, spans 2 cols on md */}
+          {/* Brand — spans 2 cols */}
           <div className="col-span-2 md:col-span-2">
             <Image
               src="/images/logo/logo-light.svg"
@@ -37,21 +37,12 @@ export default function Footer() {
               width={120}
               height={36}
             />
-=======
-    <footer className="bg-[#1a1a2e] text-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-        {/* Main Footer */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-gray-700">
-          {/* Brand */}
-          <div className="sm:col-span-2">
-            <span className="text-2xl font-bold tracking-tight text-white mb-3 block">HireLens</span>
-main
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Great platform for job seekers passionate about startups.
               Find your dream job easier.
             </p>
 
-            {/* Newsletter inline with brand on wide screens */}
+            {/* Newsletter */}
             <div className="mt-6">
               <h4 className="text-sm font-semibold mb-2">Get job notifications</h4>
               <p className="text-gray-400 text-xs mb-3">
