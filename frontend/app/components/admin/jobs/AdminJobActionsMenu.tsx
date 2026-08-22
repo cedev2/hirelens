@@ -54,7 +54,7 @@ export default function AdminJobActionsMenu({
         aria-expanded={open}
         aria-controls={menuId}
         onClick={() => setOpen((v) => !v)}
-        className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 bg-white text-[#25324B] hover:bg-gray-50"
+        className="grid h-9 w-9 place-items-center rounded-lg border border-gray-200 bg-white text-[#111827] hover:bg-gray-50"
       >
         <MoreHorizontal className="h-4 w-4" />
       </button>
@@ -75,9 +75,9 @@ export default function AdminJobActionsMenu({
                 setOpen(false);
                 onAction("view", row);
               }}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#25324B] hover:bg-[#F8F8FD]"
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#111827] hover:bg-[#F9FAFB]"
             >
-              <Eye className="h-4 w-4 text-[#7C8493]" />
+              <Eye className="h-4 w-4 text-[#6B7280]" />
               View Details
             </button>
 
@@ -101,9 +101,9 @@ export default function AdminJobActionsMenu({
                 setOpen(false);
                 onAction("edit", row);
               }}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#25324B] hover:bg-[#F8F8FD]"
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#111827] hover:bg-[#F9FAFB]"
             >
-              <Pencil className="h-4 w-4 text-[#7C8493]" />
+              <Pencil className="h-4 w-4 text-[#6B7280]" />
               Edit Job
             </button>
           </div>
@@ -115,12 +115,12 @@ export default function AdminJobActionsMenu({
               setOpen(false);
               onAction(closeAction, row);
             }}
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#25324B] hover:bg-[#F8F8FD]"
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#111827] hover:bg-[#F9FAFB]"
           >
             {row.status === "Closed" ? (
-              <Unlock className="h-4 w-4 text-[#7C8493]" />
+              <Unlock className="h-4 w-4 text-[#6B7280]" />
             ) : (
-              <Lock className="h-4 w-4 text-[#7C8493]" />
+              <Lock className="h-4 w-4 text-[#6B7280]" />
             )}
             {closeLabel}
           </button>

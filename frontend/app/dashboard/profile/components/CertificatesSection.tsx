@@ -34,7 +34,7 @@ export default function CertificatesSection({
           <div>
             <Award className="w-5 h-5 text-[#087F5B]" />
           </div>
-          <h2 className="text-xl font-bold text-[#25324B]">Certificates</h2>
+          <h2 className="text-xl font-bold text-[#111827]">Certificates</h2>
         </div>
         <button
           onClick={onAdd}
@@ -45,7 +45,7 @@ export default function CertificatesSection({
       </div>
 
       {certificates.length === 0 ? (
-        <div className="text-center py-8 text-[#7C8493] font-medium">
+        <div className="text-center py-8 text-[#6B7280] font-medium">
           No certificates added yet. Click + to add one.
         </div>
       ) : (
@@ -61,7 +61,7 @@ export default function CertificatesSection({
                   <Award className="w-5 h-5 text-amber-500" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-sm font-bold text-[#25324B] group-hover:text-[#087F5B] transition-colors uppercase tracking-wider">
+                  <h3 className="text-sm font-bold text-[#111827] group-hover:text-[#087F5B] transition-colors uppercase tracking-wider">
                     {cert.name}
                   </h3>
                   <div className="flex items-center gap-2 mt-2 text-xs font-medium text-gray-500">

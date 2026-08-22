@@ -22,10 +22,10 @@ export default function AdminCandidateCompositionChart({
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
-        <p className="text-lg font-semibold text-[#25324B]">
+        <p className="text-lg font-semibold text-[#111827]">
           Candidate Composition
         </p>
-        <p className="text-sm text-[#7C8493]">Distribution of applicants</p>
+        <p className="text-sm text-[#6B7280]">Distribution of applicants</p>
       </div>
 
       <div className="grid grid-cols-1 gap-6">
@@ -63,7 +63,7 @@ export default function AdminCandidateCompositionChart({
             return (
               <div
                 key={slice.label}
-                className="flex items-center justify-between rounded-xl border border-gray-100 bg-[#F8F8FD] px-4 py-3"
+                className="flex items-center justify-between rounded-xl border border-gray-100 bg-[#F9FAFB] px-4 py-3"
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -76,10 +76,10 @@ export default function AdminCandidateCompositionChart({
                     />
                   </span>
                   <div className="leading-tight">
-                    <p className="text-sm font-semibold text-[#25324B]">
+                    <p className="text-sm font-semibold text-[#111827]">
                       {slice.label}
                     </p>
-                    <p className="text-xs text-[#7C8493]">
+                    <p className="text-xs text-[#6B7280]">
                       {slice.value} candidates
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export default function AdminCandidateCompositionChart({
           })}
         </div>
 
-        <p className="text-center text-sm text-[#7C8493]">{totalLabel}</p>
+        <p className="text-center text-sm text-[#6B7280]">{totalLabel}</p>
       </div>
     </div>
   );

@@ -134,7 +134,7 @@ export default function NotificationDropdown({
       {isOpen && (
         <div className="absolute right-0 mt-3 w-80 md:w-96 bg-white rounded-[20px] shadow-2xl border border-gray-100 overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-200">
           <div className="px-6 pt-5 border-b border-gray-50 flex items-center justify-between bg-gray-50/50">
-            <h3 className="font-black text-[#25324B]">Notifications</h3>
+            <h3 className="font-black text-[#111827]">Notifications</h3>
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
@@ -169,7 +169,7 @@ export default function NotificationDropdown({
                       <div className="flex-1 space-y-1">
                         <div className="flex items-center justify-between">
                           <p
-                            className={`text-sm font-bold ${!notification.isRead ? "text-[#25324B]" : "text-gray-600"}`}
+                            className={`text-sm font-bold ${!notification.isRead ? "text-[#111827]" : "text-gray-600"}`}
                           >
                             {notification.title}
                           </p>
@@ -177,7 +177,7 @@ export default function NotificationDropdown({
                             {formatRelativeTime(notification.createdAt)}
                           </span>
                         </div>
-                        <p className="text-xs text-[#7C8493] leading-relaxed line-clamp-2">
+                        <p className="text-xs text-[#6B7280] leading-relaxed line-clamp-2">
                           {notification.message}
                         </p>
                       </div>
@@ -190,7 +190,7 @@ export default function NotificationDropdown({
                 <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Bell className="w-8 h-8 text-gray-200" />
                 </div>
-                <p className="text-sm font-bold text-[#25324B]">
+                <p className="text-sm font-bold text-[#111827]">
                   No notifications yet
                 </p>
                 <p className="text-xs text-gray-400 mt-1">
@@ -207,7 +207,7 @@ export default function NotificationDropdown({
                   ? "/admin/notifications"
                   : "/dashboard/notifications"
               }
-              className="text-xs font-bold text-[#25324B] hover:text-[#087F5B] transition-colors uppercase tracking-widest"
+              className="text-xs font-bold text-[#111827] hover:text-[#087F5B] transition-colors uppercase tracking-widest"
               onClick={() => setIsOpen(false)}
             >
               View All Notifications

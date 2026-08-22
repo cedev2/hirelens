@@ -73,7 +73,7 @@ function NavLink({
       } ${
         active
           ? "bg-[#E8F7F0] text-[#087F5B]"
-          : "text-[#25324B] hover:bg-[#F8F8FD]"
+          : "text-[#111827] hover:bg-[#F9FAFB]"
       }`}
     >
       <span
@@ -81,7 +81,7 @@ function NavLink({
           active ? "bg-[#087F5B] opacity-100" : "opacity-0"
         }`}
       />
-      <span className={active ? "text-[#087F5B]" : "text-[#7C8493] group-hover:text-[#25324B]"}>
+      <span className={active ? "text-[#087F5B]" : "text-[#6B7280] group-hover:text-[#111827]"}>
         {item.icon}
       </span>
       {!collapsed && <span className="truncate">{item.label}</span>}
@@ -125,8 +125,8 @@ function SidebarContent({
         </div>
         {!collapsed && (
           <div className="leading-tight min-w-0">
-            <p className="text-sm font-semibold text-[#25324B] truncate">{displayName || "Admin User"}</p>
-            <p className="text-xs text-[#7C8493] capitalize">{role}</p>
+            <p className="text-sm font-semibold text-[#111827] truncate">{displayName || "Admin User"}</p>
+            <p className="text-xs text-[#6B7280] capitalize">{role}</p>
           </div>
         )}
       </div>
@@ -187,7 +187,7 @@ export default function AdminSidebar({
           <button
             onClick={onToggleCollapse}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-            className="rounded-lg p-1.5 text-[#7C8493] hover:bg-[#F8F8FD] hover:text-[#087F5B] transition-colors"
+            className="rounded-lg p-1.5 text-[#6B7280] hover:bg-[#F9FAFB] hover:text-[#087F5B] transition-colors"
           >
             {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
           </button>
@@ -208,7 +208,7 @@ export default function AdminSidebar({
               <button
                 onClick={onMobileClose}
                 aria-label="Close menu"
-                className="rounded-lg p-2 text-[#7C8493] hover:bg-gray-100"
+                className="rounded-lg p-2 text-[#6B7280] hover:bg-gray-100"
               >
                 <X className="h-5 w-5" />
               </button>

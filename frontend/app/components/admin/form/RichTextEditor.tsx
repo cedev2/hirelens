@@ -37,7 +37,7 @@ function ToolbarButton({
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className={`grid h-9 w-9 place-items-center rounded-lg border text-[#25324B] transition-colors ${
+      className={`grid h-9 w-9 place-items-center rounded-lg border text-[#111827] transition-colors ${
         disabled
           ? "border-gray-200 bg-gray-50 opacity-50"
           : active
@@ -193,7 +193,7 @@ export default function RichTextEditor({
 
       <EditorContent editor={editor} />
 
-      <p className="text-xs text-[#7C8493]">
+      <p className="text-xs text-[#6B7280]">
         Tip: use lists and bold text for clarity.
       </p>
     </div>

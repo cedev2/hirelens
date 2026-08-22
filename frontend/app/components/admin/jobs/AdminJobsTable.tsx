@@ -72,11 +72,11 @@ export default function AdminJobsTable({
           <div className="min-w-0">
             <Link
               href={`/admin/jobs/${row.original.id}`}
-              className="truncate text-sm font-semibold text-[#25324B] hover:underline"
+              className="truncate text-sm font-semibold text-[#111827] hover:underline"
             >
               {row.original.title}
             </Link>
-            <p className="truncate text-xs text-[#7C8493]">
+            <p className="truncate text-xs text-[#6B7280]">
               {row.original.location} • {row.original.type}
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function AdminJobsTable({
         accessorKey: "company",
         meta: { sortKey: "company" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-sm font-medium text-[#25324B]">
+          <p className="text-sm font-medium text-[#111827]">
             {row.original.company}
           </p>
         ),
@@ -115,7 +115,7 @@ export default function AdminJobsTable({
         accessorKey: "postedAt",
         meta: { sortKey: "postedAt" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-sm text-[#25324B]">{row.original.postedAt}</p>
+          <p className="text-sm text-[#111827]">{row.original.postedAt}</p>
         ),
       },
       {
@@ -123,7 +123,7 @@ export default function AdminJobsTable({
         accessorKey: "deadline",
         meta: { sortKey: "deadline" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-sm text-[#25324B]">{row.original.deadline}</p>
+          <p className="text-sm text-[#111827]">{row.original.deadline}</p>
         ),
       },
       {
@@ -131,7 +131,7 @@ export default function AdminJobsTable({
         accessorKey: "applicants",
         meta: { sortKey: "applicants" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-right text-sm font-semibold text-[#25324B]">
+          <p className="text-right text-sm font-semibold text-[#111827]">
             {row.original.applicants}
           </p>
         ),
@@ -141,7 +141,7 @@ export default function AdminJobsTable({
         accessorKey: "views",
         meta: { sortKey: "views" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-right text-sm font-semibold text-[#25324B]">
+          <p className="text-right text-sm font-semibold text-[#111827]">
             {row.original.views}
           </p>
         ),
@@ -201,8 +201,8 @@ export default function AdminJobsTable({
                         <div
                           className={`flex items-center gap-2 text-xs font-semibold ${
                             canSort
-                              ? "cursor-pointer select-none text-[#7C8493] hover:text-[#25324B]"
-                              : "text-[#7C8493]"
+                              ? "cursor-pointer select-none text-[#6B7280] hover:text-[#111827]"
+                              : "text-[#6B7280]"
                           } ${
                             header.column.id === "applicants" ||
                             header.column.id === "views" ||
@@ -239,7 +239,7 @@ export default function AdminJobsTable({
             {table.getRowModel().rows.map((row) => (
               <tr
                 key={row.id}
-                className="border-b border-gray-50 hover:bg-[#F8F8FD]"
+                className="border-b border-gray-50 hover:bg-[#F9FAFB]"
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-6 py-4">
@@ -252,10 +252,10 @@ export default function AdminJobsTable({
             {table.getRowModel().rows.length === 0 && (
               <tr>
                 <td colSpan={columns.length} className="px-6 py-16 text-center">
-                  <p className="text-sm font-semibold text-[#25324B]">
+                  <p className="text-sm font-semibold text-[#111827]">
                     No jobs found
                   </p>
-                  <p className="mt-1 text-sm text-[#7C8493]">
+                  <p className="mt-1 text-sm text-[#6B7280]">
                     Try adjusting your search or filters.
                   </p>
                 </td>
@@ -266,16 +266,16 @@ export default function AdminJobsTable({
       </div>
 
       <div className="flex flex-col gap-3 border-t border-gray-100 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-[#7C8493]">
-          Page <span className="font-semibold text-[#25324B]">{page + 1}</span>{" "}
-          of <span className="font-semibold text-[#25324B]">{totalPages}</span>
+        <p className="text-sm text-[#6B7280]">
+          Page <span className="font-semibold text-[#111827]">{page + 1}</span>{" "}
+          of <span className="font-semibold text-[#111827]">{totalPages}</span>
         </p>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={onPrev}
             disabled={page === 0}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] disabled:opacity-50"
           >
             <ChevronLeft className="h-4 w-4" />
             Prev
@@ -284,7 +284,7 @@ export default function AdminJobsTable({
             type="button"
             onClick={onNext}
             disabled={page + 1 >= totalPages}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] disabled:opacity-50"
           >
             Next
             <ChevronRight className="h-4 w-4" />

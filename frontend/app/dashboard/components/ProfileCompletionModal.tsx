@@ -58,10 +58,10 @@ export default function ProfileCompletionModal({
             <FileText className="w-8 h-8 text-[#087F5B]" />
           </div>
 
-          <h2 className="text-2xl font-black text-[#25324B] text-center mb-2">
+          <h2 className="text-2xl font-black text-[#111827] text-center mb-2">
             Complete Your Profile
           </h2>
-          <p className="text-[#7C8493] text-center mb-6">
+          <p className="text-[#6B7280] text-center mb-6">
             To get the best experience, please complete your profile. You can
             either upload your resume for automatic parsing or fill in the
             details manually.
@@ -76,7 +76,7 @@ export default function ProfileCompletionModal({
                 {missingFields.map((field) => (
                   <span
                     key={field}
-                    className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-[#25324B]"
+                    className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-[#111827]"
                   >
                     {fieldLabels[field] || field}
                   </span>
@@ -113,13 +113,13 @@ export default function ProfileCompletionModal({
               <div className="w-full border-t border-gray-200" />
             </div>
             <div className="relative flex justify-center">
-              <span className="bg-white px-4 text-xs text-[#7C8493]">or</span>
+              <span className="bg-white px-4 text-xs text-[#6B7280]">or</span>
             </div>
           </div>
 
           <button
             onClick={handleManualEntry}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-[#25324B] rounded-xl font-bold text-sm hover:border-[#087F5B] hover:text-[#087F5B] transition-all"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-[#111827] rounded-xl font-bold text-sm hover:border-[#087F5B] hover:text-[#087F5B] transition-all"
           >
             Enter Details Manually
             <ArrowRight className="w-4 h-4" />

@@ -55,7 +55,7 @@ export default function SkillsSection({
           <div>
             <Award className="w-5 h-5 text-[#087F5B]" />
           </div>
-          <h2 className="text-xl font-bold text-[#25324B]">
+          <h2 className="text-xl font-bold text-[#111827]">
             Technical Expertise
           </h2>
         </div>
@@ -76,7 +76,7 @@ export default function SkillsSection({
           >
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-sm font-bold text-[#25324B] group-hover:text-[#087F5B] transition-colors uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-[#111827] group-hover:text-[#087F5B] transition-colors uppercase tracking-wider">
                   {skill.name}
                 </h3>
                 <div className="flex items-center gap-3 mt-2">

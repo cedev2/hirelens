@@ -230,8 +230,8 @@ export default function AdminJobCreateForm() {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
-        <p className="text-xl font-semibold text-[#25324B]">Create New Job</p>
-        <p className="text-sm text-[#7C8493]">
+        <p className="text-xl font-semibold text-[#111827]">Create New Job</p>
+        <p className="text-sm text-[#6B7280]">
           Fill in details based on backend requirements
         </p>
       </div>
@@ -239,7 +239,7 @@ export default function AdminJobCreateForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div data-tour="job-title">
-            <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+            <label className="mb-1 block text-sm font-semibold text-[#111827]">
               Title
             </label>
             <input
@@ -255,7 +255,7 @@ export default function AdminJobCreateForm() {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+            <label className="mb-1 block text-sm font-semibold text-[#111827]">
               Deadline
             </label>
             <div className="relative">
@@ -275,7 +275,7 @@ export default function AdminJobCreateForm() {
         </div>
 
         <div data-tour="job-description">
-          <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+          <label className="mb-1 block text-sm font-semibold text-[#111827]">
             Description
           </label>
           <Controller
@@ -311,7 +311,7 @@ export default function AdminJobCreateForm() {
           className="grid grid-cols-1 gap-4 lg:grid-cols-3"
         >
           <div>
-            <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+            <label className="mb-1 block text-sm font-semibold text-[#111827]">
               Job Type
             </label>
             <select
@@ -324,7 +324,7 @@ export default function AdminJobCreateForm() {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+            <label className="mb-1 block text-sm font-semibold text-[#111827]">
               Location Type
             </label>
             <select
@@ -338,7 +338,7 @@ export default function AdminJobCreateForm() {
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-semibold text-[#25324B]">
+            <label className="mb-1 block text-sm font-semibold text-[#111827]">
               Salary
             </label>
             <div className="grid grid-cols-[1fr_120px] gap-2">
@@ -370,14 +370,14 @@ export default function AdminJobCreateForm() {
 
         <div
           data-tour="job-weights"
-          className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-5"
+          className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-5"
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-semibold text-[#25324B]">
+              <p className="text-sm font-semibold text-[#111827]">
                 Screening Weights
               </p>
-              <p className="text-xs text-[#7C8493]">
+              <p className="text-xs text-[#6B7280]">
                 Backend requires all three weights
               </p>
             </div>
@@ -394,7 +394,7 @@ export default function AdminJobCreateForm() {
 
           <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
             <div>
-              <label className="mb-1 block text-xs font-semibold text-[#7C8493]">
+              <label className="mb-1 block text-xs font-semibold text-[#6B7280]">
                 Skills %
               </label>
               <div className="flex items-center gap-3">
@@ -409,13 +409,13 @@ export default function AdminJobCreateForm() {
                   }
                   className="h-2 w-full cursor-pointer accent-[#087F5B]"
                 />
-                <span className="w-12 text-right text-sm font-semibold text-[#25324B]">
+                <span className="w-12 text-right text-sm font-semibold text-[#111827]">
                   {Number(weights?.skills ?? 0)}%
                 </span>
               </div>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-semibold text-[#7C8493]">
+              <label className="mb-1 block text-xs font-semibold text-[#6B7280]">
                 Experience %
               </label>
               <div className="flex items-center gap-3">
@@ -430,13 +430,13 @@ export default function AdminJobCreateForm() {
                   }
                   className="h-2 w-full cursor-pointer accent-[#087F5B]"
                 />
-                <span className="w-12 text-right text-sm font-semibold text-[#25324B]">
+                <span className="w-12 text-right text-sm font-semibold text-[#111827]">
                   {Number(weights?.experience ?? 0)}%
                 </span>
               </div>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-semibold text-[#7C8493]">
+              <label className="mb-1 block text-xs font-semibold text-[#6B7280]">
                 Education %
               </label>
               <div className="flex items-center gap-3">
@@ -451,7 +451,7 @@ export default function AdminJobCreateForm() {
                   }
                   className="h-2 w-full cursor-pointer accent-[#087F5B]"
                 />
-                <span className="w-12 text-right text-sm font-semibold text-[#25324B]">
+                <span className="w-12 text-right text-sm font-semibold text-[#111827]">
                   {Number(weights?.education ?? 0)}%
                 </span>
               </div>
@@ -471,13 +471,13 @@ export default function AdminJobCreateForm() {
         >
           <div>
             <div className="mb-2 flex items-center justify-between">
-              <p className="text-sm font-semibold text-[#25324B]">
+              <p className="text-sm font-semibold text-[#111827]">
                 Requirements
               </p>
               <button
                 type="button"
                 onClick={() => requirementsArray.append({ value: "" })}
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] hover:bg-gray-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] hover:bg-gray-50"
               >
                 <Plus className="h-4 w-4" />
                 Add
@@ -501,7 +501,7 @@ export default function AdminJobCreateForm() {
                     type="button"
                     onClick={() => requirementsArray.remove(index)}
                     disabled={requirementsArray.fields.length === 1}
-                    className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#25324B] hover:bg-gray-50 disabled:opacity-50"
+                    className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#111827] hover:bg-gray-50 disabled:opacity-50"
                     aria-label="Remove requirement"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -519,11 +519,11 @@ export default function AdminJobCreateForm() {
 
           <div data-tour="job-benefits">
             <div className="mb-2 flex items-center justify-between">
-              <p className="text-sm font-semibold text-[#25324B]">Benefits</p>
+              <p className="text-sm font-semibold text-[#111827]">Benefits</p>
               <button
                 type="button"
                 onClick={() => benefitsArray.append({ value: "" })}
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] hover:bg-gray-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] hover:bg-gray-50"
               >
                 <Plus className="h-4 w-4" />
                 Add
@@ -542,7 +542,7 @@ export default function AdminJobCreateForm() {
                     type="button"
                     onClick={() => benefitsArray.remove(index)}
                     disabled={benefitsArray.fields.length === 1}
-                    className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#25324B] hover:bg-gray-50 disabled:opacity-50"
+                    className="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 bg-white text-[#111827] hover:bg-gray-50 disabled:opacity-50"
                     aria-label="Remove benefit"
                   >
                     <Trash2 className="h-4 w-4" />
@@ -555,13 +555,13 @@ export default function AdminJobCreateForm() {
 
         <div
           data-tour="job-application-fields"
-          className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-5"
+          className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-5"
         >
           <div className="mb-4">
-            <p className="text-sm font-semibold text-[#25324B]">
+            <p className="text-sm font-semibold text-[#111827]">
               Required Application Fields
             </p>
-            <p className="text-xs text-[#7C8493]">
+            <p className="text-xs text-[#6B7280]">
               Select what applicants must provide when applying
             </p>
           </div>
@@ -596,8 +596,8 @@ export default function AdminJobCreateForm() {
                     }}
                   />
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-[#25324B]">{fieldOption.label}</p>
-                    <p className="text-xs text-[#7C8493]">{fieldOption.description}</p>
+                    <p className="text-sm font-semibold text-[#111827]">{fieldOption.label}</p>
+                    <p className="text-xs text-[#6B7280]">{fieldOption.description}</p>
                   </div>
                 </label>
               );
@@ -615,7 +615,7 @@ export default function AdminJobCreateForm() {
           data-tour="job-save"
           className="flex flex-col gap-3 border-t border-gray-100 pt-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          <p className="text-sm text-[#7C8493]"></p>
+          <p className="text-sm text-[#6B7280]"></p>
 
           <div className="flex gap-2">
             <button
@@ -625,7 +625,7 @@ export default function AdminJobCreateForm() {
                 const payload = buildPayload(values, "draft");
                 await createJobMutation.mutateAsync({ payload });
               })}
-              className="rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-[#25324B] hover:bg-gray-50 disabled:opacity-50"
+              className="rounded-xl border border-gray-200 bg-white px-5 py-2 text-sm font-semibold text-[#111827] hover:bg-gray-50 disabled:opacity-50"
             >
               Save as draft
             </button>

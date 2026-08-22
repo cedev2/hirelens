@@ -102,10 +102,10 @@ export default function AdminApplicationsTable({
             {row.original.talentName.charAt(0)}
           </div>
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-[#25324B]">
+            <p className="truncate text-sm font-semibold text-[#111827]">
               {row.original.talentName}
             </p>
-            <p className="truncate text-xs text-[#7C8493]">
+            <p className="truncate text-xs text-[#6B7280]">
               {row.original.talentLocation}
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function AdminApplicationsTable({
       header: "Headline",
       accessorKey: "talentHeadline",
       cell: ({ row }) => (
-        <p className="max-w-[200px] truncate text-sm text-[#7C8493]">
+        <p className="max-w-[200px] truncate text-sm text-[#6B7280]">
           {row.original.talentHeadline}
         </p>
       ),
@@ -174,7 +174,7 @@ export default function AdminApplicationsTable({
       header: "Applied Date",
       accessorKey: "appliedDate",
       cell: ({ row }) => (
-        <p className="text-sm text-[#25324B]">{row.original.appliedDate}</p>
+        <p className="text-sm text-[#111827]">{row.original.appliedDate}</p>
       ),
     },
     {
@@ -186,7 +186,7 @@ export default function AdminApplicationsTable({
           <div className="flex justify-end gap-1.5">
             <button
               onClick={() => onViewDetails(row.original)}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#25324B] hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#111827] hover:bg-gray-50 transition-colors"
             >
               View
             </button>
@@ -231,7 +231,7 @@ export default function AdminApplicationsTable({
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[800px]">
-          <thead className="bg-[#F8F8FD] border-b border-gray-200">
+          <thead className="bg-[#F9FAFB] border-b border-gray-200">
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id}>
                 {hg.headers.map((header) => {
@@ -239,7 +239,7 @@ export default function AdminApplicationsTable({
                   return (
                     <th key={header.id} className="px-6 py-4 text-left">
                       <div
-                        className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#7C8493] ${
+                        className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#6B7280] ${
                           header.column.getCanSort()
                             ? "cursor-pointer select-none"
                             : ""
@@ -263,7 +263,7 @@ export default function AdminApplicationsTable({
             {table.getRowModel().rows.map((row) => (
               <tr
                 key={row.id}
-                className="hover:bg-[#F8F8FD]/50 transition-colors"
+                className="hover:bg-[#F9FAFB]/50 transition-colors"
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-6 py-4 align-middle">
@@ -277,10 +277,10 @@ export default function AdminApplicationsTable({
                 <td colSpan={columns.length} className="px-6 py-20 text-center">
                   <div className="flex flex-col items-center">
                     <Users className="h-10 w-10 text-gray-200 mb-2" />
-                    <p className="text-sm font-semibold text-[#25324B]">
+                    <p className="text-sm font-semibold text-[#111827]">
                       No applications yet
                     </p>
-                    <p className="text-xs text-[#7C8493] mt-1">
+                    <p className="text-xs text-[#6B7280] mt-1">
                       When candidates apply, they will appear here.
                     </p>
                   </div>
@@ -291,12 +291,12 @@ export default function AdminApplicationsTable({
         </table>
       </div>
       <div className="flex items-center justify-between px-6 py-4 bg-white border-t border-gray-100">
-        <p className="text-sm text-[#7C8493]">
+        <p className="text-sm text-[#6B7280]">
           Showing{" "}
-          <span className="font-semibold text-[#25324B]">
+          <span className="font-semibold text-[#111827]">
             {table.getRowModel().rows.length}
           </span>{" "}
-          of <span className="font-semibold text-[#25324B]">{rows.length}</span>{" "}
+          of <span className="font-semibold text-[#111827]">{rows.length}</span>{" "}
           candidates
         </p>
         <div className="flex gap-2">

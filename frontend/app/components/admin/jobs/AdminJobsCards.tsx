@@ -38,10 +38,10 @@ export default function AdminJobsCards({
         >
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-[#25324B]">
+              <p className="truncate text-sm font-semibold text-[#111827]">
                 {row.title}
               </p>
-              <p className="truncate text-xs text-[#7C8493]">{row.company}</p>
+              <p className="truncate text-xs text-[#6B7280]">{row.company}</p>
             </div>
             <div className="flex items-center gap-2">
               <span
@@ -60,37 +60,37 @@ export default function AdminJobsCards({
               <Briefcase className="h-3.5 w-3.5" />
               {row.type}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
-              <MapPin className="h-3.5 w-3.5 text-[#7C8493]" />
+            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
+              <MapPin className="h-3.5 w-3.5 text-[#6B7280]" />
               {row.location}
             </span>
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-3 min-w-0">
-            <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
-              <div className="flex items-center gap-2 text-xs text-[#7C8493]">
+            <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
+              <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                 <Users className="h-4 w-4" />
                 Applicants
               </div>
-              <p className="mt-1 text-sm font-bold text-[#25324B]">
+              <p className="mt-1 text-sm font-bold text-[#111827]">
                 {row.applicants}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
-              <div className="flex items-center gap-2 text-xs text-[#7C8493]">
+            <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
+              <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                 <Eye className="h-4 w-4" />
                 Views
               </div>
-              <p className="mt-1 text-sm font-bold text-[#25324B]">
+              <p className="mt-1 text-sm font-bold text-[#111827]">
                 {row.views}
               </p>
             </div>
-            <div className="rounded-xl border border-gray-100 bg-[#F8F8FD] p-3">
-              <div className="flex items-center gap-2 text-xs text-[#7C8493]">
+            <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
+              <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                 <CalendarDays className="h-4 w-4" />
                 Deadline
               </div>
-              <p className="mt-1 text-sm font-bold text-[#25324B]">
+              <p className="mt-1 text-sm font-bold text-[#111827]">
                 {row.deadline}
               </p>
             </div>
@@ -113,7 +113,7 @@ export default function AdminJobsCards({
       ))}
 
       {rows.length === 0 && (
-        <div className="rounded-[10px] border border-gray-200 bg-white p-10 text-center text-sm text-[#7C8493] md:col-span-2 xl:col-span-3">
+        <div className="rounded-[10px] border border-gray-200 bg-white p-10 text-center text-sm text-[#6B7280] md:col-span-2 xl:col-span-3">
           No jobs found.
         </div>
       )}

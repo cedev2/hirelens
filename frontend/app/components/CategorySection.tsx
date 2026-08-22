@@ -76,7 +76,7 @@ export default function CategorySection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#25324B]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111827]">
             Powerful <span className="text-[#087F5B]">Features</span> for HR
             Teams
           </h2>
@@ -98,7 +98,7 @@ export default function CategorySection() {
               className={`group p-6 border transition-all ${
                 feature.highlighted
                   ? "bg-[#4F46E5] border-[#4F46E5] text-white"
-                  : "bg-white border-gray-100 hover:border-[#087F5B] hover:shadow-md text-[#25324B]"
+                  : "bg-white border-gray-100 hover:border-[#087F5B] hover:shadow-md text-[#111827]"
               }`}
             >
               <div

@@ -23,7 +23,7 @@ export default function LanguageForm({ initialData, onSubmit, onDelete }: Langua
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Language</label>
+        <label className="text-sm font-bold text-[#111827]">Language</label>
         <input 
           name="name" 
           defaultValue={initialData?.name} 
@@ -33,7 +33,7 @@ export default function LanguageForm({ initialData, onSubmit, onDelete }: Langua
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Proficiency</label>
+        <label className="text-sm font-bold text-[#111827]">Proficiency</label>
         <select 
           name="proficiency" 
           defaultValue={initialData?.proficiency || "Conversational"} 

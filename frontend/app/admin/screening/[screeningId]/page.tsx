@@ -492,10 +492,10 @@ export default function ScreeningResultsPage() {
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-[#25324B]">
+            <h1 className="text-2xl font-bold text-[#111827]">
               Screening Results
             </h1>
-            <p className="text-sm text-[#7C8493]">
+            <p className="text-sm text-[#6B7280]">
               ID:{" "}
               <span className="font-mono text-[#087F5B]">{screeningId}</span>
               {savePipelineState.isPending && (
@@ -512,10 +512,10 @@ export default function ScreeningResultsPage() {
       <div className="mb-6 rounded-[10px] border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-[#7C8493]">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#6B7280]">
               Screening weights
             </p>
-            <p className="mt-1 text-sm font-semibold text-[#25324B]">
+            <p className="mt-1 text-sm font-semibold text-[#111827]">
               {jobQuery.isLoading
                 ? "Loading..."
                 : jobQuery.data?.title
@@ -527,21 +527,21 @@ export default function ScreeningResultsPage() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
+            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
               Skills{" "}
               {Number(weights?.skills ?? 0) < 1
                 ? Number(weights?.skills) * 100
                 : Number(weights?.skills ?? 0)}
               %
             </span>
-            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
+            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
               Experience{" "}
               {Number(weights?.experience ?? 0) < 1
                 ? Number(weights?.experience) * 100
                 : Number(weights?.experience ?? 0)}
               %
             </span>
-            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#25324B]">
+            <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-[#111827]">
               Education{" "}
               {Number(weights?.education ?? 0) < 1
                 ? Number(weights?.education) * 100
@@ -765,10 +765,10 @@ export default function ScreeningResultsPage() {
           <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 mb-4">
             <CheckCircle2 className="h-10 w-10 text-green-600" />
           </div>
-          <h2 className="text-2xl font-bold text-[#25324B] mb-2">
+          <h2 className="text-2xl font-bold text-[#111827] mb-2">
             Hiring Process Complete!
           </h2>
-          <p className="text-[#7C8493] mb-6">
+          <p className="text-[#6B7280] mb-6">
             {completedHires.length} candidate(s) have been successfully hired
             for {jobQuery.data?.title}
           </p>

@@ -25,7 +25,7 @@ export default function LanguagesSection({
   return (
     <Card className="p-8 bg-white rounded-[10px] border border-gray-100 shadow-none">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-[#25324B] flex items-center gap-3">
+        <h2 className="text-xl font-bold text-[#111827] flex items-center gap-3">
           <Globe className="w-5 h-5 text-[#087F5B]" />
           Languages
         </h2>
@@ -44,7 +44,7 @@ export default function LanguagesSection({
             className="group relative px-5 py-3 bg-[#F8FAFC] border border-gray-100 rounded-[10px] flex items-center gap-3 cursor-pointer hover:border-[#087F5B] transition-all"
           >
             <CheckCircle className="w-4 h-4 text-green-500" />
-            <span className="text-sm font-bold text-[#25324B]">
+            <span className="text-sm font-bold text-[#111827]">
               {lang.name}
             </span>
             <span className="text-[10px] font-bold text-[#087F5B] uppercase tracking-widest bg-green-50 px-2 py-0.5 rounded-full">

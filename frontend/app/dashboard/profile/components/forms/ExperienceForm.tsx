@@ -36,7 +36,7 @@ export default function ExperienceForm({
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Job Role</label>
+          <label className="text-sm font-bold text-[#111827]">Job Role</label>
           <input
             name="role"
             defaultValue={initialData?.role}
@@ -46,7 +46,7 @@ export default function ExperienceForm({
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Company</label>
+          <label className="text-sm font-bold text-[#111827]">Company</label>
           <input
             name="company"
             defaultValue={initialData?.company}
@@ -58,7 +58,7 @@ export default function ExperienceForm({
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">Start Date</label>
+          <label className="text-sm font-bold text-[#111827]">Start Date</label>
           <input
             name="startDate"
             type="date"
@@ -70,7 +70,7 @@ export default function ExperienceForm({
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-bold text-[#25324B]">End Date</label>
+          <label className="text-sm font-bold text-[#111827]">End Date</label>
           <input
             name="endDate"
             type="date"
@@ -83,7 +83,7 @@ export default function ExperienceForm({
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Description</label>
+        <label className="text-sm font-bold text-[#111827]">Description</label>
         <textarea
           name="description"
           defaultValue={initialData?.description}
@@ -93,7 +93,7 @@ export default function ExperienceForm({
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">
+        <label className="text-sm font-bold text-[#111827]">
           Technologies (comma separated)
         </label>
         <input
@@ -110,7 +110,7 @@ export default function ExperienceForm({
           defaultChecked={initialData?.IsCurrent}
           className="w-4 h-4 rounded text-[#087F5B]"
         />
-        <label className="text-sm font-bold text-[#25324B]">
+        <label className="text-sm font-bold text-[#111827]">
           Currently working here
         </label>
       </div>

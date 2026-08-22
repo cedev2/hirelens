@@ -137,10 +137,10 @@ export default function AdminApplicationDetailModal({
               {application.talentName.charAt(0)}
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#25324B]">
+              <h2 className="text-lg font-bold text-[#111827]">
                 {application.talentName}
               </h2>
-              <p className="text-xs text-[#7C8493]">
+              <p className="text-xs text-[#6B7280]">
                 {application.talentHeadline}
               </p>
             </div>
@@ -205,7 +205,7 @@ export default function AdminApplicationDetailModal({
                 href={application.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] hover:bg-gray-50 transition-colors"
               >
                 <FileText className="h-4 w-4" />
                 Resume
@@ -224,7 +224,7 @@ export default function AdminApplicationDetailModal({
           {isLoading ? (
             <div className="flex flex-col items-center justify-center h-full">
               <Loader2 className="h-8 w-8 animate-spin text-green-600 mb-2" />
-              <p className="text-sm text-[#7C8493]">Loading profile...</p>
+              <p className="text-sm text-[#6B7280]">Loading profile...</p>
             </div>
           ) : (
             <div className="space-y-8">
@@ -240,7 +240,7 @@ export default function AdminApplicationDetailModal({
                 {/* Contact Info from Application */}
                 {(hasPhoneNumber || hasAppLocation || hasCv) && (
                   <div className="rounded-xl border border-green-100 bg-green-50/30 p-5 mb-6">
-                    <h4 className="text-xs font-bold text-[#7C8493] uppercase tracking-widest mb-3">
+                    <h4 className="text-xs font-bold text-[#6B7280] uppercase tracking-widest mb-3">
                       Contact Information
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -251,7 +251,7 @@ export default function AdminApplicationDetailModal({
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                               Phone
                             </p>
-                            <p className="font-semibold text-[#25324B]">
+                            <p className="font-semibold text-[#111827]">
                               {application.phoneNumber}
                             </p>
                           </div>
@@ -264,7 +264,7 @@ export default function AdminApplicationDetailModal({
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                               Location
                             </p>
-                            <p className="font-semibold text-[#25324B]">
+                            <p className="font-semibold text-[#111827]">
                               {application.location}
                             </p>
                           </div>
@@ -295,7 +295,7 @@ export default function AdminApplicationDetailModal({
                 {/* Skills from Application */}
                 {hasSkills && (
                   <section className="mb-6">
-                    <h4 className="text-base font-bold text-[#25324B] mb-3">
+                    <h4 className="text-base font-bold text-[#111827] mb-3">
                       Skills
                     </h4>
                     <div className="flex flex-wrap gap-2">
@@ -320,7 +320,7 @@ export default function AdminApplicationDetailModal({
                 {/* Experience from Application */}
                 {hasExperience && (
                   <section className="mb-6">
-                    <h4 className="text-base font-bold text-[#25324B] mb-4">
+                    <h4 className="text-base font-bold text-[#111827] mb-4">
                       Work Experience
                     </h4>
                     <div className="space-y-6">
@@ -335,10 +335,10 @@ export default function AdminApplicationDetailModal({
                             )}
                           </div>
                           <div className="pb-6">
-                            <h5 className="text-sm font-bold text-[#25324B]">
+                            <h5 className="text-sm font-bold text-[#111827]">
                               {exp.role}
                             </h5>
-                            <p className="text-xs text-[#7C8493] mb-2">
+                            <p className="text-xs text-[#6B7280] mb-2">
                               {exp.company} &bull;{" "}
                               {new Date(exp.startDate).getFullYear()} -{" "}
                               {exp.isCurrent
@@ -348,7 +348,7 @@ export default function AdminApplicationDetailModal({
                                   : "N/A"}
                             </p>
                             {exp.description && (
-                              <p className="text-sm text-[#7C8493] leading-relaxed">
+                              <p className="text-sm text-[#6B7280] leading-relaxed">
                                 {exp.description}
                               </p>
                             )}
@@ -374,7 +374,7 @@ export default function AdminApplicationDetailModal({
                 {/* Education from Application */}
                 {hasEducation && (
                   <section className="mb-6">
-                    <h4 className="text-base font-bold text-[#25324B] mb-4">
+                    <h4 className="text-base font-bold text-[#111827] mb-4">
                       Education
                     </h4>
                     <div className="space-y-4">
@@ -385,10 +385,10 @@ export default function AdminApplicationDetailModal({
                         >
                           <GraduationCap className="h-6 w-6 text-green-600 shrink-0" />
                           <div>
-                            <h5 className="text-sm font-bold text-[#25324B]">
+                            <h5 className="text-sm font-bold text-[#111827]">
                               {edu.degree} in {edu.fieldOfStudy}
                             </h5>
-                            <p className="text-xs text-[#7C8493]">
+                            <p className="text-xs text-[#6B7280]">
                               {edu.institution} &bull;{" "}
                               {new Date(edu.startYear).getFullYear()} -{" "}
                               {new Date(edu.endYear).getFullYear()}
@@ -403,7 +403,7 @@ export default function AdminApplicationDetailModal({
                 {/* Certifications from Application */}
                 {hasCertifications && (
                   <section className="mb-6">
-                    <h4 className="text-base font-bold text-[#25324B] mb-4">
+                    <h4 className="text-base font-bold text-[#111827] mb-4">
                       Certifications
                     </h4>
                     <div className="space-y-3">
@@ -414,10 +414,10 @@ export default function AdminApplicationDetailModal({
                         >
                           <Award className="h-5 w-5 text-green-600 shrink-0" />
                           <div>
-                            <h5 className="text-sm font-bold text-[#25324B]">
+                            <h5 className="text-sm font-bold text-[#111827]">
                               {cert.name}
                             </h5>
-                            <p className="text-xs text-[#7C8493]">
+                            <p className="text-xs text-[#6B7280]">
                               {cert.issuer} &bull;{" "}
                               {new Date(cert.issueDate).toLocaleDateString()}
                             </p>
@@ -431,11 +431,11 @@ export default function AdminApplicationDetailModal({
                 {/* Cover Letter from Application */}
                 {hasCoverLetter && (
                   <section className="mb-6">
-                    <h4 className="text-base font-bold text-[#25324B] mb-4">
+                    <h4 className="text-base font-bold text-[#111827] mb-4">
                       Cover Letter
                     </h4>
                     <div className="rounded-[10px] bg-gray-50 p-6">
-                      <p className="text-sm text-[#7C8493] leading-relaxed whitespace-pre-wrap italic">
+                      <p className="text-sm text-[#6B7280] leading-relaxed whitespace-pre-wrap italic">
                         {application.coverLetter}
                       </p>
                     </div>
@@ -448,7 +448,7 @@ export default function AdminApplicationDetailModal({
                 <div className="border-t border-gray-100 pt-8">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="h-2 w-2 rounded-full bg-gray-400" />
-                    <h3 className="text-sm font-bold text-[#7C8493] uppercase tracking-widest">
+                    <h3 className="text-sm font-bold text-[#6B7280] uppercase tracking-widest">
                       Talent Profile
                     </h3>
                   </div>
@@ -456,17 +456,17 @@ export default function AdminApplicationDetailModal({
                   <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div className="lg:col-span-2 space-y-8">
                       <section>
-                        <h4 className="text-base font-bold text-[#25324B] mb-3">
+                        <h4 className="text-base font-bold text-[#111827] mb-3">
                           About Me
                         </h4>
-                        <p className="text-sm leading-6 text-[#7C8493]">
+                        <p className="text-sm leading-6 text-[#6B7280]">
                           {talent.bio || "No bio provided."}
                         </p>
                       </section>
 
                       {talent.experience?.length > 0 && (
                         <section>
-                          <h4 className="text-base font-bold text-[#25324B] mb-4">
+                          <h4 className="text-base font-bold text-[#111827] mb-4">
                             Profile Experience
                           </h4>
                           <div className="space-y-6">
@@ -481,17 +481,17 @@ export default function AdminApplicationDetailModal({
                                   )}
                                 </div>
                                 <div className="pb-6">
-                                  <h5 className="text-sm font-bold text-[#25324B]">
+                                  <h5 className="text-sm font-bold text-[#111827]">
                                     {exp.role}
                                   </h5>
-                                  <p className="text-xs text-[#7C8493] mb-2">
+                                  <p className="text-xs text-[#6B7280] mb-2">
                                     {exp.company} &bull;{" "}
                                     {new Date(exp.startDate).getFullYear()} -{" "}
                                     {exp.endDate
                                       ? new Date(exp.endDate).getFullYear()
                                       : "Present"}
                                   </p>
-                                  <p className="text-sm text-[#7C8493] leading-relaxed">
+                                  <p className="text-sm text-[#6B7280] leading-relaxed">
                                     {exp.description}
                                   </p>
                                   <div className="mt-3 flex flex-wrap gap-2">
@@ -513,7 +513,7 @@ export default function AdminApplicationDetailModal({
 
                       {talent.education?.length > 0 && (
                         <section>
-                          <h4 className="text-base font-bold text-[#25324B] mb-4">
+                          <h4 className="text-base font-bold text-[#111827] mb-4">
                             Profile Education
                           </h4>
                           <div className="space-y-4">
@@ -524,10 +524,10 @@ export default function AdminApplicationDetailModal({
                               >
                                 <GraduationCap className="h-6 w-6 text-gray-400 shrink-0" />
                                 <div>
-                                  <h5 className="text-sm font-bold text-[#25324B]">
+                                  <h5 className="text-sm font-bold text-[#111827]">
                                     {edu.degree} in {edu.fieldOfStudy}
                                   </h5>
-                                  <p className="text-xs text-[#7C8493]">
+                                  <p className="text-xs text-[#6B7280]">
                                     {edu.institution} &bull;{" "}
                                     {new Date(edu.startYear).getFullYear()} -{" "}
                                     {new Date(edu.endYear).getFullYear()}
@@ -541,7 +541,7 @@ export default function AdminApplicationDetailModal({
 
                       {talent.projects?.length > 0 && (
                         <section>
-                          <h4 className="text-base font-bold text-[#25324B] mb-4">
+                          <h4 className="text-base font-bold text-[#111827] mb-4">
                             Projects
                           </h4>
                           <div className="space-y-4">
@@ -552,10 +552,10 @@ export default function AdminApplicationDetailModal({
                               >
                                 <div className="flex items-start justify-between gap-3">
                                   <div>
-                                    <h5 className="text-sm font-bold text-[#25324B]">
+                                    <h5 className="text-sm font-bold text-[#111827]">
                                       {project.name}
                                     </h5>
-                                    <p className="mt-1 text-sm text-[#7C8493] leading-relaxed">
+                                    <p className="mt-1 text-sm text-[#6B7280] leading-relaxed">
                                       {project.description}
                                     </p>
                                   </div>
@@ -564,7 +564,7 @@ export default function AdminApplicationDetailModal({
                                       href={project.link}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="shrink-0 inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#25324B] hover:bg-gray-50"
+                                      className="shrink-0 inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-[#111827] hover:bg-gray-50"
                                     >
                                       <ExternalLink className="h-4 w-4 text-gray-500" />
                                       Visit
@@ -580,7 +580,7 @@ export default function AdminApplicationDetailModal({
 
                     <div className="space-y-8">
                       <section className="rounded-[10px] border border-gray-100 bg-gray-50/30 p-5">
-                        <h4 className="text-base font-bold text-[#25324B] mb-4">
+                        <h4 className="text-base font-bold text-[#111827] mb-4">
                           Contact & Social
                         </h4>
                         <div className="space-y-4">
@@ -628,7 +628,7 @@ export default function AdminApplicationDetailModal({
 
                       {talent.skills?.length > 0 && (
                         <section>
-                          <h4 className="text-base font-bold text-[#25324B] mb-4">
+                          <h4 className="text-base font-bold text-[#111827] mb-4">
                             Profile Skills
                           </h4>
                           <div className="flex flex-wrap gap-2">
@@ -649,7 +649,7 @@ export default function AdminApplicationDetailModal({
 
                       {talent.languages && talent.languages.length > 0 && (
                         <section>
-                          <h4 className="text-base font-bold text-[#25324B] mb-4">
+                          <h4 className="text-base font-bold text-[#111827] mb-4">
                             Languages
                           </h4>
                           <div className="space-y-3">
@@ -658,7 +658,7 @@ export default function AdminApplicationDetailModal({
                                 key={lang.name}
                                 className="flex items-center justify-between"
                               >
-                                <span className="text-sm text-[#25324B]">
+                                <span className="text-sm text-[#111827]">
                                   {lang.name}
                                 </span>
                                 <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-bold text-gray-600 border border-gray-200">
@@ -678,10 +678,10 @@ export default function AdminApplicationDetailModal({
                               Availability
                             </span>
                           </div>
-                          <p className="text-sm font-bold text-[#25324B]">
+                          <p className="text-sm font-bold text-[#111827]">
                             {talent.availability.type}
                           </p>
-                          <p className="text-xs text-[#7C8493] mt-1">
+                          <p className="text-xs text-[#6B7280] mt-1">
                             {talent.availability.status}
                           </p>
                         </section>

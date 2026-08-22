@@ -5,7 +5,7 @@ export default function HeroSection() {
     <section className="relative mt-[50px] bg-[#f8f8fd] overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px] py-12 sm:py-16 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         <div className="max-w-2xl w-full min-w-0">
-          <h1 className="text-4xl sm:text-5xl lg:text-[70px] font-bold text-[#25324B] leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-[70px] font-bold text-[#111827] leading-tight">
             Screen
             <br />
             Applications

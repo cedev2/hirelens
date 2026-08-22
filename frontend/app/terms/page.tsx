@@ -8,14 +8,14 @@ export default function TermsPage() {
       <main className="min-h-screen bg-white pt-[100px]">
         <section className="py-16">
           <div className="mx-[122px] max-w-4xl">
-            <h1 className="text-4xl font-bold text-[#25324B] mb-8">
+            <h1 className="text-4xl font-bold text-[#111827] mb-8">
               Terms of Service
             </h1>
             <p className="text-gray-500 mb-8">Last updated: April 21, 2026</p>
 
             <div className="space-y-8 text-gray-700">
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">1. Acceptance of Terms</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">1. Acceptance of Terms</h2>
                 <p className="leading-relaxed">
                   By accessing or using HireLens, you agree to be bound by these Terms of Service. 
                   If you disagree with any part of the terms, you may not access the service.
@@ -23,7 +23,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">2. Use of Service</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">2. Use of Service</h2>
                 <p className="leading-relaxed mb-4">
                   HireLens is an AI-powered talent acquisition platform designed for HR professionals 
                   and hiring managers. You agree to use the service only for lawful purposes.
@@ -36,7 +36,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">3. AI Screening</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">3. AI Screening</h2>
                 <p className="leading-relaxed">
                   Our AI screening tools are designed to assist in the hiring process. While we strive for 
                   accuracy, final hiring decisions remain the sole responsibility of the employer. 
@@ -45,7 +45,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">4. Data Privacy</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">4. Data Privacy</h2>
                 <p className="leading-relaxed">
                   All candidate data processed through our platform is handled in accordance with our 
                   Privacy Policy and applicable data protection laws including GDPR. You are responsible 
@@ -54,7 +54,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">5. Subscription & Billing</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">5. Subscription & Billing</h2>
                 <p className="leading-relaxed">
                   Some features may require a paid subscription. Billing cycles, refund policies, and 
                   cancellation terms are specified during the subscription process.
@@ -62,7 +62,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">6. Limitation of Liability</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">6. Limitation of Liability</h2>
                 <p className="leading-relaxed">
                   HireLens shall not be liable for any indirect, incidental, special, 
                   consequential or punitive damages resulting from your use of the service.
@@ -70,7 +70,7 @@ export default function TermsPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#25324B] mb-4">7. Contact</h2>
+                <h2 className="text-2xl font-semibold text-[#111827] mb-4">7. Contact</h2>
                 <p className="leading-relaxed">
                   For questions about these Terms, please contact us at: support@hirelens.com
                 </p>

@@ -29,7 +29,7 @@ export default function CertificateForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Certificate Name</label>
+        <label className="text-sm font-bold text-[#111827]">Certificate Name</label>
         <input
           type="text"
           value={name}
@@ -40,7 +40,7 @@ export default function CertificateForm({
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Issuing Organization</label>
+        <label className="text-sm font-bold text-[#111827]">Issuing Organization</label>
         <input
           type="text"
           value={issuer}
@@ -51,7 +51,7 @@ export default function CertificateForm({
         />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-bold text-[#25324B]">Issue Date</label>
+        <label className="text-sm font-bold text-[#111827]">Issue Date</label>
         <input
           type="date"
           value={issueDate}
@@ -64,7 +64,7 @@ export default function CertificateForm({
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 py-4 bg-gray-100 text-[#25324B] rounded-[10px] font-bold text-sm hover:bg-gray-200 transition-all"
+          className="flex-1 py-4 bg-gray-100 text-[#111827] rounded-[10px] font-bold text-sm hover:bg-gray-200 transition-all"
         >
           Cancel
         </button>
