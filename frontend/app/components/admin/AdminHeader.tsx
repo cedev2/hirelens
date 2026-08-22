@@ -34,14 +34,14 @@ export default function AdminHeader({
           >
             <Menu className="h-5 w-5" />
           </button>
-          <Link href="/dashboard" className="shrink-0">
+          <Link href="/admin" className="shrink-0">
             <Image
               src="/images/logo/hirelens.jpg"
               alt="HireLens Logo"
-              width={80}
-              height={14}
+              width={160}
+              height={40}
               loading="eager"
-              className="h-[14px] w-auto"
+              className="h-[36px] w-auto object-contain"
             />
           </Link>
         </div>

@@ -25,9 +25,9 @@ export default function DashboardHeader({
             <Image
               src="/images/logo/hirelens.jpg"
               alt="HireLens Logo"
-              width={80}
-              height={14}
-              className="h-[14px] w-auto"
+              width={160}
+              height={40}
+              className="h-[36px] w-auto object-contain"
             />
           </Link>
         </div>

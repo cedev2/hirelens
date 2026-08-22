@@ -111,17 +111,15 @@ function SidebarContent({
     ? `${meUser.firstName || ""} ${meUser.lastName || ""}`.trim()
     : "HR Admin";
   const role = meUser?.role ?? "admin";
-  const avatarUrl = meUser?.picture || "/images/companies/dummy.png";
-
   return (
     <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
       {/* User card */}
       <div className={`flex items-center mt-6 mb-6 px-4 ${collapsed ? "justify-center" : "gap-3"}`}>
         <div
-          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100"
+          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-white border border-gray-100"
           title={collapsed ? displayName : undefined}
         >
-          <Image src={avatarUrl} alt="User avatar" fill className="object-cover" sizes="40px" />
+          <Image src="/images/logo/hirelens.jpg" alt="HireLens" fill className="object-contain p-1" sizes="40px" />
         </div>
         {!collapsed && (
           <div className="leading-tight min-w-0">
