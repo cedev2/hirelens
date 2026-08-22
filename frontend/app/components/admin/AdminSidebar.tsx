@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -114,20 +113,12 @@ function SidebarContent({
   return (
     <div className="h-full flex flex-col overflow-y-auto overflow-x-hidden">
       {/* User card */}
-      <div className={`flex items-center mt-6 mb-6 px-4 ${collapsed ? "justify-center" : "gap-3"}`}>
-        <div
-          className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-white border border-gray-100"
-          title={collapsed ? displayName : undefined}
-        >
-          <Image src="/images/logo/hirelens.jpg" alt="HireLens" fill className="object-contain p-1" sizes="40px" />
+      {!collapsed && (
+        <div className="mt-6 mb-6 px-4 leading-tight min-w-0">
+          <p className="text-sm font-semibold text-[#25324B] truncate">{displayName || "Admin User"}</p>
+          <p className="text-xs text-[#7C8493] capitalize">{role}</p>
         </div>
-        {!collapsed && (
-          <div className="leading-tight min-w-0">
-            <p className="text-sm font-semibold text-[#25324B] truncate">{displayName || "Admin User"}</p>
-            <p className="text-xs text-[#7C8493] capitalize">{role}</p>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* Main nav */}
       <nav className="space-y-1 px-2" data-tour="sidebar-navigation">
