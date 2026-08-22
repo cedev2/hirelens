@@ -22,18 +22,15 @@ export type AdminJobRow = {
   postedAt: string;
   deadline: string;
   applicants: number;
-  views: number;
 };
 
 export type SortKey = keyof Pick<
   AdminJobRow,
   | "title"
-  | "company"
   | "status"
   | "postedAt"
   | "deadline"
   | "applicants"
-  | "views"
 >;
 
 export default function AdminJobsTable({
@@ -77,19 +74,9 @@ export default function AdminJobsTable({
               {row.original.title}
             </Link>
             <p className="truncate text-xs text-[#6B7280]">
-              {row.original.location} • {row.original.type}
+              {row.original.company} • {row.original.location} • {row.original.type}
             </p>
           </div>
-        ),
-      },
-      {
-        header: "Company",
-        accessorKey: "company",
-        meta: { sortKey: "company" satisfies SortKey },
-        cell: ({ row }) => (
-          <p className="text-sm font-medium text-[#111827]">
-            {row.original.company}
-          </p>
         ),
       },
       {
@@ -115,7 +102,7 @@ export default function AdminJobsTable({
         accessorKey: "postedAt",
         meta: { sortKey: "postedAt" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-sm text-[#111827]">{row.original.postedAt}</p>
+          <p className="whitespace-nowrap text-sm text-[#111827]">{row.original.postedAt}</p>
         ),
       },
       {
@@ -123,7 +110,7 @@ export default function AdminJobsTable({
         accessorKey: "deadline",
         meta: { sortKey: "deadline" satisfies SortKey },
         cell: ({ row }) => (
-          <p className="text-sm text-[#111827]">{row.original.deadline}</p>
+          <p className="whitespace-nowrap text-sm text-[#111827]">{row.original.deadline}</p>
         ),
       },
       {
@@ -133,16 +120,6 @@ export default function AdminJobsTable({
         cell: ({ row }) => (
           <p className="text-right text-sm font-semibold text-[#111827]">
             {row.original.applicants}
-          </p>
-        ),
-      },
-      {
-        header: () => <div className="text-right">Views</div>,
-        accessorKey: "views",
-        meta: { sortKey: "views" satisfies SortKey },
-        cell: ({ row }) => (
-          <p className="text-right text-sm font-semibold text-[#111827]">
-            {row.original.views}
           </p>
         ),
       },
@@ -181,7 +158,7 @@ export default function AdminJobsTable({
   return (
     <div className="rounded-xl border border-gray-200 bg-white shadow-sm">
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[980px]">
+        <table className="w-full min-w-[720px]">
           <thead>
             {table.getHeaderGroups().map((hg) => (
               <tr key={hg.id} className="border-b border-gray-100">
@@ -205,7 +182,6 @@ export default function AdminJobsTable({
                               : "text-[#6B7280]"
                           } ${
                             header.column.id === "applicants" ||
-                            header.column.id === "views" ||
                             header.column.id === "actions"
                               ? "justify-end"
                               : ""

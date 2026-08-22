@@ -54,8 +54,8 @@ export default function JobsPage() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl border border-gray-100 p-4 mb-6 flex items-center gap-4">
-        <div className="flex-1 relative">
+      <div className="bg-white rounded-xl border border-gray-100 p-4 mb-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+        <div className="relative w-full">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <input
             type="text"
@@ -65,25 +65,27 @@ export default function JobsPage() {
             className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm outline-none focus:border-[#087F5B] transition-colors"
           />
         </div>
-        <select
-          value={filterType}
-          onChange={(e) => setFilterType(e.target.value)}
-          className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none focus:border-[#087F5B] bg-white"
-        >
-          <option value="all">All Types</option>
-          <option value="full-time">Full-time</option>
-          <option value="part-time">Part-time</option>
-        </select>
-        <select
-          value={filterLocation}
-          onChange={(e) => setFilterLocation(e.target.value)}
-          className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none focus:border-[#087F5B] bg-white"
-        >
-          <option value="all">All Locations</option>
-          <option value="on-site">On-site</option>
-          <option value="hybrid">Hybrid</option>
-          <option value="remote">Remote</option>
-        </select>
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:items-center sm:gap-4">
+          <select
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+            className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none focus:border-[#087F5B] bg-white"
+          >
+            <option value="all">All Types</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+          </select>
+          <select
+            value={filterLocation}
+            onChange={(e) => setFilterLocation(e.target.value)}
+            className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm outline-none focus:border-[#087F5B] bg-white"
+          >
+            <option value="all">All Locations</option>
+            <option value="on-site">On-site</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="remote">Remote</option>
+          </select>
+        </div>
       </div>
 
       {/* Jobs Grid */}

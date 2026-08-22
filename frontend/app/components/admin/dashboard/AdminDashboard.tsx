@@ -147,7 +147,6 @@ export default function AdminDashboard() {
           postedAt: formatDate(j?.createdAt),
           deadline: formatDate(j?.deadline),
           applicants: counts.get(id) ?? 0,
-          views: 0,
         };
       })
       .filter((v): v is AdminJobRow => Boolean(v));

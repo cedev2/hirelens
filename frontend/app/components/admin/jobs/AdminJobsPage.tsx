@@ -133,7 +133,6 @@ export default function AdminJobsPage() {
           postedAt: formatDate(job?.createdAt),
           deadline: formatDate(deadline),
           applicants: counts.get(id) ?? 0,
-          views: 0,
         };
       })
       .filter((v): v is AdminJobRow => Boolean(v));

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Briefcase, CalendarDays, Eye, MapPin, Users } from "lucide-react";
+import { Briefcase, CalendarDays, MapPin, Users } from "lucide-react";
 import type { AdminJobRow } from "@/app/components/admin/jobs/AdminJobsTable";
 import AdminJobActionsMenu from "@/app/components/admin/jobs/AdminJobActionsMenu";
 
@@ -66,7 +66,7 @@ export default function AdminJobsCards({
             </span>
           </div>
 
-          <div className="mt-4 grid grid-cols-3 gap-3 min-w-0">
+          <div className="mt-4 grid grid-cols-2 gap-3 min-w-0">
             <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
               <div className="flex items-center gap-2 text-xs text-[#6B7280]">
                 <Users className="h-4 w-4" />
@@ -74,15 +74,6 @@ export default function AdminJobsCards({
               </div>
               <p className="mt-1 text-sm font-bold text-[#111827]">
                 {row.applicants}
-              </p>
-            </div>
-            <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
-              <div className="flex items-center gap-2 text-xs text-[#6B7280]">
-                <Eye className="h-4 w-4" />
-                Views
-              </div>
-              <p className="mt-1 text-sm font-bold text-[#111827]">
-                {row.views}
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-[#F9FAFB] p-3">
