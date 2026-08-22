@@ -77,6 +77,9 @@ const userSchema = new Schema<IUser>(
       type: Number,
       default: 0,
     },
+    passwordResetLastSentAt: {
+      type: Date,
+    },
     notifications: {
       email: { type: Boolean, default: true },
       push: { type: Boolean, default: false },

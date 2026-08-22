@@ -298,15 +298,15 @@ const authController = {
       // Always return the same message regardless of whether account exists (enumeration protection)
       const genericMessage = "If an account is associated with this email, you'll receive a password reset code.";
 
-      const user = await User.findOne({ email }).select("+verificationLastSentAt +passwordResetCodeHash");
+      const user = await User.findOne({ email }).select("+passwordResetCodeHash +passwordResetLastSentAt");
 
       if (!user) {
         return res.status(200).json({ message: genericMessage });
       }
 
-      // Cooldown using verificationLastSentAt (shared cooldown)
-      if (user.verificationLastSentAt) {
-        const secondsSinceLast = (Date.now() - new Date(user.verificationLastSentAt).getTime()) / 1000;
+      // Cooldown using dedicated passwordResetLastSentAt (separate from email verification cooldown)
+      if ((user as any).passwordResetLastSentAt) {
+        const secondsSinceLast = (Date.now() - new Date((user as any).passwordResetLastSentAt).getTime()) / 1000;
         if (secondsSinceLast < OTP_RESEND_COOLDOWN_SECONDS) {
           // Still return generic message to avoid timing attacks
           return res.status(200).json({ message: genericMessage });
@@ -321,12 +321,12 @@ const authController = {
         passwordResetCodeHash: codeHash,
         passwordResetCodeExpiresAt: expiresAt,
         passwordResetAttempts: 0,
-        verificationLastSentAt: new Date(),
+        passwordResetLastSentAt: new Date(),
       });
 
-      sendOtpEmail(user.email, user.firstName, otp, "reset").catch((err) =>
-        console.error("Failed to send password reset email:", err)
-      );
+      sendOtpEmail(user.email, user.firstName, otp, "reset").catch((err) => {
+        console.error(`[AUTH] Failed to send password reset email to ${user.email}:`, err.message || err);
+      });
 
       return res.status(200).json({ message: genericMessage });
     } catch (error: any) {
