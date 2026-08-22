@@ -36,7 +36,7 @@ export default function AdminHeader({
           </button>
           <Link href="/dashboard" className="shrink-0">
             <Image
-              src="/images/logo/logo.svg"
+              src="/images/logo/hirelens.jpg"
               alt="HireLens Logo"
               width={80}
               height={14}

@@ -144,7 +144,7 @@ export default function DashboardPage() {
         name: j.title,
         company: "HireLens",
         time: j.deadline,
-        avatar: "/images/logo/hirelens-ai-logo.svg",
+        avatar: "/images/logo/hirelens.jpg",
       }));
   }, [jobs]);
 

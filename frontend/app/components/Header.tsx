@@ -24,7 +24,7 @@ export default function Header() {
       <div className="flex items-center gap-4 lg:gap-8">
         <Link href="/">
           <Image
-            src="/images/logo/logo.svg"
+            src="/images/logo/hirelens.jpg"
             alt="HireLens Logo"
             width={100}
             height={30}

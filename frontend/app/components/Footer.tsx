@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <Image
-              src="/images/logo/logo-light.svg"
+              src="/images/logo/hirelens.jpg"
               alt="HireLens Logo"
               className="mb-3"
               width={140}

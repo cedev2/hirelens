@@ -84,7 +84,7 @@ export default function JobCard({ job, onClick }: JobCardProps) {
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-[#F8FAFC] border border-gray-50 flex items-center justify-center overflow-hidden">
             <img
-              src="/images/logo/hirelens-ai-logo.svg"
+              src="/images/logo/hirelens.jpg"
               alt="HireLens Logo"
               className="w-full h-full object-cover"
             />
