@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "./login-form";
+import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
 export default function page() {
   return (
     <section className="min-h-screen flex">
+      <AuthHeader hideLogo />
       {/* Left — logo panel */}
       <div className="hidden lg:flex w-1/2 bg-[#087F5B] flex-col items-center justify-center p-12 relative overflow-hidden">
         {/* Subtle background circles for depth */}
