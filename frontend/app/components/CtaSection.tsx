@@ -4,7 +4,7 @@ export default function CtaSection() {
   return (
     <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-[122px]">
-        <div className="bg-[#4640de] px-6 py-10 sm:px-[70px] sm:pt-[50px] sm:pb-[30px] flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-[#087F5B] px-6 py-10 sm:px-[70px] sm:pt-[50px] sm:pb-[30px] flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-5 text-white text-center lg:text-left">
             <h3 className="text-3xl sm:text-4xl lg:text-[48px] font-bold leading-tight lg:leading-[50px]">
               Transform Your Hiring Today
@@ -16,7 +16,7 @@ export default function CtaSection() {
 
             <a
               href="/admin/auth/login"
-              className="inline-block px-[24px] py-[12px] bg-white text-[#4640de] font-bold transition-all hover:bg-[#d6d5fd]"
+              className="inline-block px-[24px] py-[12px] bg-white text-[#087F5B] font-bold transition-all hover:bg-[#E8F7F0]"
             >
               Get Started
             </a>

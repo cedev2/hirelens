@@ -80,11 +80,11 @@ export default function ApplicantLayoutClient({
             </button>
             <Link href="/applicant" className="shrink-0">
               <Image
-                src="/images/logo/logo.svg"
+                src="/images/logo/logo.jpg"
                 alt="HireLens"
-                width={110}
+                width={120}
                 height={32}
-                className="h-[28px] w-auto"
+                className="h-[32px] w-auto object-contain"
               />
             </Link>
           </div>

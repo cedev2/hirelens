@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const companies = [
-  { src: "/images/companies/group x.png", alt: "Group X" },
+  { src: "/images/companies/group.jpg", alt: "Group X" },
   { src: "/images/companies/dummy.png", alt: "Dummy" },
 ];
 
