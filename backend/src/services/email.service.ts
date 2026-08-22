@@ -11,6 +11,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Verify SMTP connection at startup so credential issues are caught immediately
+if (process.env.ENABLE_EMAILS === "true") {
+  transporter.verify().then(() => {
+    console.log(`✓ SMTP ready — sending from ${ENV.smtp_user}`);
+  }).catch((err: Error) => {
+    console.error(`✗ SMTP connection failed (${ENV.smtp_user}): ${err.message}`);
+  });
+}
+
 export interface CandidateResult {
   candidateId: string;
   email: string;
