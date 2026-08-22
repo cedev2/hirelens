@@ -1,10 +1,12 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import ResetPasswordForm from "./reset-form";
+import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
 export default function ResetPasswordPage() {
   return (
     <section className="relative min-h-screen flex overflow-hidden">
+      <AuthHeader />
       {/* Left side */}
       <div className="w-1/2 bg-white relative">
         <div className="absolute bottom-0 left-0">

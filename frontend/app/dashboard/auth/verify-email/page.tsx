@@ -2,10 +2,12 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import VerifyEmailForm from "./verify-form";
+import AuthHeader from "@/app/components/dashboard/AuthHeader";
 
 export default function VerifyEmailPage() {
   return (
     <section className="relative min-h-screen flex overflow-hidden">
+      <AuthHeader />
       {/* Left side */}
       <div className="w-1/2 bg-white relative">
         <div className="absolute bottom-0 left-0">
