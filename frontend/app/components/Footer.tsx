@@ -24,10 +24,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#1a1a2e] text-white py-10 sm:py-14">
+    <footer className="bg-[#064E3B] text-white py-10 sm:py-14">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Main grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-gray-700">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-white/10">
           {/* Brand — spans 2 cols */}
           <div className="col-span-2 md:col-span-2">
             <Image
