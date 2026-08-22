@@ -28,6 +28,7 @@ export interface IUser {
   passwordResetCodeHash?: string;
   passwordResetCodeExpiresAt?: Date;
   passwordResetAttempts?: number;
+  passwordResetLastSentAt?: Date;
   createdAt?: Date;
   updatedAt?: Date;
 }

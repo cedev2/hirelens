@@ -4,10 +4,15 @@ import ENV from "../config/env";
 const transporter = nodemailer.createTransport({
   host: ENV.smtp_host,
   port: ENV.smtp_port,
-  secure: ENV.smtp_port === 465,
+  secure: ENV.smtp_port === 465,  // true for port 465 (SSL), false for 587 (STARTTLS)
+  requireTLS: ENV.smtp_port !== 465, // enforce STARTTLS upgrade on port 587
   auth: {
     user: ENV.smtp_user,
     pass: ENV.smtp_pass,
+  },
+  tls: {
+    // Reject self-signed certs in production; allow in dev if needed
+    rejectUnauthorized: process.env.NODE_ENV === "production",
   },
 });
 
@@ -17,6 +22,7 @@ if (process.env.ENABLE_EMAILS === "true") {
     console.log(`✓ SMTP ready — sending from ${ENV.smtp_user}`);
   }).catch((err: Error) => {
     console.error(`✗ SMTP connection failed (${ENV.smtp_user}): ${err.message}`);
+    console.error("  → Check SMTP_USER and SMTP_PASS in .env (Gmail requires an App Password, not your account password)");
   });
 }
 
