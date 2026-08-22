@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -23,13 +22,7 @@ export default function Header() {
     >
       <div className="flex items-center gap-4 lg:gap-8">
         <Link href="/">
-          <Image
-            src="/images/logo/hirelens.jpg"
-            alt="HireLens Logo"
-            width={100}
-            height={30}
-            className="h-[24px] sm:h-[30px] w-auto"
-          />
+          <span className="text-xl font-bold tracking-tight text-[#087F5B]">HireLens</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
