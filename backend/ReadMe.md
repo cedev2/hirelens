@@ -43,17 +43,15 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 
 ### Authentication & Security
 
-- **Passport.js 0.7.0** - Authentication middleware
-- **Passport Google OAuth 2.0.0** - Google OAuth strategy
-- **JWT 9.0.3** - JSON Web Tokens
+- **JWT (jsonwebtoken 9.0.3)** - JSON Web Tokens
 - **bcrypt 6.0.0** - Password hashing
-- **Helmet 8.1.0** - Security headers
+- **Helmet 8.3.0** - Security headers
 - **CORS 2.8.6** - Cross-origin resource sharing
 
 ### AI Integration
 
-- **@google/genai 1.49.0** - Google Generative AI SDK
-- **Google AI (Gemma-4-31b-it)** - AI model for candidate screening
+- **@google/genai** - Google Generative AI SDK (Gemini)
+- **groq-sdk** - Groq inference for Llama models
 
 ### File Processing
 
@@ -67,10 +65,6 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 
 - **Nodemailer 8.0.5** - Email sending
 
-### File Upload Service
-
-- **UploadThing 7.7.4** - Cloud file storage
-
 ### API Documentation
 
 - **Swagger UI Express 5.0.1** - API documentation
@@ -81,7 +75,6 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 - **Axios 1.7.2** - HTTP client
 - **dotenv 17.4.1** - Environment variables
 - **Morgan 1.10.1** - HTTP request logger
-- **Google Auth Library 10.3.0** - Google authentication
 
 ### Development
 
@@ -175,15 +168,19 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 }
 ```
 
-### 3. UserAuth Collection
+### 3. Sessions Collection
 
 ```typescript
 {
   _id: ObjectId;
-  googleId: string;
-  email: string;
-  role: "admin" | "talent";
+  userId: ObjectId;  // Reference to User
+  token: string;
+  ipAddress?: string;
+  userAgent?: string;
+  lastAccess: Date;
+  isActive: boolean;  // default: true
   createdAt: Date;
+  updatedAt: Date;
 }
 ```
 
@@ -259,10 +256,18 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 
 ### Authentication
 
-- `POST /auth/google` - Initiate Google OAuth
-- `GET /auth/google/callback` - Google OAuth callback
+All routes are prefixed with `/api/v1`.
+
+- `POST /auth/register/local` - Register admin/recruiter account
+- `POST /auth/register/applicant` - Register applicant account
+- `POST /auth/login/local` - Login with email and password
+- `POST /auth/verify-email` - Verify email address
+- `POST /auth/resend-verification` - Resend verification code
 - `GET /auth/me` - Get current user
+- `POST /auth/refresh` - Refresh access token
 - `POST /auth/logout` - Logout user
+- `PUT /auth/profile` - Update profile
+- `PUT /auth/password` - Update password
 
 ### Jobs
 
@@ -295,13 +300,14 @@ This is the backend API for HireLens, an AI-powered recruitment platform develop
 
 ### File Upload
 
-- UploadThing endpoints for file uploads
+- `POST /upload/cv` - Upload and parse CV (Multer)
+- `POST /upload/picture` - Upload profile picture (Multer)
 
 ## 🤖 AI Integration
 
-### Google Generative AI (Gemma-4-31b-it)
+### Gemini + Groq (Llama)
 
-The backend uses Google's Generative AI to power candidate screening and resume parsing.
+The backend uses Google Generative AI (Gemini) and Groq (Llama) to power candidate screening and resume parsing.
 
 #### Resume Parsing Prompt
 
@@ -356,14 +362,14 @@ Provide a comparison summary highlighting overall candidate pool quality.
 
 ## 🔐 Authentication
 
-### Google OAuth Flow
+### Registration & Login Flow
 
-1. User initiates login via frontend
-2. Redirects to Google OAuth consent screen
-3. On success, Google redirects to backend callback
-4. Backend exchanges OAuth token for user info
-5. Backend checks/creates user in database
-6. Backend issues JWT token
+1. User registers with email and password
+2. Backend sends a verification email (Nodemailer)
+3. User verifies email with the code
+4. User logs in with credentials
+5. Backend issues JWT access and refresh tokens
+6. Session is stored in the database
 7. Token stored in httpOnly cookie
 8. Protected routes validate JWT on each request
 
@@ -410,8 +416,9 @@ backend/
 │   │   ├── pdfParser.ts   # PDF parsing
 │   │   └── email.ts       # Email sending
 │   ├── config/            # Configuration files
-│   │   ├── database.ts
-│   │   └── google.ts
+│   │   ├── dbConnect.ts
+│   │   ├── env.ts
+│   │   └── gemini.setup.ts
 │   ├── swagger.ts         # Swagger documentation
 │   ├── seed.ts            # Database seeding
 │   └── index.ts           # Application entry point
@@ -426,8 +433,7 @@ backend/
 
 - Node.js (v20 or higher)
 - MongoDB (local or Atlas)
-- Google Cloud Project with AI API enabled
-- Google OAuth credentials
+- Gemini API key and/or Groq API key (for AI screening)
 
 ### Installation
 
@@ -453,35 +459,34 @@ backend/
 ## 🔐 Environment Variables
 
 ```env
-# Server Configuration
 PORT=5000
-NODE_ENV=development
+MONGO_URI=
 
-# Database
-MONGODB_URI=mongodb://localhost:27017/hirelens
-# or MongoDB Atlas: mongodb+srv://user:pass@cluster.mongodb.net/hirelens
+# AI
+GEMINI_API_KEY=
+GEMINI_MODEL=
+
+# AI Screening performance
+SCREENING_AI_CONCURRENCY=10
+SCREENING_AI_RETRIES=2
+SCREENING_AI_TOP_K=0
+
+GROQ_API_KEY=
+GROQ_MODEL=llama-4-scout
+
+# Email (Nodemailer)
+ENABLE_EMAILS=
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_specific_password
+EMAIL_FROM=
 
 # JWT Authentication
 JWT_SECRET=your_super_secret_jwt_key_here
-JWT_EXPIRE=7d
+JWT_EXPIRES_IN=7d
 
-# Google OAuth
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-GOOGLE_CALLBACK_URL=http://localhost:5000/auth/google/callback
-
-# Google AI
-GOOGLE_AI_API_KEY=your_google_ai_api_key
-
-# Email Configuration (Nodemailer)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASSWORD=your_app_specific_password
-
-# UploadThing
-UPLOADTHING_SECRET=your_uploadthing_secret
-UPLOADTHING_APP_ID=your_uploadthing_app_id
+FRONTEND_URL=http://localhost:8080
 ```
 
 ## 📦 Available Scripts

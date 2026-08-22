@@ -29,7 +29,7 @@ This is the frontend application for HireLens, an AI-powered recruitment platfor
 
 ### Core Framework
 
-- **Next.js 16.2.3** - React framework with App Router
+- **Next.js 16.3.1** - React framework with App Router
 - **React 19.2.4** - UI library
 - **TypeScript 5** - Type-safe JavaScript
 
@@ -45,10 +45,9 @@ This is the frontend application for HireLens, an AI-powered recruitment platfor
 
 ### State Management & Data Fetching
 
-- **Redux Toolkit 2.9.0** - State management
-- **React Query 5.87.1** - Server state management
-- **React Hook Form 7.72.1** - Form management
-- **Zod** - Schema validation (via React Hook Form)
+- **Redux Toolkit 2.12.0** - State management
+- **React Query 5.101.4** - Server state management
+- **React Hook Form 7.85.0** - Form management
 
 ### Rich Text & Media
 
@@ -57,37 +56,36 @@ This is the frontend application for HireLens, an AI-powered recruitment platfor
   - @tiptap/extension-link
   - @tiptap/extension-placeholder
   - @tiptap/extension-underline
-- **UploadThing 7.7.4** - File upload service
 - **jsPDF 4.2.1** - PDF generation
-- **jsPDF-AutoTable 5.0.7** - PDF tables
+- **jsPDF-AutoTable 5.0.8** - PDF tables
 - **xlsx-js-style 1.2.0** - Excel export
 
 ### Charts & Visualization
 
-- **Recharts 3.8.1** - Chart library
+- **Recharts 3.10.1** - Chart library
 
 ### Authentication
 
-- **@react-oauth/google 0.13.5** - Google OAuth
+- **JWT** - Token-based authentication (via backend API)
 - **cookies-next 6.1.1** - Cookie management
 
 ### User Experience
 
-- **react-joyride 3.0.2** - Product tours and onboarding
+- **react-joyride 3.2.0** - Product tours and onboarding
 - **react-hot-toast 2.6.0** - Toast notifications
 - **nprogress 0.2.0** - Progress bar
-- **date-fns 4.1.0** - Date utilities
-- **react-phone-number-input 3.4.16** - Phone input
+- **date-fns 4.4.0** - Date utilities
+- **react-phone-number-input 3.4.17** - Phone input
 - **react-calendar 6.0.1** - Calendar component
 
 ### Utilities
 
 - **clsx 2.1.1** - Conditional class names
-- **tailwind-merge 3.5.0** - Tailwind class merging
+- **tailwind-merge 3.6.0** - Tailwind class merging
 - **class-variance-authority 0.7.1** - Component variants
 - **tw-animate-css 1.4.0** - CSS animations
 - **axios 1.15.0** - HTTP client
-- **boneyard-js 1.7.7** - Utility functions
+- **boneyard-js 1.9.0** - Utility functions
 
 ### Development
 
@@ -170,12 +168,10 @@ frontend/
    ```
 
 2. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
+   Create a `.env` file in the root directory:
 
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:5000
-   NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
-   NEXT_PUBLIC_UPLOADTHING_APP_ID=your_uploadthing_app_id
+   NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api/v1
    ```
 
 3. **Run development server**
@@ -191,13 +187,11 @@ frontend/
 
 ```env
 # API Configuration
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api/v1
 
-# Google OAuth
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
-
-# UploadThing
-NEXT_PUBLIC_UPLOADTHING_APP_ID=your_uploadthing_app_id
+# Optional
+NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
+NEXT_PUBLIC_SLOW_REQUEST_THRESHOLD_MS=6000
 ```
 
 ## 📦 Available Scripts
@@ -237,7 +231,7 @@ Components are organized by feature and reusability:
 #### UI Components
 
 - Rich text editor using Tiptap
-- File upload with UploadThing
+- File upload components
 - Custom form inputs with validation
 - Data tables with sorting and filtering
 - Charts and visualizations with Recharts
@@ -271,18 +265,18 @@ Used for component-specific state:
 
 ## 🔑 Authentication
 
-### Google OAuth
+### Email & Password + JWT
 
-- Uses `@react-oauth/google` for Google sign-in
-- JWT tokens stored in cookies
+- Users register and log in with email and password via the backend API
+- JWT tokens stored in cookies (`cookies-next`)
 - Protected routes check authentication status
 
 ### Authentication Flow
 
-1. User clicks "Sign in with Google"
-2. Redirects to Google OAuth consent screen
-3. On success, receives OAuth token
-4. Backend validates and issues JWT
+1. User registers with email and password
+2. Backend sends an email verification code (Nodemailer)
+3. User verifies email, then logs in with credentials
+4. Backend validates credentials and issues a JWT
 5. JWT stored in httpOnly cookie
 6. Subsequent requests include JWT for authentication
 
