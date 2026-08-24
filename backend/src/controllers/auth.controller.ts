@@ -66,10 +66,10 @@ const authController = {
         emailVerified: false,
       });
 
-      // Send OTP email (non-blocking)
-      sendOtpEmail(email, firstName, otp, "verify").catch((err) =>
-        console.error("Failed to send verification email:", err)
-      );
+      // Send OTP email (non-blocking — response is not delayed by SMTP)
+      sendOtpEmail(email, firstName, otp, "verify").catch((err) => {
+        console.error("[AUTH] Registration OTP email failed — OTP was logged above in server console");
+      });
 
       return res.status(201).json({
         message: "Account created. Please verify your email.",
@@ -130,9 +130,9 @@ const authController = {
         emailVerified: false,
       });
 
-      sendOtpEmail(email, firstName, otp, "verify").catch((err) =>
-        console.error("Failed to send verification email:", err)
-      );
+      sendOtpEmail(email, firstName, otp, "verify").catch(() => {
+        console.error("[AUTH] Applicant registration OTP email failed — OTP was logged above in server console");
+      });
 
       return res.status(201).json({
         message: "Account created. Please verify your email.",
@@ -276,9 +276,9 @@ const authController = {
         verificationLastSentAt: new Date(),
       });
 
-      sendOtpEmail(user.email, user.firstName, otp, "verify").catch((err) =>
-        console.error("Failed to send verification email:", err)
-      );
+      sendOtpEmail(user.email, user.firstName, otp, "verify").catch(() => {
+        console.error("[AUTH] Resend OTP email failed — OTP was logged above in server console");
+      });
 
       return res.status(200).json({ message: "A new verification code has been sent." });
     } catch (error: any) {

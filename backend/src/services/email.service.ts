@@ -637,12 +637,24 @@ export async function sendOtpEmail(
   otp: string,
   type: "verify" | "reset",
 ): Promise<void> {
+  const label = type === "verify" ? "Email verification" : "Password reset";
+
+  // Always log OTP in non-production — acts as a guaranteed fallback
+  // if SMTP fails, the developer/admin can retrieve the OTP from server logs
+  if (process.env.NODE_ENV !== "production") {
+    console.log("\n" + "=".repeat(56));
+    console.log(`  [OTP] ${label}`);
+    console.log(`  To      : ${email}`);
+    console.log(`  Code    : ${otp}`);
+    console.log(`  Expires : 10 minutes`);
+    console.log("=".repeat(56) + "\n");
+  }
+
+  // Skip SMTP sending if emails are explicitly disabled in dev
   if (
     process.env.NODE_ENV === "development" &&
     process.env.ENABLE_EMAILS !== "true"
   ) {
-    const label = type === "verify" ? "Email verification" : "Password reset";
-    console.log(`[DEV] ${label} OTP for ${email}: ${otp}`);
     return;
   }
 
@@ -653,12 +665,25 @@ export async function sendOtpEmail(
 
   const html = otpEmailTemplate(firstName, otp, type);
 
-  await transporter.sendMail({
-    from: `"HireLens" <${ENV.smtp_user}>`,
-    to: email,
-    subject,
-    html,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"HireLens" <${ENV.smtp_user}>`,
+      to: email,
+      subject,
+      html,
+    });
+    console.log(`[SMTP] ${label} email sent to ${email}`);
+  } catch (err: any) {
+    // Log the full SMTP error so it's visible in server logs
+    console.error(`[SMTP ERROR] Failed to send ${label.toLowerCase()} email to ${email}`);
+    console.error(`  Error   : ${err.message}`);
+    console.error(`  Code    : ${err.code || "unknown"}`);
+    console.error(`  Host    : ${ENV.smtp_host}:${ENV.smtp_port}`);
+    console.error(`  User    : ${ENV.smtp_user}`);
+    console.error("  → Verify SMTP_PASS is a valid Gmail App Password (Google Account → Security → App Passwords)");
+    // Re-throw so the controller .catch() also knows it failed
+    throw err;
+  }
 }
 
 // Generic send mail function
